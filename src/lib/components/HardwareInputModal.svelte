@@ -1,15 +1,9 @@
 <script lang="ts">
 	// Riceviamo la funzione 'close' dal componente genitore.
-	// Questa è la sintassi di Svelte 5 per le proprietà.
 	let { close }: { close: () => void } = $props();
 </script>
 
-<!-- 
-  Questo è lo sfondo scuro semi-trasparente.
-  - Gestisce la chiusura al click SOLO se il click avviene direttamente su di esso.
-  - Gestisce la chiusura con il tasto 'Escape'.
-  - È reso accessibile con 'role' e 'tabindex'.
--->
+<!-- Sfondo e gestore di chiusura -->
 <div
 	class="fixed inset-0 bg-gray-900 bg-opacity-80 flex items-center justify-center z-50"
 	onclick={(event) => {
@@ -25,11 +19,7 @@
 	role="button"
 	tabindex="0"
 >
-	<!-- 
-    Questo è il contenitore del modale.
-    - Non ha più un suo evento onclick, per evitare problemi con il linter.
-    - Ha il ruolo 'dialog' e un tabindex='-1' per una corretta accessibilità.
-  -->
+	<!-- Contenitore del modale -->
 	<div
 		class="bg-gray-800 text-white rounded-lg shadow-2xl p-6 md:p-8 w-full max-w-lg mx-4"
 		role="dialog"
@@ -46,7 +36,7 @@
 				class="text-gray-400 hover:text-white transition-colors"
 				aria-label="Chiudi modale"
 			>
-				<!-- Icona "X" in formato SVG -->
+				<!-- Icona "X" -->
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					class="h-6 w-6"
@@ -69,9 +59,68 @@
 			saranno i risultati.
 		</p>
 
-		<!-- Per ora, lasciamo il form come un segnaposto. Lo implementeremo nel prossimo step. -->
-		<div class="text-center p-8 bg-gray-700 rounded-md">
-			<p>Qui andrà il form per l'input dei dati.</p>
-		</div>
+		<!-- Form per l'input dei dati -->
+		<form class="space-y-6">
+			<!-- GPU -->
+			<div>
+				<label for="gpu" class="block text-sm font-medium text-gray-300 mb-1"
+					>Scheda Video (GPU)</label
+				>
+				<input
+					type="text"
+					id="gpu"
+					class="w-full bg-gray-700 border border-gray-600 rounded-md px-3 py-2 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
+					placeholder="Es. NVIDIA GeForce RTX 4070"
+					required
+				/>
+			</div>
+
+			<!-- VRAM -->
+			<div>
+				<label for="vram" class="block text-sm font-medium text-gray-300 mb-1"
+					>Memoria GPU (VRAM)</label
+				>
+				<div class="flex items-center space-x-2">
+					<input
+						type="number"
+						id="vram"
+						min="1"
+						class="w-full bg-gray-700 border border-gray-600 rounded-md px-3 py-2 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
+						required
+					/>
+					<span class="bg-gray-600 px-4 py-2 rounded-md text-sm">GB</span>
+				</div>
+				<p class="text-xs text-gray-400 mt-1">
+					Il dato più importante. Su Windows: Task Manager > Prestazioni > GPU.
+				</p>
+			</div>
+
+			<!-- RAM -->
+			<div>
+				<label for="ram" class="block text-sm font-medium text-gray-300 mb-1"
+					>Memoria di Sistema (RAM)</label
+				>
+				<div class="flex items-center space-x-2">
+					<input
+						type="number"
+						id="ram"
+						min="1"
+						class="w-full bg-gray-700 border border-gray-600 rounded-md px-3 py-2 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
+						required
+					/>
+					<span class="bg-gray-600 px-4 py-2 rounded-md text-sm">GB</span>
+				</div>
+			</div>
+
+			<!-- Bottone di invio -->
+			<div class="pt-4">
+				<button
+					type="submit"
+					class="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-sky-400 focus:ring-opacity-50"
+				>
+					Mostrami il mio Potenziale AI
+				</button>
+			</div>
+		</form>
 	</div>
 </div>
