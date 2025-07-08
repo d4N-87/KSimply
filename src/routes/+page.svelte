@@ -1,5 +1,6 @@
 <script lang="ts">
-    // La logica della nostra pagina andrà qui. Per ora, la lasciamo vuota.
+    import HardwareInputModal from '$lib/components/HardwareInputModal.svelte';
+    let showModal = false;
 </script>
 
 <main class="min-h-screen bg-gray-900 text-white flex items-center justify-center p-4">
@@ -13,9 +14,10 @@
 
         <div class="mt-10">
             <button
+                on:click={() => { showModal = true; }}
                 class="bg-sky-600 hover:bg-sky-500 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-sky-400 focus:ring-opacity-50"
             >
-                Analizza il mio Sistema
+            Analizza il mio Sistema
             </button>
         </div>
 
@@ -23,4 +25,13 @@
             <p>KSimply v1.0 - Un progetto open source per la community.</p>
         </footer>
     </div>
+
 </main>
+
+{#if showModal}
+	<HardwareInputModal
+		close={() => {
+			showModal = false;
+		}}
+	/>
+{/if}
