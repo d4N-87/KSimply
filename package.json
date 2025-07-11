@@ -44,6 +44,17 @@
 	"pnpm": {
 		"onlyBuiltDependencies": [
 			"esbuild"
+		],
+		"allow-build": [
+			"sqlite3",
+			"@tailwindcss/oxide"
+		],
+		"ignoredBuiltDependencies": [
+			"@tailwindcss/oxide",
+			"sqlite3"
 		]
+	},
+	"dependencies": {
+		"sqlite3": "^5.1.7"
 	}
 }

@@ -4,18 +4,49 @@
     let ram = 16;
     let storageType: 'hdd' | 'ssd' | 'nvme' = 'ssd'; // Valore di default: SSD SATA
 
-    function analyzeHardware() {
-        const hardwareData = {
-            gpu: gpu,
-            vram: vram,
-            ram: ram,
-            storage: storageType
-        };
+    async function analyzeHardware() {
+    // Mostra un feedback all'utente (opzionale ma consigliato)
+    console.log("Analisi in corso...");
 
-        console.log("Dati Hardware da Analizzare:", hardwareData);
-        
-        // Prossimamente, qui passeremo i dati al nostro "cervello" analizzatore.
+    const hardwareData = {
+        gpu: gpu,
+        vram: vram,
+        ram: ram,
+        storage: storageType
+    };
+
+    try {
+        // Invia i dati al nostro endpoint API usando il metodo POST
+        const response = await fetch('/', { // Usiamo '/' perché l'API è sulla stessa rotta
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(hardwareData) // Convertiamo l'oggetto in una stringa JSON
+        });
+
+        // Controlla se la richiesta è andata a buon fine
+        if (!response.ok) {
+            throw new Error(`Errore HTTP: ${response.status}`);
+        }
+
+        // Estrai i dati JSON dalla risposta
+        const result = await response.json();
+
+        // Mostra i risultati nella console (per ora)
+        console.log("Risultati ricevuti dall'API:", result);
+
+        if (result.gpu) {
+            alert(`GPU trovata nel database: ${result.gpu.name} con ${result.gpu.vram_gb}GB di VRAM!`);
+        } else {
+            alert(`La GPU "${hardwareData.gpu}" non è stata trovata nel nostro database.`);
+        }
+
+    } catch (error) {
+        console.error("Errore durante la chiamata API:", error);
+        alert("Si è verificato un errore durante l'analisi. Controlla la console per i dettagli.");
     }
+}
 </script>
 
 <main class="min-h-screen bg-gray-900 text-white flex flex-col items-center p-4 md:p-8">
