@@ -1,53 +1,67 @@
 <script lang="ts">
-    let gpu = '';
-    let vram = 8;
-    let ram = 16;
-    let storageType: 'hdd' | 'ssd' | 'nvme' = 'ssd'; // Valore di default: SSD SATA
+	// Definiamo i valori standard per la RAM
+	const ramOptions = [4, 8, 16, 32, 64, 128, 256];
+
+	// Variabili di stato del form
+	let selectedGpuName = '';
+	let selectedRam: number = 16; // Valore di default
+	let storageType: 'hdd' | 'ssd' | 'nvme' = 'ssd'; // Valore di default
+
+	// Dati caricati dalla funzione `load`
 	let { data } = $props();
 
-    async function analyzeHardware() {
-    // Mostra un feedback all'utente (opzionale ma consigliato)
-    console.log("Analisi in corso...");
+	async function analyzeHardware() {
+		// Mostra un feedback all'utente (opzionale ma consigliato)
+		console.log('Analisi in corso...');
 
-    const hardwareData = {
-        gpu: gpu,
-        vram: vram,
-        ram: ram,
-        storage: storageType
-    };
+		// Controlliamo che una GPU sia stata selezionata
+		if (!selectedGpuName) {
+			alert('Per favore, seleziona una scheda video dalla lista.');
+			return;
+		}
 
-    try {
-        // Invia i dati al nostro endpoint API usando il metodo POST
-        const response = await fetch('/', { // Usiamo '/' perché l'API è sulla stessa rotta
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(hardwareData) // Convertiamo l'oggetto in una stringa JSON
-        });
+		const hardwareData = {
+			gpu: selectedGpuName,
+			// La VRAM non viene più inviata, sarà determinata dal server
+			ram: selectedRam,
+			storage: storageType
+		};
 
-        // Controlla se la richiesta è andata a buon fine
-        if (!response.ok) {
-            throw new Error(`Errore HTTP: ${response.status}`);
-        }
+		try {
+			// Invia i dati al nostro endpoint API usando il metodo POST
+			const response = await fetch('/', {
+				// Usiamo '/' perché l'API è sulla stessa rotta
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(hardwareData) // Convertiamo l'oggetto in una stringa JSON
+			});
 
-        // Estrai i dati JSON dalla risposta
-        const result = await response.json();
+			// Controlla se la richiesta è andata a buon fine
+			if (!response.ok) {
+				throw new Error(`Errore HTTP: ${response.status}`);
+			}
 
-        // Mostra i risultati nella console (per ora)
-        console.log("Risultati ricevuti dall'API:", result);
+			// Estrai i dati JSON dalla risposta
+			const result = await response.json();
 
-        if (result.gpu) {
-            alert(`GPU trovata nel database: ${result.gpu.name} con ${result.gpu.vram_gb}GB di VRAM!`);
-        } else {
-            alert(`La GPU "${hardwareData.gpu}" non è stata trovata nel nostro database.`);
-        }
+			// Mostra i risultati nella console (per ora)
+			console.log("Risultati ricevuti dall'API:", result);
 
-    } catch (error) {
-        console.error("Errore durante la chiamata API:", error);
-        alert("Si è verificato un errore durante l'analisi. Controlla la console per i dettagli.");
-    }
-}
+			if (result.success && result.gpu) {
+				// Ora la VRAM arriva direttamente dal server!
+				alert(
+					`GPU trovata nel database: ${result.gpu.name} con ${result.gpu.vram_gb}GB di VRAM!`
+				);
+			} else {
+				alert(`La GPU "${hardwareData.gpu}" non è stata trovata nel nostro database.`);
+			}
+		} catch (error) {
+			console.error('Errore durante la chiamata API:', error);
+			alert("Si è verificato un errore durante l'analisi. Controlla la console per i dettagli.");
+		}
+	}
 </script>
 
 <main class="min-h-screen bg-gray-900 text-white flex flex-col items-center p-4 md:p-8">
@@ -63,85 +77,65 @@
 		</p>
 	</div>
 
-	<!-- Sezione Form (precedentemente nel modale) -->
+	<!-- Sezione Form -->
 	<div class="bg-gray-800 rounded-lg shadow-2xl p-6 md:p-8 w-full max-w-lg">
 		<form class="space-y-6" on:submit|preventDefault={analyzeHardware}>
 			<!-- GPU -->
 			<div>
-    <label for="gpu" class="block text-sm font-medium text-gray-300 mb-1">
-        Scheda Video (GPU)
-    </label>
-    <select
-        id="gpu"
-        bind:value={gpu}
-        class="w-full bg-gray-700 border border-gray-600 rounded-md px-3 py-2 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
-        required
-    >
-        <option disabled selected value="">Scegli una GPU dalla lista...</option>
-        {#each data.gpus as gpuOption}
-            <option value={gpuOption.name}>{gpuOption.name}</option>
-        {/each}
-    </select>
-    {#if data.gpus.length === 0}
-        <p class="text-xs text-red-400 mt-1">
-            Impossibile caricare la lista delle GPU.
-        </p>
-    {/if}
-</div>
-
-			<!-- VRAM -->
-			<div>
-				<label for="vram" class="block text-sm font-medium text-gray-300 mb-1"
-					>Memoria GPU (VRAM)</label
+				<label for="gpu" class="block text-sm font-medium text-gray-300 mb-1">
+					Scheda Video (GPU)
+				</label>
+				<select
+					id="gpu"
+					bind:value={selectedGpuName}
+					class="w-full bg-gray-700 border border-gray-600 rounded-md px-3 py-2 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
+					required
 				>
-				<div class="flex items-center space-x-2">
-					<input
-						type="number"
-						id="vram"
-                        bind:value={vram}
-						min="1"
-						class="w-full bg-gray-700 border border-gray-600 rounded-md px-3 py-2 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
-						required
-					/>
-					<span class="bg-gray-600 px-4 py-2 rounded-md text-sm">GB</span>
-				</div>
-				<p class="text-xs text-gray-400 mt-1">
-					Il dato più importante. Su Windows: Task Manager > Prestazioni > GPU.
-				</p>
+					<option disabled selected value="">Scegli una GPU dalla lista...</option>
+					{#each data.gpus as gpuOption}
+						<option value={gpuOption.name}>{gpuOption.name}</option>
+					{/each}
+				</select>
+				{#if data.gpus.length === 0}
+					<p class="text-xs text-red-400 mt-1">Impossibile caricare la lista delle GPU.</p>
+				{/if}
 			</div>
 
-			<!-- RAM -->
+			<!-- VRAM (RIMOSSO) -->
+			<!-- Il div per l'input della VRAM è stato completamente rimosso -->
+
+			<!-- RAM (NUOVO MENU A TENDINA) -->
 			<div>
 				<label for="ram" class="block text-sm font-medium text-gray-300 mb-1"
 					>Memoria di Sistema (RAM)</label
 				>
-				<div class="flex items-center space-x-2">
-					<input
-						type="number"
-						id="ram"
-                        bind:value={ram}
-						min="1"
-						class="w-full bg-gray-700 border border-gray-600 rounded-md px-3 py-2 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
-						required
-					/>
-					<span class="bg-gray-600 px-4 py-2 rounded-md text-sm">GB</span>
-				</div>
+				<select
+					id="ram"
+					bind:value={selectedRam}
+					class="w-full bg-gray-700 border border-gray-600 rounded-md px-3 py-2 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
+				>
+					{#each ramOptions as ramValue}
+						<option value={ramValue}>{ramValue} GB</option>
+					{/each}
+				</select>
 			</div>
 
-            <!-- Storage -->
-    <div>
-        <label for="storage" class="block text-sm font-medium text-gray-300 mb-1">Tipo di Storage Principale</label>
-        <select 
-            id="storage"
-            bind:value={storageType}
-            class="w-full bg-gray-700 border border-gray-600 rounded-md px-3 py-2 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
-        >
-            <option value="hdd">Hard Disk Meccanico (HDD)</option>
-            <option value="ssd">SSD (SATA / M.2 SATA)</option>
-            <option value="nvme">M.2 NVMe</option>
-        </select>
-        <p class="text-xs text-gray-400 mt-1">Influisce sui tempi di caricamento dei modelli.</p>
-    </div>
+			<!-- Storage -->
+			<div>
+				<label for="storage" class="block text-sm font-medium text-gray-300 mb-1"
+					>Tipo di Storage Principale</label
+				>
+				<select
+					id="storage"
+					bind:value={storageType}
+					class="w-full bg-gray-700 border border-gray-600 rounded-md px-3 py-2 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
+				>
+					<option value="hdd">Hard Disk Meccanico (HDD)</option>
+					<option value="ssd">SSD (SATA / M.2 SATA)</option>
+					<option value="nvme">M.2 NVMe</option>
+				</select>
+				<p class="text-xs text-gray-400 mt-1">Influisce sui tempi di caricamento dei modelli.</p>
+			</div>
 
 			<!-- Bottone di invio -->
 			<div class="pt-4">
