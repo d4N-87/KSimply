@@ -32,7 +32,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		const sql = 'SELECT * FROM gpus WHERE name = :name COLLATE NOCASE';
 		const stmt = db.prepare(sql);
 		
-		const gpuInfo = stmt.get({ ':name': hardwareData.gpu });
+		const gpuInfo = stmt.getAsObject({ ':name': hardwareData.gpu });
 		stmt.free();
 
 		console.log('[API] Risultato query GPU:', gpuInfo);

@@ -3,6 +3,7 @@
     let vram = 8;
     let ram = 16;
     let storageType: 'hdd' | 'ssd' | 'nvme' = 'ssd'; // Valore di default: SSD SATA
+	let { data } = $props();
 
     async function analyzeHardware() {
     // Mostra un feedback all'utente (opzionale ma consigliato)
@@ -67,18 +68,26 @@
 		<form class="space-y-6" on:submit|preventDefault={analyzeHardware}>
 			<!-- GPU -->
 			<div>
-				<label for="gpu" class="block text-sm font-medium text-gray-300 mb-1"
-					>Scheda Video (GPU)</label
-				>
-				<input
-					type="text"
-					id="gpu"
-                    bind:value={gpu}
-					class="w-full bg-gray-700 border border-gray-600 rounded-md px-3 py-2 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
-					placeholder="Es. NVIDIA GeForce RTX 4070"
-					required
-				/>
-			</div>
+    <label for="gpu" class="block text-sm font-medium text-gray-300 mb-1">
+        Scheda Video (GPU)
+    </label>
+    <select
+        id="gpu"
+        bind:value={gpu}
+        class="w-full bg-gray-700 border border-gray-600 rounded-md px-3 py-2 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
+        required
+    >
+        <option disabled selected value="">Scegli una GPU dalla lista...</option>
+        {#each data.gpus as gpuOption}
+            <option value={gpuOption.name}>{gpuOption.name}</option>
+        {/each}
+    </select>
+    {#if data.gpus.length === 0}
+        <p class="text-xs text-red-400 mt-1">
+            Impossibile caricare la lista delle GPU.
+        </p>
+    {/if}
+</div>
 
 			<!-- VRAM -->
 			<div>
