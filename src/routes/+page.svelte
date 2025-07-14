@@ -5,7 +5,6 @@
 	import type { AnalysisResult } from '$lib/core/analyzer';
 
 	// --- PROPS RICEVUTE DALLA FUNZIONE `load` ---
-	// Questo è il modo corretto in Svelte 5 di ricevere props con type safety.
 	const { data } = $props<{ data: { gpus: { id: number; name: string }[] } }>();
 
 	// --- STATO INTERNO REATTIVO (SVELTE 5 RUNES) ---
@@ -14,7 +13,6 @@
 	// Stato del form
 	let selectedGpuName = $state('');
 	let selectedRam = $state<number>(16);
-	let storageType = $state<'hdd' | 'ssd' | 'nvme'>('ssd');
 
 	// Stato della UI per i risultati
 	let isLoading = $state(false);
@@ -25,22 +23,20 @@
 	 * Gestisce l'invio del form, chiama l'API e aggiorna lo stato della UI.
 	 */
 	async function analyzeHardware(event: SubmitEvent) {
-		event.preventDefault(); // Obbligatorio con onsubmit={}
+		event.preventDefault();
 
 		if (!selectedGpuName) {
 			window.alert('Per favore, seleziona una scheda video dalla lista.');
 			return;
 		}
 
-		// Inizia il processo di caricamento
 		isLoading = true;
 		analysisPerformed = true;
-		analysisResults = []; // Svuota i risultati precedenti
+		analysisResults = [];
 
 		const hardwareData = {
 			gpu: selectedGpuName,
-			ram: selectedRam,
-			storage: storageType
+			ram: selectedRam
 		};
 
 		try {
@@ -55,7 +51,6 @@
 			}
 
 			const result = await response.json();
-			console.log("Risultati ricevuti dall'API:", result);
 
 			if (result.success && result.analysis) {
 				analysisResults = result.analysis;
@@ -63,12 +58,11 @@
 				throw new Error(result.message || 'Risposta API non valida');
 			}
 		} catch (error) {
-			console.error('Errore durante la chiamata API:', error);
+			console.error('Errore catturato nel frontend:', error);
 			window.alert(
-				"Si è verificato un errore durante l'analisi. Controlla la console per i dettagli."
+				"Si è verificato un errore durante l'analisi. Controlla la console del browser per i dettagli."
 			);
 		} finally {
-			// Termina il processo di caricamento
 			isLoading = false;
 		}
 	}
@@ -89,7 +83,6 @@
 
 	<!-- Sezione Form -->
 	<div class="bg-gray-800 rounded-lg shadow-2xl p-6 md:p-8 w-full max-w-lg">
-		<!-- Modulo aggiornato con la sintassi `onsubmit` di Svelte 5 -->
 		<form class="space-y-6" onsubmit={analyzeHardware}>
 			<!-- GPU -->
 			<div>
@@ -128,23 +121,6 @@
 				</select>
 			</div>
 
-			<!-- Storage -->
-			<div>
-				<label for="storage" class="block text-sm font-medium text-gray-300 mb-1"
-					>Tipo di Storage Principale</label
-				>
-				<select
-					id="storage"
-					bind:value={storageType}
-					class="w-full bg-gray-700 border border-gray-600 rounded-md px-3 py-2 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
-				>
-					<option value="hdd">Hard Disk Meccanico (HDD)</option>
-					<option value="ssd">SSD (SATA / M.2 SATA)</option>
-					<option value="nvme">M.2 NVMe</option>
-				</select>
-				<p class="text-xs text-gray-400 mt-1">Influisce sui tempi di caricamento dei modelli.</p>
-			</div>
-
 			<!-- Bottone di invio -->
 			<div class="pt-4">
 				<button
@@ -162,6 +138,11 @@
 		</form>
 	</div>
 
+	<p class="text-center text-xs text-gray-500 mt-4 max-w-lg mx-auto">
+		<span class="font-bold text-amber-400">Nota:</span> Per un'esperienza ottimale, è fortemente
+		consigliato l'uso di un'unità SSD NVMe M.2 per ridurre i tempi di caricamento dei modelli.
+	</p>
+
 	<!-- Sezione per la visualizzazione dei risultati -->
 	<div class="w-full max-w-4xl mx-auto mt-12">
 		{#if isLoading}
@@ -171,8 +152,8 @@
 		{:else if analysisResults.length > 0}
 			<h2 class="text-3xl font-bold text-center mb-8">Ecco le tue Ricette AI</h2>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-				<!-- Itera sui risultati e renderizza una card per ciascuno -->
-				{#each analysisResults as result (result.recipeName)}
+				<!-- MODIFICA CHIAVE: Usiamo `result.id` come chiave unica -->
+				{#each analysisResults as result (result.id)}
 					<div in:fly={{ y: 20, duration: 500 }}>
 						<ResultCard {result} />
 					</div>

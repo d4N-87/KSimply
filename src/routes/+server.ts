@@ -1,20 +1,12 @@
-// src/routes/+server.ts
+// src/routes/+server.ts (VERSIONE FINALE E PULITA)
 
-// Le importazioni rimangono qui in cima
 import type { RequestHandler } from './$types';
 import { json } from '@sveltejs/kit';
 import { getDb } from '$lib/server/database';
 import { analyzeHardware, type RawRecipe } from '$lib/core/analyzer';
 import type { UserHardware } from '$lib/core/types';
 
-// L'export deve essere al livello più alto del file
 export const POST: RequestHandler = async ({ request }) => {
-	// --- LA LOGICA VA QUI DENTRO ---
-
-	// Definiamo la funzione helper e la usiamo all'interno della richiesta
-	const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
-	await delay(1500); // Ritardo di 1.5 secondi per testare la UI
-
 	const hardwareData: UserHardware = await request.json();
 
 	try {
@@ -29,13 +21,20 @@ export const POST: RequestHandler = async ({ request }) => {
 			return json({ success: false, message: 'GPU non trovata nel database' }, { status: 404 });
 		}
 
-		// ... il resto del codice rimane identico ...
+		// 2. Recupera tutte le possibili ricette dal database
 		const recipesSql = `
             SELECT
-                bm.name as model_name, bm.type as model_type, bm.base_vram_cost_gb,
-                q.name as quantization_name, q.vram_multiplier, q.ram_multiplier, q.quality_score,
-                te.name as text_encoder_name, te.base_vram_cost_gb as text_encoder_vram_cost,
-                v.name as vae_name, v.base_vram_cost_gb as vae_vram_cost
+                bm.name as model_name,
+                bm.type as model_type,
+                bm.base_vram_cost_gb,
+                q.name as quantization_name,
+                q.vram_multiplier,
+                q.ram_multiplier,
+                q.quality_score,
+                te.name as text_encoder_name,
+                te.base_vram_cost_gb as text_encoder_vram_cost,
+                v.name as vae_name,
+                v.base_vram_cost_gb as vae_vram_cost
             FROM
                 base_models bm
             JOIN model_quantization_compatibility mqc ON bm.id = mqc.model_id
@@ -46,6 +45,7 @@ export const POST: RequestHandler = async ({ request }) => {
             JOIN vaes v ON mvc.vae_id = v.id;
         `;
 		const recipesStmt = db.prepare(recipesSql);
+
 		const rawRecipes: RawRecipe[] = [];
 		while (recipesStmt.step()) {
 			rawRecipes.push(recipesStmt.getAsObject() as unknown as RawRecipe);
@@ -64,7 +64,8 @@ export const POST: RequestHandler = async ({ request }) => {
 
 		return json(responseData);
 	} catch (error) {
-		console.error("[API] Errore durante l'analisi:", error);
+		// Manteniamo questo log per errori imprevisti in produzione
+		console.error("[API] Errore catturato durante l'analisi:", error);
 		return json({ success: false, message: 'Errore interno del server' }, { status: 500 });
 	}
 };

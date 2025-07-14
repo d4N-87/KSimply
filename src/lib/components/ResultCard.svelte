@@ -4,13 +4,33 @@
 	// Il componente accetta un singolo risultato dell'analisi come prop
 	let { result }: { result: AnalysisResult } = $props();
 
-	// Logica per determinare il colore in base alla compatibilità
-	const borderColor = result.isCompatible ? 'border-green-500' : 'border-red-500';
-	const textColor = result.isCompatible ? 'text-green-400' : 'text-red-400';
+	// Mappa ogni livello a uno stile specifico per un facile accesso
+	const levelStyles = {
+		Verde: {
+			borderColor: 'border-green-500',
+			textColor: 'text-green-300',
+			badgeText: 'Ottimale',
+			badgeBg: 'bg-green-500/20'
+		},
+		Giallo: {
+			borderColor: 'border-amber-500',
+			textColor: 'text-amber-300',
+			badgeText: 'Possibile (Offload)',
+			badgeBg: 'bg-amber-500/20'
+		},
+		Rosso: {
+			borderColor: 'border-red-600',
+			textColor: 'text-red-400',
+			badgeText: 'Incompatibile',
+			badgeBg: 'bg-red-500/20'
+		}
+	};
+
+	const currentStyle = levelStyles[result.level];
 </script>
 
 <div
-	class="bg-gray-800 rounded-lg border-2 {borderColor} p-6 shadow-lg transition-all hover:shadow-cyan-500/20 hover:scale-[1.02] flex flex-col h-full"
+	class="bg-gray-800 rounded-lg border-2 {currentStyle.borderColor} p-6 shadow-lg transition-all hover:shadow-cyan-500/20 hover:scale-[1.02] flex flex-col h-full"
 >
 	<!-- Header della Card -->
 	<div class="flex justify-between items-start">
@@ -18,15 +38,11 @@
 			<h3 class="text-xl font-bold text-white">{result.recipeName}</h3>
 			<p class="text-sm text-gray-400">{result.modelType}</p>
 		</div>
-		{#if result.isCompatible}
-			<span class="bg-green-500/20 text-green-300 text-xs font-semibold px-3 py-1 rounded-full">
-				Compatibile
-			</span>
-		{:else}
-			<span class="bg-red-500/20 text-red-300 text-xs font-semibold px-3 py-1 rounded-full">
-				Non Compatibile
-			</span>
-		{/if}
+		<span
+			class="text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap {currentStyle.badgeBg} {currentStyle.textColor}"
+		>
+			{currentStyle.badgeText}
+		</span>
 	</div>
 
 	<!-- Riepilogo Costi e Qualità -->
@@ -36,14 +52,18 @@
 			<span class="font-mono bg-gray-700 px-2 py-1 rounded">{result.quality} / 100</span>
 		</div>
 		<div class="flex items-center justify-between">
-			<span>VRAM Richiesta:</span>
-			<span class="font-mono {textColor}">{result.totalVramCost} GB</span>
+			<span>VRAM Richiesta (Nativa):</span>
+			<span class="font-mono {currentStyle.textColor}">{result.totalVramCost} GB</span>
+		</div>
+		<div class="flex items-center justify-between">
+			<span>RAM Richiesta:</span>
+			<span class="font-mono {currentStyle.textColor}">{result.totalRamCost} GB</span>
 		</div>
 	</div>
 
-	<!-- NUOVA SEZIONE: Composizione Ricetta -->
+	<!-- Composizione Ricetta -->
 	<div class="mt-4 pt-4 border-t border-gray-700">
-		<h4 class="text-sm font-semibold text-gray-400 mb-2">Composizione Ricetta:</h4>
+		<h4 class="text-sm font-semibold text-gray-400 mb-2">Composizione:</h4>
 		<div class="space-y-2 text-sm">
 			<div class="flex justify-between">
 				<span class="text-gray-300">{result.components.model.name}</span>
@@ -71,8 +91,8 @@
 
 	<!-- Sezione Note -->
 	<div class="mt-4 pt-4 border-t border-gray-700 flex-grow flex flex-col">
-		<h4 class="text-sm font-semibold text-gray-400 mb-2">Note:</h4>
-		<ul class="list-disc list-inside space-y-1 text-sm text-gray-400">
+		<h4 class="text-sm font-semibold text-gray-400 mb-2">Note di Analisi:</h4>
+		<ul class="list-disc list-inside space-y-1 text-sm {currentStyle.textColor}">
 			{#each result.notes as note}
 				<li>{note}</li>
 			{/each}
