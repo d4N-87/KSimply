@@ -1,65 +1,75 @@
 <script lang="ts">
-	// Definiamo i valori standard per la RAM
+	// --- IMPORTAZIONI ---
+	import { fly } from 'svelte/transition';
+	import ResultCard from '$lib/components/ResultCard.svelte';
+	import type { AnalysisResult } from '$lib/core/analyzer';
+
+	// --- PROPS RICEVUTE DALLA FUNZIONE `load` ---
+	// Questo è il modo corretto in Svelte 5 di ricevere props con type safety.
+	const { data } = $props<{ data: { gpus: { id: number; name: string }[] } }>();
+
+	// --- STATO INTERNO REATTIVO (SVELTE 5 RUNES) ---
 	const ramOptions = [4, 8, 16, 32, 64, 128, 256];
 
-	// Variabili di stato del form
-	let selectedGpuName = '';
-	let selectedRam: number = 16; // Valore di default
-	let storageType: 'hdd' | 'ssd' | 'nvme' = 'ssd'; // Valore di default
+	// Stato del form
+	let selectedGpuName = $state('');
+	let selectedRam = $state<number>(16);
+	let storageType = $state<'hdd' | 'ssd' | 'nvme'>('ssd');
 
-	// Dati caricati dalla funzione `load`
-	let { data } = $props();
+	// Stato della UI per i risultati
+	let isLoading = $state(false);
+	let analysisResults = $state<AnalysisResult[]>([]);
+	let analysisPerformed = $state(false);
 
-	async function analyzeHardware() {
-		// Mostra un feedback all'utente (opzionale ma consigliato)
-		console.log('Analisi in corso...');
+	/**
+	 * Gestisce l'invio del form, chiama l'API e aggiorna lo stato della UI.
+	 */
+	async function analyzeHardware(event: SubmitEvent) {
+		event.preventDefault(); // Obbligatorio con onsubmit={}
 
-		// Controlliamo che una GPU sia stata selezionata
 		if (!selectedGpuName) {
-			alert('Per favore, seleziona una scheda video dalla lista.');
+			window.alert('Per favore, seleziona una scheda video dalla lista.');
 			return;
 		}
 
+		// Inizia il processo di caricamento
+		isLoading = true;
+		analysisPerformed = true;
+		analysisResults = []; // Svuota i risultati precedenti
+
 		const hardwareData = {
 			gpu: selectedGpuName,
-			// La VRAM non viene più inviata, sarà determinata dal server
 			ram: selectedRam,
 			storage: storageType
 		};
 
 		try {
-			// Invia i dati al nostro endpoint API usando il metodo POST
 			const response = await fetch('/', {
-				// Usiamo '/' perché l'API è sulla stessa rotta
 				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(hardwareData) // Convertiamo l'oggetto in una stringa JSON
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(hardwareData)
 			});
 
-			// Controlla se la richiesta è andata a buon fine
 			if (!response.ok) {
 				throw new Error(`Errore HTTP: ${response.status}`);
 			}
 
-			// Estrai i dati JSON dalla risposta
 			const result = await response.json();
-
-			// Mostra i risultati nella console (per ora)
 			console.log("Risultati ricevuti dall'API:", result);
 
-			if (result.success && result.gpu) {
-				// Ora la VRAM arriva direttamente dal server!
-				alert(
-					`GPU trovata nel database: ${result.gpu.name} con ${result.gpu.vram_gb}GB di VRAM!`
-				);
+			if (result.success && result.analysis) {
+				analysisResults = result.analysis;
 			} else {
-				alert(`La GPU "${hardwareData.gpu}" non è stata trovata nel nostro database.`);
+				throw new Error(result.message || 'Risposta API non valida');
 			}
 		} catch (error) {
 			console.error('Errore durante la chiamata API:', error);
-			alert("Si è verificato un errore durante l'analisi. Controlla la console per i dettagli.");
+			window.alert(
+				"Si è verificato un errore durante l'analisi. Controlla la console per i dettagli."
+			);
+		} finally {
+			// Termina il processo di caricamento
+			isLoading = false;
 		}
 	}
 </script>
@@ -79,7 +89,8 @@
 
 	<!-- Sezione Form -->
 	<div class="bg-gray-800 rounded-lg shadow-2xl p-6 md:p-8 w-full max-w-lg">
-		<form class="space-y-6" on:submit|preventDefault={analyzeHardware}>
+		<!-- Modulo aggiornato con la sintassi `onsubmit` di Svelte 5 -->
+		<form class="space-y-6" onsubmit={analyzeHardware}>
 			<!-- GPU -->
 			<div>
 				<label for="gpu" class="block text-sm font-medium text-gray-300 mb-1">
@@ -92,7 +103,7 @@
 					required
 				>
 					<option disabled selected value="">Scegli una GPU dalla lista...</option>
-					{#each data.gpus as gpuOption}
+					{#each data.gpus as gpuOption (gpuOption.id)}
 						<option value={gpuOption.name}>{gpuOption.name}</option>
 					{/each}
 				</select>
@@ -101,10 +112,7 @@
 				{/if}
 			</div>
 
-			<!-- VRAM (RIMOSSO) -->
-			<!-- Il div per l'input della VRAM è stato completamente rimosso -->
-
-			<!-- RAM (NUOVO MENU A TENDINA) -->
+			<!-- RAM -->
 			<div>
 				<label for="ram" class="block text-sm font-medium text-gray-300 mb-1"
 					>Memoria di Sistema (RAM)</label
@@ -141,14 +149,47 @@
 			<div class="pt-4">
 				<button
 					type="submit"
-					class="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-sky-400 focus:ring-opacity-50"
+					class="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-sky-400 focus:ring-opacity-50 disabled:bg-gray-500 disabled:cursor-not-allowed"
+					disabled={isLoading}
 				>
-					Analizza e Mostrami i Risultati
+					{#if isLoading}
+						Analisi in corso...
+					{:else}
+						Analizza e Mostrami i Risultati
+					{/if}
 				</button>
 			</div>
 		</form>
 	</div>
 
+	<!-- Sezione per la visualizzazione dei risultati -->
+	<div class="w-full max-w-4xl mx-auto mt-12">
+		{#if isLoading}
+			<div class="text-center">
+				<p class="text-lg text-sky-400 animate-pulse">Sto analizzando il tuo potenziale...</p>
+			</div>
+		{:else if analysisResults.length > 0}
+			<h2 class="text-3xl font-bold text-center mb-8">Ecco le tue Ricette AI</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+				<!-- Itera sui risultati e renderizza una card per ciascuno -->
+				{#each analysisResults as result (result.recipeName)}
+					<div in:fly={{ y: 20, duration: 500 }}>
+						<ResultCard {result} />
+					</div>
+				{/each}
+			</div>
+		{:else if analysisPerformed}
+			<div class="text-center bg-gray-800 p-8 rounded-lg">
+				<h3 class="text-2xl font-bold text-amber-400">Nessun Risultato Trovato</h3>
+				<p class="mt-2 text-gray-300">
+					Non abbiamo trovato ricette pienamente compatibili o i dati nel nostro database sono ancora
+					limitati. Prova con una configurazione diversa o torna a trovarci presto!
+				</p>
+			</div>
+		{/if}
+	</div>
+
+	<!-- Footer -->
 	<footer class="mt-12 text-gray-500 text-sm">
 		<p>KSimply v1.0 - Un progetto open source per la community.</p>
 	</footer>

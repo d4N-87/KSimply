@@ -1,11 +1,20 @@
 // src/routes/+server.ts
+
+// Le importazioni rimangono qui in cima
 import type { RequestHandler } from './$types';
 import { json } from '@sveltejs/kit';
 import { getDb } from '$lib/server/database';
 import { analyzeHardware, type RawRecipe } from '$lib/core/analyzer';
 import type { UserHardware } from '$lib/core/types';
 
+// L'export deve essere al livello più alto del file
 export const POST: RequestHandler = async ({ request }) => {
+	// --- LA LOGICA VA QUI DENTRO ---
+
+	// Definiamo la funzione helper e la usiamo all'interno della richiesta
+	const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
+	await delay(1500); // Ritardo di 1.5 secondi per testare la UI
+
 	const hardwareData: UserHardware = await request.json();
 
 	try {
@@ -20,7 +29,7 @@ export const POST: RequestHandler = async ({ request }) => {
 			return json({ success: false, message: 'GPU non trovata nel database' }, { status: 404 });
 		}
 
-		// 2. Recupera tutte le possibili ricette dal database
+		// ... il resto del codice rimane identico ...
 		const recipesSql = `
             SELECT
                 bm.name as model_name, bm.type as model_type, bm.base_vram_cost_gb,
@@ -39,7 +48,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		const recipesStmt = db.prepare(recipesSql);
 		const rawRecipes: RawRecipe[] = [];
 		while (recipesStmt.step()) {
-			rawRecipes.push(recipesStmt.getAsObject() as RawRecipe);
+			rawRecipes.push(recipesStmt.getAsObject() as unknown as RawRecipe);
 		}
 		recipesStmt.free();
 
