@@ -53,7 +53,7 @@
 			const result = await response.json();
 
 			if (result.success && result.analysis) {
-				analysisResults = result.analysis;
+    			analysisResults = result.analysis;
 			} else {
 				throw new Error(result.message || 'Risposta API non valida');
 			}

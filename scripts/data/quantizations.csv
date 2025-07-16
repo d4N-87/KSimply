@@ -1,0 +1,3 @@
+name,quality_score
+FP16,100
+GGUF Q8_0,95

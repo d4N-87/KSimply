@@ -1,25 +1,33 @@
-// src/lib/core/analyzer.ts
+// src/lib/core/analyzer.ts (NUOVA VERSIONE)
 
 import type { UserHardware } from './types';
 
+// 1. La nuova interfaccia per i dati grezzi dalla query
 export interface RawRecipe {
+	model_release_id: number;
+	text_encoder_release_id: number;
+	vae_release_id: number;
 	model_name: string;
 	model_type: string;
-	base_vram_cost_gb: number;
-	ram_multiplier: number;
-	quantization_name: string;
-	vram_multiplier: number;
-	quality_score: number;
+	model_quantization: string;
 	text_encoder_name: string;
-	text_encoder_vram_cost: number;
+	text_encoder_quantization: string;
 	vae_name: string;
+	vae_quantization: string;
+	quality_score: number;
+	model_vram_cost: number;
+	model_ram_cost: number;
+	text_encoder_vram_cost: number;
+	text_encoder_ram_cost: number;
 	vae_vram_cost: number;
+	vae_ram_cost: number;
 }
 
+// L'interfaccia del risultato finale rimane quasi identica
 export type AnalysisLevel = 'Verde' | 'Giallo' | 'Rosso';
 
 export interface AnalysisResult {
-	id: string; // ID unico per la chiave nel #each di Svelte
+	id: string;
 	recipeName: string;
 	modelType: string;
 	level: AnalysisLevel;
@@ -45,12 +53,11 @@ export function analyzeHardware(
 	const userRam = userHardware.ram;
 
 	for (const recipe of rawRecipes) {
-		const modelVramCost = recipe.base_vram_cost_gb * recipe.vram_multiplier;
-		const totalVramCost = modelVramCost + recipe.text_encoder_vram_cost + recipe.vae_vram_cost;
+		// 2. Sommiamo i costi dei componenti per ottenere i totali
+		const totalVramCost = recipe.model_vram_cost + recipe.text_encoder_vram_cost + recipe.vae_vram_cost;
+		const totalRamCost = recipe.model_ram_cost + recipe.text_encoder_ram_cost + recipe.vae_ram_cost;
 
-		const modelRamCost = recipe.base_vram_cost_gb * recipe.ram_multiplier;
-		const totalRamCost = modelRamCost + recipe.text_encoder_vram_cost + recipe.vae_vram_cost;
-
+		// La logica di determinazione del livello è identica a prima
 		let level: AnalysisLevel = 'Rosso';
 		let notes: string[] = [];
 
@@ -66,17 +73,13 @@ export function analyzeHardware(
 			notes.push(`RAM richiesta per l'offload: ~${totalRamCost.toFixed(2)}GB.`);
 		} else {
 			level = 'Rosso';
-			if (userVram < totalVramCost) {
-				notes.push(`VRAM insufficiente. Richiesti ${totalVramCost.toFixed(2)}GB.`);
-			}
-			if (userRam < totalRamCost) {
-				notes.push(`RAM insufficiente. Richiesti ${totalRamCost.toFixed(2)}GB.`);
-			}
+			if (userVram < totalVramCost) { notes.push(`VRAM insufficiente. Richiesti ${totalVramCost.toFixed(2)}GB.`); }
+			if (userRam < totalRamCost) { notes.push(`RAM insufficiente. Richiesti ${totalRamCost.toFixed(2)}GB.`); }
 		}
 
-		// Creazione di un ID unico concatenando i nomi dei componenti
-		const uniqueId = `${recipe.model_name}-${recipe.quantization_name}-${recipe.text_encoder_name}-${recipe.vae_name}`;
-		const recipeName = `${recipe.model_name} (${recipe.quantization_name})`;
+		// 3. Costruiamo l'oggetto risultato finale
+		const uniqueId = `${recipe.model_release_id}-${recipe.text_encoder_release_id}-${recipe.vae_release_id}`;
+		const recipeName = `${recipe.model_name} (${recipe.model_quantization})`;
 
 		results.push({
 			id: uniqueId,
@@ -88,14 +91,15 @@ export function analyzeHardware(
 			quality: recipe.quality_score,
 			notes: notes,
 			components: {
-				model: { name: recipe.model_name, cost: parseFloat(modelVramCost.toFixed(2)) },
-				quantization: { name: recipe.quantization_name },
-				text_encoder: { name: recipe.text_encoder_name, cost: recipe.text_encoder_vram_cost },
-				vae: { name: recipe.vae_name, cost: recipe.vae_vram_cost }
+				model: { name: recipe.model_name, cost: recipe.model_vram_cost },
+				quantization: { name: recipe.model_quantization },
+				text_encoder: { name: `${recipe.text_encoder_name} (${recipe.text_encoder_quantization})`, cost: recipe.text_encoder_vram_cost },
+				vae: { name: `${recipe.vae_name} (${recipe.vae_quantization})`, cost: recipe.vae_vram_cost }
 			}
 		});
 	}
 
+	// L'ordinamento rimane identico
 	return results.sort((a, b) => {
 		const levelOrder = { Verde: 0, Giallo: 1, Rosso: 2 };
 		if (levelOrder[a.level] !== levelOrder[b.level]) {

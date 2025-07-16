@@ -1,0 +1,2 @@
+model_name,compatible_text_encoders,compatible_vaes
+"KSimply Diffusion 1.0","KSimply Text Encoder","KSimply VAE"

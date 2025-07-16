@@ -1,0 +1,3 @@
+encoder_name,quantization_name,vram_cost_gb,ram_cost_gb
+"KSimply Text Encoder",FP16,1.2,1.5
+"KSimply Text Encoder","GGUF Q8_0",0.8,1.0
