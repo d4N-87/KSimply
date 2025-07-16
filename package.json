@@ -14,7 +14,8 @@
 		"lint": "prettier --check . && eslint .",
 		"test:unit": "vitest",
 		"test": "npm run test:unit -- --run && npm run test:e2e",
-		"test:e2e": "playwright test"
+		"test:e2e": "playwright test",
+		"db:seed": "npx tsx scripts/seed.ts"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
@@ -42,20 +43,9 @@
 		"vite": "^6.2.6",
 		"vitest": "^3.2.3"
 	},
-	"pnpm": {
-		"onlyBuiltDependencies": [
-			"esbuild"
-		],
-		"allow-build": [
-			"sqlite3",
-			"@tailwindcss/oxide"
-		],
-		"ignoredBuiltDependencies": [
-			"@tailwindcss/oxide",
-			"sqlite3"
-		]
-	},
 	"dependencies": {
-		"sql.js": "^1.13.0"
+		"sql.js": "^1.13.0",
+		"sqlite": "^5.1.1",
+		"sqlite3": "^5.1.7"
 	}
 }
