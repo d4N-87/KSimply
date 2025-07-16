@@ -1,0 +1,4 @@
+name,vram_gb,family,fp8_support,fp4_support
+GeForce RTX 4090,24,rtx-40,native,native
+GeForce RTX 3060,12,rtx-30,none,none
+GeForce RTX 4070 Ti,12,rtx-40,native,native
