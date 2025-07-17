@@ -1,4 +1,61 @@
 name,vram_gb,family,fp8_support,fp4_support
-GeForce RTX 4090,24,rtx-40,native,native
-GeForce RTX 3060,12,rtx-30,none,none
-GeForce RTX 4070 Ti,12,rtx-40,native,native
+# --- RTX 50 Series (Desktop) ---
+RTX 5090 24GB,24,rtx-50-desktop,native,native
+RTX 5080 16GB,16,rtx-50-desktop,native,native
+RTX 5070 Ti 16GB,16,rtx-50-desktop,native,native
+RTX 5070 12GB,12,rtx-50-desktop,native,native
+RTX 5060 Ti 16GB,16,rtx-50-desktop,native,native
+RTX 5060 8GB,8,rtx-50-desktop,native,native
+# --- RTX 40 Series (Desktop) ---
+RTX 4090 24GB,24,rtx-40-desktop,native,native
+RTX 4080 Super 16GB,16,rtx-40-desktop,native,native
+RTX 4080 16GB,16,rtx-40-desktop,native,native
+RTX 4070 Ti Super 16GB,16,rtx-40-desktop,native,native
+RTX 4070 Ti 12GB,12,rtx-40-desktop,native,native
+RTX 4070 Super 12GB,12,rtx-40-desktop,native,native
+RTX 4070 12GB,12,rtx-40-desktop,native,native
+RTX 4060 Ti 16GB,16,rtx-40-desktop,native,native
+RTX 4060 Ti 8GB,8,rtx-40-desktop,native,native
+RTX 4060 8GB,8,rtx-40-desktop,native,native
+# --- RTX 40 Series (Laptop) ---
+RTX 4090 16GB Laptop,16,rtx-40-mobile,native,native
+RTX 4080 12GB Laptop,12,rtx-40-mobile,native,native
+RTX 4070 8GB Laptop,8,rtx-40-mobile,native,native
+RTX 4060 8GB Laptop,8,rtx-40-mobile,native,native
+RTX 4050 6GB Laptop,6,rtx-40-mobile,native,native
+# --- RTX 30 Series (Desktop) ---
+RTX 3090 Ti 24GB,24,rtx-30-desktop,none,none
+RTX 3090 24GB,24,rtx-30-desktop,none,none
+RTX 3080 Ti 12GB,12,rtx-30-desktop,none,none
+RTX 3080 12GB,12,rtx-30-desktop,none,none
+RTX 3080 10GB,10,rtx-30-desktop,none,none
+RTX 3070 Ti 8GB,8,rtx-30-desktop,none,none
+RTX 3070 8GB,8,rtx-30-desktop,none,none
+RTX 3060 Ti 8GB,8,rtx-30-desktop,none,none
+RTX 3060 12GB,12,rtx-30-desktop,none,none
+RTX 3060 8GB,8,rtx-30-desktop,none,none
+RTX 3050 8GB,8,rtx-30-desktop,none,none
+# --- RTX 30 Series (Laptop) ---
+RTX 3080 Ti 16GB Laptop,16,rtx-30-mobile,none,none
+RTX 3080 16GB Laptop,16,rtx-30-mobile,none,none
+RTX 3080 8GB Laptop,8,rtx-30-mobile,none,none
+RTX 3070 Ti 8GB Laptop,8,rtx-30-mobile,none,none
+RTX 3070 8GB Laptop,8,rtx-30-mobile,none,none
+RTX 3060 6GB Laptop,6,rtx-30-mobile,none,none
+RTX 3050 Ti 4GB Laptop,4,rtx-30-mobile,none,none
+RTX 3050 4GB Laptop,4,rtx-30-mobile,none,none
+# --- RTX 20 Series (Desktop) ---
+RTX 2080 Ti 11GB,11,rtx-20-desktop,none,none
+RTX 2080 Super 8GB,8,rtx-20-desktop,none,none
+RTX 2080 8GB,8,rtx-20-desktop,none,none
+RTX 2070 Super 8GB,8,rtx-20-desktop,none,none
+RTX 2070 8GB,8,rtx-20-desktop,none,none
+RTX 2060 Super 8GB,8,rtx-20-desktop,none,none
+RTX 2060 12GB,12,rtx-20-desktop,none,none
+RTX 2060 6GB,6,rtx-20-desktop,none,none
+# --- RTX 20 Series (Laptop) ---
+RTX 2080 Super 8GB Laptop,8,rtx-20-mobile,none,none
+RTX 2080 8GB Laptop,8,rtx-20-mobile,none,none
+RTX 2070 Super 8GB Laptop,8,rtx-20-mobile,none,none
+RTX 2070 8GB Laptop,8,rtx-20-mobile,none,none
+RTX 2060 6GB Laptop,6,rtx-20-mobile,none,none

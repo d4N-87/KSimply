@@ -1,3 +1,2 @@
-vae_name,quantization_name,vram_cost_gb,ram_cost_gb
-"KSimply VAE",FP16,0.3,0.5
-"KSimply VAE","GGUF Q8_0",0.2,0.4
+vae_name,quantization_name,file_size_gb
+"KSimply VAE",FP16,0.32
