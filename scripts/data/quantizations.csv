@@ -5,23 +5,33 @@ FP16,100
 BF16,99
 # --- 8-bit Precision ---
 FP8,95
+FP8 e4m3fn,95
+FP8 e4m3fn scaled,95
+FP8 scaled,95
 INT8,94
-# --- GGUF - High Quality / Large Size ---
-GGUF Q8_0,95
-GGUF Q6_K,92
-# --- GGUF - Medium-High Quality / Medium Size ---
-GGUF Q5_K_M,89
-GGUF Q5_K_S,88
-GGUF Q5_1,87
-GGUF Q5_0,86
-# --- GGUF - Medium Quality / Small Size (Good Balance) ---
-GGUF Q4_K_M,85
-GGUF Q4_K_S,84
-GGUF Q4_1,83
-GGUF Q4_0,82
-# --- GGUF - Low Quality / Very Small Size ---
-GGUF Q3_K_L,78
-GGUF Q3_K_M,76
-GGUF Q3_K_S,74
-# --- GGUF - Very Low Quality / Tiny Size ---
-GGUF Q2_K,65
+# --- GGUF / Q - High Quality ---
+Q8_0,95
+# --- GGUF / Q - Medium-High Quality ---
+Q6_K,92
+Q6_K_L,91
+Q5_K_M,89
+Q5_K_S,88
+Q5_1,87
+Q5_0,86
+Q5_K,88
+Q5_K_L,85
+# --- GGUF / Q - Medium Quality (Balance) ---
+Q4_K_M,85
+Q4_K_S,84
+Q4_1,83
+Q4_0,82
+Q4_K_L,81
+Q4_K,84
+# --- GGUF / Q - Low Quality ---
+Q3_K_L,78
+Q3_K_M,76
+Q3_K_S,74
+Q3_K,77
+# --- GGUF / Q - Very Low Quality ---
+Q2_K,65
+Q2_K_L,68

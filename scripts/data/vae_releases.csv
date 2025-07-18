@@ -1,2 +1,6 @@
 vae_name,quantization_name,file_size_gb
-"KSimply VAE",FP16,0.32
+"Cosmos cv8x8x8 v1.0",FP16,0.221
+"AE",FP16,0.335
+"Hunyuan Video VAE",FP16,0.493
+"SD3.5 VAE",FP16,0.168
+"Wan2.1 VAE",FP16,0.254

@@ -1,3 +1,67 @@
 encoder_name,quantization_name,file_size_gb
-"KSimply Text Encoder",FP16,1.2
-"KSimply Text Encoder","GGUF Q8_0",0.8
+# --- T5-xxl v1.0 ---
+"T5-xxl v1.0",FP16,9.73
+"T5-xxl v1.0","FP8 e4m3fn scaled",4.79
+# --- T5-xxl v1.1 ---
+"T5-xxl v1.1",FP16,9.79
+"T5-xxl v1.1",FP8 e4m3fn,4.89
+"T5-xxl v1.1",FP8 e4m3fn scaled,5.16
+"T5-xxl v1.1",Q3_K_L,2.46
+"T5-xxl v1.1",Q3_K_M,2.3
+"T5-xxl v1.1",Q3_K_S,2.1
+"T5-xxl v1.1",Q4_K_M,2.9
+"T5-xxl v1.1",Q4_K_S,2.74
+"T5-xxl v1.1",Q5_K_M,3.39
+"T5-xxl v1.1",Q5_K_S,3.29
+"T5-xxl v1.1",Q6_K,3.91
+"T5-xxl v1.1",Q8_0,5.06
+# --- CLIP ---
+"CLIP L",FP16,0.246
+"CLIP L HiDream",FP16,0.248
+"CLIP G",FP16,1.39
+"CLIP G HiDream",FP16,1.39
+"CLIP Vision H",FP16,1.26
+# --- Llama 3.1 8B Instruct ---
+"Llama 3.1 8B Instruct","FP8 scaled",9.08
+"Llama 3.1 8B Instruct",Q2_K,3.18
+"Llama 3.1 8B Instruct",Q2_K_L,3.69
+"Llama 3.1 8B Instruct",Q3_K_L,4.32
+"Llama 3.1 8B Instruct",Q3_K_M,4.02
+"Llama 3.1 8B Instruct",Q3_K_S,3.66
+"Llama 3.1 8B Instruct",Q4_K_L,5.31
+"Llama 3.1 8B Instruct",Q4_K_M,4.92
+"Llama 3.1 8B Instruct",Q4_K_S,4.69
+"Llama 3.1 8B Instruct",Q5_K_L,6.06
+"Llama 3.1 8B Instruct",Q5_K_M,5.73
+"Llama 3.1 8B Instruct",Q5_K_S,5.6
+"Llama 3.1 8B Instruct",Q6_K,6.6
+"Llama 3.1 8B Instruct",Q6_K_L,6.85
+"Llama 3.1 8B Instruct",Q8_0,8.54
+# --- Llava Llama 3 8B ---
+"Llava Llama 3 8B",FP16,16.1
+"Llava Llama 3 8B",FP8 scaled,9.09
+"Llava Llama 3 8B",Q3_K_M,4.02
+"Llava Llama 3 8B",Q3_K_S,3.66
+"Llava Llama 3 8B",Q4_0,4.68
+"Llava Llama 3 8B",Q4_1,5.13
+"Llava Llama 3 8B",Q4_K_M,4.92
+"Llava Llama 3 8B",Q4_K_S,4.69
+"Llava Llama 3 8B",Q5_0,5.61
+"Llava Llama 3 8B",Q5_1,6.07
+"Llava Llama 3 8B",Q5_K_M,5.73
+"Llava Llama 3 8B",Q5_K_S,5.6
+"Llava Llama 3 8B",Q6_K,6.6
+"Llava Llama 3 8B",Q8_0,8.54
+# --- UMT5-xxl ---
+"UMT5-xxl",FP16,11.4
+"UMT5-xxl",FP8 e4m3fn,6.74
+"UMT5-xxl",Q3_K_M,3.06
+"UMT5-xxl",Q3_K_S,2.86
+"UMT5-xxl",Q4_K_M,3.66
+"UMT5-xxl",Q4_K_S,3.5
+"UMT5-xxl",Q5_K_M,4.15
+"UMT5-xxl",Q5_K_S,4.05
+"UMT5-xxl",Q6_K,4.67
+"UMT5-xxl",Q8_0,6.04
+# --- Llava Llama 3 Vision --
+"Llava Llama 3 Vision",FP16,0.649
