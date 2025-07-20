@@ -1,37 +1,58 @@
-name,quality_score
+name,quality_score,priority
+# Priorità basata sulla gerarchia specificata
+#
+# 1. FP16
+# 2. Q8
+# 3. FP8 e4m3fn scaled
+# 4. FP8 e4m3fn
+# 5. FP8
+# 6. Q6
+# ... e a scendere
+
 # --- Full & Half Precision ---
-FP32,100
-FP16,100
-BF16,99
-# --- 8-bit Precision ---
-FP8,95
-FP8 e4m3fn,95
-FP8 e4m3fn scaled,95
-FP8 scaled,95
-INT8,94
+FP32,100,20
+FP16,100,20
+BF16,99,19
+
 # --- GGUF / Q - High Quality ---
-Q8_0,95
+Q8_0,95,18
+
+# --- 8-bit Precision ---
+FP8 e4m3fn scaled,95,17
+FP8 scaled,95,17
+FP8 e4m3fn,95,16
+FP8,95,15
+INT8,94,14
+
 # --- GGUF / Q - Medium-High Quality ---
-Q6_K,92
-Q6_K_L,91
-Q5_K_M,89
-Q5_K_S,88
-Q5_1,87
-Q5_0,86
-Q5_K,88
-Q5_K_L,85
+Q6_K,92,12
+Q6_K_L,91,12
+
+# --- GGUF / Q - Medium-High Quality (Tier 2) ---
+Q5_K_M,89,10
+Q5_K_S,88,10
+Q5_1,87,10
+Q5_0,86,10
+Q5_K,88,10
+Q5_K_L,85,10
+
+# --- 4-bit Precision ---
+FP4,85,9
+
 # --- GGUF / Q - Medium Quality (Balance) ---
-Q4_K_M,85
-Q4_K_S,84
-Q4_1,83
-Q4_0,82
-Q4_K_L,81
-Q4_K,84
+Q4_K_M,85,8
+Q4_K_S,84,8
+Q4_1,83,8
+Q4_0,82,8
+Q4_K_L,81,8
+Q4_K,84,8
+
 # --- GGUF / Q - Low Quality ---
-Q3_K_L,78
-Q3_K_M,76
-Q3_K_S,74
-Q3_K,77
+Q3_K_L,78,6
+Q3_K_M,76,6
+Q3_K_S,74,6
+Q3_K,77,6
+
 # --- GGUF / Q - Very Low Quality ---
-Q2_K,65
-Q2_K_L,68
+Q2_K,65,4
+Q2_K_L,68,4

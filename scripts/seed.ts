@@ -1,4 +1,4 @@
-// scripts/seed.ts (VERSIONE FINALE DI PRODUZIONE)
+// scripts/seed.ts (VERSIONE AGGIORNATA PER INCLUDERE 'priority')
 import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
 import fs from 'fs/promises';
@@ -36,10 +36,34 @@ async function seed() {
 	console.log('🧹 Pulizia delle tabelle...');
 	await db.exec('PRAGMA foreign_keys = OFF;');
 	const tables = ['model_encoder_compatibility', 'model_vae_compatibility', 'model_releases', 'text_encoder_releases', 'vae_releases', 'gpus', 'base_models', 'text_encoders', 'vaes', 'quantizations'];
-	for (const table of tables) { await db.exec(`DELETE FROM ${table};`); }
+	for (const table of tables) { await db.exec(`DROP TABLE IF EXISTS ${table};`); } // Usiamo DROP per essere sicuri che la nuova struttura venga creata
 	await db.exec("DELETE FROM sqlite_sequence;");
+	console.log('✅ Tabelle eliminate.');
+	
+	// --- 1.1 CREAZIONE TABELLE ---
+	console.log('🏗️ Creazione della nuova struttura delle tabelle...');
+	await db.exec(`
+		CREATE TABLE "base_models" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "name" TEXT NOT NULL UNIQUE, "type" TEXT NOT NULL);
+		CREATE TABLE "gpus" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "name" TEXT NOT NULL UNIQUE, "vram_gb" INTEGER NOT NULL, "family" TEXT, "fp8_support" TEXT, "fp4_support" TEXT);
+		CREATE TABLE "text_encoders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "name" TEXT NOT NULL UNIQUE);
+		CREATE TABLE "vaes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "name" TEXT NOT NULL UNIQUE);
+		
+		CREATE TABLE "quantizations" (
+			"id" INTEGER PRIMARY KEY AUTOINCREMENT,
+			"name" TEXT NOT NULL UNIQUE,
+			"quality_score" INTEGER NOT NULL,
+			"priority" INTEGER NOT NULL DEFAULT 0
+		);
+
+		CREATE TABLE "model_encoder_compatibility" ("model_id" INTEGER NOT NULL, "encoder_id" INTEGER NOT NULL, PRIMARY KEY (model_id, encoder_id), FOREIGN KEY(model_id) REFERENCES base_models(id) ON DELETE CASCADE, FOREIGN KEY(encoder_id) REFERENCES text_encoders(id) ON DELETE CASCADE);
+		CREATE TABLE "model_releases" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "model_id" INTEGER NOT NULL, "quantization_id" INTEGER NOT NULL, "file_size_gb" REAL NOT NULL, FOREIGN KEY(model_id) REFERENCES base_models(id) ON DELETE CASCADE, FOREIGN KEY(quantization_id) REFERENCES quantizations(id) ON DELETE CASCADE);
+		CREATE TABLE "model_vae_compatibility" ("model_id" INTEGER NOT NULL, "vae_id" INTEGER NOT NULL, PRIMARY KEY (model_id, vae_id), FOREIGN KEY(model_id) REFERENCES base_models(id) ON DELETE CASCADE, FOREIGN KEY(vae_id) REFERENCES vaes(id) ON DELETE CASCADE);
+		CREATE TABLE "text_encoder_releases" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "encoder_id" INTEGER NOT NULL, "quantization_id" INTEGER NOT NULL, "file_size_gb" REAL NOT NULL, FOREIGN KEY(encoder_id) REFERENCES text_encoders(id) ON DELETE CASCADE, FOREIGN KEY(quantization_id) REFERENCES quantizations(id) ON DELETE CASCADE);
+		CREATE TABLE "vae_releases" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "vae_id" INTEGER NOT NULL, "quantization_id" INTEGER NOT NULL, "file_size_gb" REAL NOT NULL, FOREIGN KEY(vae_id) REFERENCES vaes(id) ON DELETE CASCADE, FOREIGN KEY(quantization_id) REFERENCES quantizations(id) ON DELETE CASCADE);
+	`);
 	await db.exec('PRAGMA foreign_keys = ON;');
-	console.log('✅ Tabelle pulite.');
+	console.log('✅ Nuova struttura creata.');
+
 
 	// --- 2. LETTURA DATI DAI CSV ---
 	console.log('🚚 Caricamento dati dai file CSV...');
@@ -61,10 +85,23 @@ async function seed() {
 		{ name: 'base_models', data: base_models, cols: '(name, type)', vals: [':name', ':type'] },
 		{ name: 'text_encoders', data: text_encoders, cols: '(name)', vals: [':name'] },
 		{ name: 'vaes', data: vaes, cols: '(name)', vals: [':name'] },
-		{ name: 'quantizations', data: quantizations, cols: '(name, quality_score)', vals: [':name', ':quality_score'] }
+		// --- MODIFICA CHIAVE ---
+		{ name: 'quantizations', data: quantizations, cols: '(name, quality_score, priority)', vals: [':name', ':quality_score', ':priority'] }
 	];
 	for (const anag of anagrafiche) {
-		for (const item of anag.data) { if (item && item.name) { await db.run(`INSERT INTO ${anag.name} ${anag.cols} VALUES (${anag.vals.map(() => '?').join(',')})`, ...Object.values(item)); } }
+		const stmt = await db.prepare(`INSERT INTO ${anag.name} ${anag.cols} VALUES (${anag.vals.map(v => v.replace(':', '@')).join(',')})`);
+		for (const item of anag.data) {
+			if (item) {
+				const params: { [key: string]: any } = {};
+				anag.vals.forEach(v => {
+					const key = v.replace(':', '');
+					params[`@${key}`] = item[key] ?? null;
+				});
+				await stmt.run(params);
+			}
+		}
+		await stmt.finalize();
+
 		const itemsFromDb = await db.all(`SELECT id, name FROM ${anag.name}`);
 		nameToIdMaps[anag.name] = new Map(itemsFromDb.map(i => [i.name, i.id]));
 		console.log(`   -> Inseriti ${itemsFromDb.length} record in ${anag.name}.`);
@@ -85,8 +122,8 @@ async function seed() {
 		if (comp && comp.model_name) {
             const modelId = nameToIdMaps['base_models'].get(comp.model_name);
             if (!modelId) continue;
-            for (const teName of comp.compatible_text_encoders.split('|')) { const teId = nameToIdMaps['text_encoders'].get(teName.trim()); if (teId) { await db.run('INSERT INTO model_encoder_compatibility (model_id, encoder_id) VALUES (?, ?)', modelId, teId); } }
-            for (const vaeName of comp.compatible_vaes.split('|')) { const vaeId = nameToIdMaps['vaes'].get(vaeName.trim()); if (vaeId) { await db.run('INSERT INTO model_vae_compatibility (model_id, vae_id) VALUES (?, ?)', modelId, vaeId); } }
+            for (const teName of comp.compatible_text_encoders.split('|')) { const teId = nameToIdMaps['text_encoders'].get(teName.trim()); if (teId) { await db.run('INSERT OR IGNORE INTO model_encoder_compatibility (model_id, encoder_id) VALUES (?, ?)', modelId, teId); } }
+            for (const vaeName of comp.compatible_vaes.split('|')) { const vaeId = nameToIdMaps['vaes'].get(vaeName.trim()); if (vaeId) { await db.run('INSERT OR IGNORE INTO model_vae_compatibility (model_id, vae_id) VALUES (?, ?)', modelId, vaeId); } }
         }
 	}
 	console.log('✅ Collegamenti creati con successo.');

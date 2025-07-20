@@ -1,9 +1,9 @@
-// src/routes/+server.ts (FINALE E FUNZIONANTE)
+// src/routes/+server.ts (VERSIONE AGGIORNATA CON JOIN PER 'priority')
 
 import type { RequestHandler } from './$types';
 import { json } from '@sveltejs/kit';
 import { getDb } from '$lib/server/database';
-import { analyzeHardware, type RawRecipe } from '$lib/core/analyzer';
+import { analyzeHardware } from '$lib/core/analyzer';
 import type { UserHardware } from '$lib/core/types';
 
 export const POST: RequestHandler = async ({ request }) => {
@@ -11,57 +11,63 @@ export const POST: RequestHandler = async ({ request }) => {
 
 	try {
 		const db = await getDb();
-
 		const gpuInfoStmt = db.prepare('SELECT * FROM gpus WHERE name = :name COLLATE NOCASE');
 		const gpuInfo = gpuInfoStmt.getAsObject({ ':name': hardwareData.gpu }) as any;
 		gpuInfoStmt.free();
-
 		if (!gpuInfo) {
-			return json({ success: false, message: 'GPU non trovata nel database' }, { status: 404 });
+			return json({ success: false, message: 'GPU non trovata' }, { status: 404 });
 		}
 
-		const recipesSql = `
-            SELECT
-                mr.id as model_release_id, ter.id as text_encoder_release_id, vr.id as vae_release_id,
-                bm.name as model_name, bm.type as model_type, q_model.name as model_quantization,
-                te.name as text_encoder_name, q_te.name as text_encoder_quantization,
-                v.name as vae_name, q_vae.name as vae_quantization,
-                q_model.quality_score,
-                mr.file_size_gb as model_file_size,
-                ter.file_size_gb as text_encoder_file_size,
-                vr.file_size_gb as vae_file_size
+		// QUERY 1: Recupera le release dei modelli con qualità E PRIORITÀ
+		const modelsStmt = db.prepare(`
+            SELECT mr.*, bm.name as model_name, bm.type as model_type, q.name as quantization_name, q.quality_score, q.priority
             FROM model_releases mr
             JOIN base_models bm ON mr.model_id = bm.id
-            JOIN quantizations q_model ON mr.quantization_id = q_model.id
-            JOIN model_encoder_compatibility mec ON bm.id = mec.model_id
-            JOIN text_encoders te ON mec.encoder_id = te.id
-            JOIN text_encoder_releases ter ON te.id = ter.encoder_id
-            JOIN model_vae_compatibility mvc ON bm.id = mvc.model_id
-            JOIN vaes v ON mvc.vae_id = v.id
-            JOIN vae_releases vr ON v.id = vr.vae_id
-            JOIN quantizations q_te ON ter.quantization_id = q_te.id
-            JOIN quantizations q_vae ON vr.quantization_id = q_vae.id
-        `;
-		const recipesStmt = db.prepare(recipesSql);
-		const rawRecipes: RawRecipe[] = [];
-		while (recipesStmt.step()) {
-			rawRecipes.push(recipesStmt.getAsObject() as unknown as RawRecipe);
+            JOIN quantizations q ON mr.quantization_id = q.id
+        `);
+		const modelsData = [];
+		while (modelsStmt.step()) {
+			modelsData.push(modelsStmt.getAsObject());
 		}
-		recipesStmt.free();
+		modelsStmt.free();
 
-		// Eseguiamo l'analisi con la nuova logica
-		const analysisResults = analyzeHardware(hardwareData, gpuInfo, rawRecipes);
+		// QUERY 2: Recupera le release degli encoder con qualità E PRIORITÀ
+		const encodersStmt = db.prepare(`
+            SELECT ter.*, te.name as encoder_name, q.name as quantization_name, q.quality_score, q.priority, mec.model_id as compatible_with_model_id
+            FROM text_encoder_releases ter
+            JOIN text_encoders te ON ter.encoder_id = te.id
+            JOIN quantizations q ON ter.quantization_id = q.id
+            JOIN model_encoder_compatibility mec ON te.id = mec.encoder_id
+        `);
+		const encodersData = [];
+		while (encodersStmt.step()) {
+			encodersData.push(encodersStmt.getAsObject());
+		}
+		encodersStmt.free();
 
-		// Restituiamo i risultati finali al client
-		const responseData = {
-			success: true,
-			gpu: gpuInfo,
-			analysis: analysisResults
-		};
+		// QUERY 3: Recupera le release dei VAE con qualità E PRIORITÀ
+		const vaesStmt = db.prepare(`
+            SELECT vr.*, v.name as vae_name, q.name as quantization_name, q.quality_score, q.priority, mvc.model_id as compatible_with_model_id
+            FROM vae_releases vr
+            JOIN vaes v ON vr.vae_id = v.id
+            JOIN quantizations q ON vr.quantization_id = q.id
+            JOIN model_vae_compatibility mvc ON v.id = mvc.vae_id
+        `);
+		const vaesData = [];
+		while (vaesStmt.step()) {
+			vaesData.push(vaesStmt.getAsObject());
+		}
+		vaesStmt.free();
 
-		return json(responseData);
+		const analysisResults = analyzeHardware(hardwareData, gpuInfo, {
+			models: modelsData as any,
+			encoders: encodersData as any,
+			vaes: vaesData as any
+		});
+
+		return json({ success: true, gpu: gpuInfo, analysis: analysisResults });
 	} catch (error) {
-		console.error("[API] Errore catturato durante l'analisi:", error);
+		console.error("[API /] Errore catturato durante l'analisi:", error);
 		return json({ success: false, message: 'Errore interno del server' }, { status: 500 });
 	}
 };

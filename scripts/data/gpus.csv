@@ -97,3 +97,9 @@ Quadro RTX 6000 24GB Laptop,24,rtx-20-pro-mobile,none,none
 Quadro RTX 5000 16GB Laptop,16,rtx-20-pro-mobile,none,none
 Quadro RTX 4000 8GB Laptop,8,rtx-20-pro-mobile,none,none
 Quadro RTX 3000 6GB Laptop,6,rtx-20-pro-mobile,none,none
+# --- RTX Blackwell Generation (Professional) ---
+RTX PRO 6000 96GB Blackwell,96,rtx-50-pro-desktop,native,native
+RTX PRO 6000 96GB Max-Q Blackwell Laptop,96,rtx-50-pro-mobile,native,native
+RTX PRO 5000 48GB Blackwell,48,rtx-50-pro-desktop,native,native
+RTX PRO 4500 32GB Blackwell,32,rtx-50-pro-desktop,native,native
+RTX PRO 4000 24GB Blackwell,24,rtx-50-pro-desktop,native,native
