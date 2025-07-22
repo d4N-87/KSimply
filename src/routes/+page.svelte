@@ -2,6 +2,7 @@
 	import { fly } from 'svelte/transition';
 	import ResultCard from '$lib/components/ResultCard.svelte';
 	import type { AnalysisResult, AnalysisLevel } from '$lib/core/analyzer';
+	import * as m from '$paraglide/messages';
 
 	const { data } = $props<{
 		data: {
@@ -108,14 +109,14 @@
 <main class="min-h-screen bg-gray-900 text-white flex flex-col items-center p-4 md:p-8">
 	<!-- Sezione Titolo -->
 	<div class="text-center max-w-2xl mx-auto mb-12">
-		<h1
-			class="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 to-blue-500 text-transparent bg-clip-text"
-		>
-			KSimply
-		</h1>
-		<p class="mt-4 text-lg md:text-xl text-gray-300">
-			Inserisci le specifiche del tuo PC per scoprire il tuo potenziale nel mondo dell'IA generativa.
-		</p>
+    	<h1
+        	class="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 to-blue-500 text-transparent bg-clip-text"
+    	>
+        	{m.app_title()}
+    	</h1>
+    	<p class="mt-4 text-lg md:text-xl text-gray-300">
+        	{m.app_subtitle()}
+    	</p>
 	</div>
 
 	<!-- Sezione Form -->

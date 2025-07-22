@@ -1,0 +1,15 @@
+{
+    "$schema": "https://inlang.com/schema/inlang-message-format",
+    "app_title": "KSimply",
+    "app_subtitle": "Inserisci le specifiche del tuo PC per scoprire il tuo potenziale nel mondo dell'IA generativa.",
+    "gpu_label": "Scheda Video (GPU)",
+    "gpu_select_placeholder": "Scegli una GPU dalla lista...",
+    "ram_label": "Memoria di Sistema (RAM)",
+    "analyze_button": "Analizza e Mostrami i Risultati",
+    "analyze_button_loading": "Analisi in corso...",
+    "show_models_button": "Mostra la lista di tutti i modelli nel nostro database",
+    "hide_models_button": "Nascondi la lista",
+    "results_title": "Ecco le tue Ricette AI ({count} trovate)",
+    "no_results_title": "Nessun Risultato Trovato",
+    "no_results_subtitle": "Non abbiamo trovato ricette pienamente compatibili con il tuo hardware."
+}

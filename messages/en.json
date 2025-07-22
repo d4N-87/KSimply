@@ -1,0 +1,15 @@
+{
+    "$schema": "https://inlang.com/schema/inlang-message-format",
+    "app_title": "KSimply",
+    "app_subtitle": "Enter your PC specs to discover your potential in the world of generative AI.",
+    "gpu_label": "Graphics Card (GPU)",
+    "gpu_select_placeholder": "Choose a GPU from the list...",
+    "ram_label": "System Memory (RAM)",
+    "analyze_button": "Analyze and Show Me the Results",
+    "analyze_button_loading": "Analysis in progress...",
+    "show_models_button": "Show the list of all models in our database",
+    "hide_models_button": "Hide the list",
+    "results_title": "Here are your AI Recipes ({count} found)",
+    "no_results_title": "No Results Found",
+    "no_results_subtitle": "We couldn't find any fully compatible recipes for your hardware."
+}
