@@ -11,6 +11,7 @@ name,type
 "HiDream-I1 Dev","Image Generation"
 "HiDream-I1 Fast","Image Generation"
 "HiDream-E1 Full","Image Generation"
+"HiDream-E1.1","Image Generation"
 "HunyuanVideo T2V 720p","Video Generation"
 "HunyuanVideo I2V 720p","Video Generation"
 "LTX-Video Dev 13B v0.9.8","Video Generation"

@@ -120,6 +120,19 @@ model_name,quantization_name,file_size_gb
 "HiDream-E1 Full",Q5_K_M,13
 "HiDream-E1 Full",Q6_K,14.7
 "HiDream-E1 Full",Q8_0,18.7
+"HiDream-E1.1",FP16,34.2
+"HiDream-E1.1",BF16,34.2
+"HiDream-E1.1",Q3_K_L,10.4
+"HiDream-E1.1",Q3_K_M,9.86
+"HiDream-E1.1",Q3_K_S,9.31
+"HiDream-E1.1",Q4_0,11.7
+"HiDream-E1.1",Q4_1,12.5
+"HiDream-E1.1",Q4_K_M,12.6
+"HiDream-E1.1",Q4_K_S,12
+"HiDream-E1.1",Q5_0,13.8
+"HiDream-E1.1",Q5_1,14.6
+"HiDream-E1.1",Q6_K,15.8
+"HiDream-E1.1",Q8_0,19.8
 "HunyuanVideo T2V 720p","FP8 e4m3fn",13.2
 "HunyuanVideo T2V 720p",BF16,25.6
 "HunyuanVideo T2V 720p",Q3_K_M,6.24
