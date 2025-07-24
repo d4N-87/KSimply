@@ -3,6 +3,7 @@
 	import { fly } from 'svelte/transition';
 	import ResultCard from '$lib/components/ResultCard.svelte';
 	import type { AnalysisResult, AnalysisLevel } from '$lib/core/analyzer';
+	import { Cpu, MemoryStick, Bot, Search } from 'lucide-svelte';
 
 	const { data } = $props<{
 		data: {
@@ -10,6 +11,8 @@
 			allModelNames: string[];
 		};
 	}>();
+
+	const sortedModelNames = $derived(data.allModelNames.slice().sort((a: string, b: string) => a.localeCompare(b)));
 
 	const baseClass = 'px-4 py-1 text-sm rounded-full transition-all';
 	let isModelListVisible = $state(false);
@@ -24,27 +27,18 @@
 
 	let activeLevelFilters = $state<Set<AnalysisLevel>>(new Set(['Verde', 'Giallo']));
 	function toggleLevelFilter(level: AnalysisLevel) {
-		// --- CORREZIONE REATTIVITÀ ---
-		// Creiamo una nuova istanza del Set per notificare il cambiamento a Svelte
 		const newSet = new Set(activeLevelFilters);
-		if (newSet.has(level)) {
-			newSet.delete(level);
-		} else {
-			newSet.add(level);
-		}
+		if (newSet.has(level)) newSet.delete(level);
+		else newSet.add(level);
 		activeLevelFilters = newSet;
 	}
 
 	let modelTypes = $derived([...new Set(analysisResults.map((r) => r.modelType))]);
 	let activeTypeFilters = $state<Set<string>>(new Set());
 	function toggleTypeFilter(type: string) {
-		// --- CORREZIONE REATTIVITÀ ---
 		const newSet = new Set(activeTypeFilters);
-		if (newSet.has(type)) {
-			newSet.delete(type);
-		} else {
-			newSet.add(type);
-		}
+		if (newSet.has(type)) newSet.delete(type);
+		else newSet.add(type);
 		activeTypeFilters = newSet;
 	}
 
@@ -92,10 +86,11 @@
 	}
 </script>
 
-<main class="min-h-screen w-full flex flex-col items-center p-4 md:p-8">
+<main class="w-full flex flex-col items-center p-4 md:p-8 overflow-x-hidden">
 	<!-- Sezione Titolo -->
 	<div class="text-center max-w-2xl mx-auto mb-12">
 		<h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-primary-text">
+			<Bot class="inline-block w-12 h-12 -mt-2" />
 			{m.app_title()}
 		</h1>
 		<p class="mt-4 text-lg md:text-xl text-secondary-text">{m.app_subtitle()}</p>
@@ -103,48 +98,51 @@
 
 	<!-- Sezione Form con effetto "vetro" -->
 	<div
-		class="bg-surface border border-border rounded-2xl shadow-2xl p-6 md:p-8 w-full max-w-lg backdrop-blur-sm"
+		class="hud-panel bg-surface border border-border rounded-lg p-6 md:p-8 w-full max-w-lg backdrop-blur-sm"
 	>
 		<form class="space-y-6" onsubmit={analyzeHardware}>
 			<div>
-				<label for="gpu" class="block text-sm font-medium text-secondary-text mb-2"
-					>{m.gpu_label()}</label
-				>
+				<label for="gpu" class="flex items-center text-sm font-medium text-secondary-accent mb-2">
+					<Cpu class="w-4 h-4 mr-2" />
+					{m.gpu_label()}
+				</label>
 				<select
 					id="gpu"
 					bind:value={selectedGpuName}
-					class="w-full bg-background/50 border-2 border-border rounded-lg px-3 py-2 text-primary-text focus:ring-2 focus:ring-primary-accent focus:border-primary-accent transition"
+					class="w-full bg-transparent border-2 border-border rounded-md px-3 py-2 text-primary-text focus:ring-2 focus:ring-primary-accent focus:border-primary-accent transition appearance-none"
 					required
 				>
-					<option disabled selected value="">{m.gpu_select_placeholder()}</option>
+					<option class="bg-background" disabled selected value="">{m.gpu_select_placeholder()}</option>
 					{#each data.gpus as gpuOption (gpuOption.id)}
-						<option value={gpuOption.name}>{gpuOption.name}</option>
+						<option class="bg-background" value={gpuOption.name}>{gpuOption.name}</option>
 					{/each}
 				</select>
 			</div>
 			<div>
-				<label for="ram" class="block text-sm font-medium text-secondary-text mb-2"
-					>{m.ram_label()}</label
-				>
+				<label for="ram" class="flex items-center text-sm font-medium text-secondary-accent mb-2">
+					<MemoryStick class="w-4 h-4 mr-2" />
+					{m.ram_label()}
+				</label>
 				<select
 					id="ram"
 					bind:value={selectedRam}
-					class="w-full bg-background/50 border-2 border-border rounded-lg px-3 py-2 text-primary-text focus:ring-2 focus:ring-primary-accent focus:border-primary-accent transition"
+					class="w-full bg-transparent border-2 border-border rounded-md px-3 py-2 text-primary-text focus:ring-2 focus:ring-primary-accent focus:border-primary-accent transition appearance-none"
 				>
 					{#each ramOptions as ramValue}
-						<option value={ramValue}>{ramValue} GB</option>
+						<option class="bg-background" value={ramValue}>{ramValue} GB</option>
 					{/each}
 				</select>
 			</div>
 			<div class="pt-4">
 				<button
 					type="submit"
-					class="w-full bg-primary-accent hover:bg-opacity-80 text-background font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary-accent/50 disabled:bg-gray-600 disabled:cursor-not-allowed"
+					class="w-full flex items-center justify-center gap-2 bg-primary-accent hover:bg-secondary-accent text-background font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-secondary-accent/50 disabled:bg-gray-600 disabled:cursor-not-allowed"
 					disabled={isLoading}
 				>
 					{#if isLoading}
 						<span>{progressText}</span>
 					{:else}
+						<Search class="w-6 h-6" />
 						<span>{m.analyze_button()}</span>
 					{/if}
 				</button>
@@ -156,7 +154,7 @@
 	<div class="text-center mt-6">
 		<button
 			onclick={() => (isModelListVisible = !isModelListVisible)}
-			class="text-sm text-primary-accent hover:text-opacity-80 underline transition"
+			class="text-sm text-primary-accent border border-primary-accent/50 rounded-full px-4 py-2 hover:bg-primary-accent/10 transition-colors"
 		>
 			{isModelListVisible ? m.hide_models_button() : m.show_models_button()}
 		</button>
@@ -164,14 +162,17 @@
 	{#if isModelListVisible}
 		<div
 			transition:fly={{ y: -20 }}
-			class="w-full max-w-2xl bg-surface border border-border p-6 rounded-2xl mt-4"
+			class="w-full max-w-2xl bg-surface border border-border p-6 rounded-lg mt-4"
 		>
-			<h3 class="font-bold text-lg mb-2 text-primary-text">Modelli nel Database</h3>
-			<ul class="list-disc list-inside text-secondary-text columns-2 md:columns-3 gap-4">
-				{#each data.allModelNames as modelName (modelName)}
-					<li>{modelName}</li>
+			<h3 class="font-bold text-lg mb-4 text-primary-text">Modelli nel Database</h3>
+			<div class="max-h-60 overflow-y-auto pr-4 columns-1 md:columns-3 gap-x-6">
+				{#each sortedModelNames as modelName (modelName)}
+					<!-- --- MODIFICA FINALE: Aggiunto effetto hover --- -->
+					<p class="text-sm text-secondary-text mb-1 break-inside-avoid hover:text-secondary-accent transition-colors cursor-default">
+						{modelName}
+					</p>
 				{/each}
-			</ul>
+			</div>
 		</div>
 	{/if}
 
@@ -181,14 +182,13 @@
 			<div class="w-full max-w-lg mx-auto text-center">
 				<div class="w-full bg-surface rounded-full h-4 overflow-hidden border border-border">
 					<div
-						class="h-4 rounded-full transition-all duration-500 ease-in-out animation-stripes bg-primary-accent"
+						class="h-4 rounded-full transition-all duration-500 ease-in-out animation-stripes bg-secondary-accent"
 						style="width: {progressPercent}%;"
 					></div>
 				</div>
 			</div>
 		{:else if analysisResults.length > 0}
-			<!-- Filtri -->
-			<div class="mb-8 p-4 bg-surface/50 border border-border rounded-2xl space-y-4">
+			<div class="hud-panel mb-8 p-4 bg-surface/50 border border-border rounded-lg space-y-4">
 				<div class="flex items-center gap-4 flex-wrap">
 					<span class="font-semibold text-secondary-text min-w-max">Mostra:</span>
 					<div class="flex gap-2 flex-wrap">
@@ -244,8 +244,4 @@
 			</div>
 		{/if}
 	</div>
-
-	<footer class="mt-16 text-gray-500 text-sm">
-		<p>KSimply v1.0</p>
-	</footer>
 </main>

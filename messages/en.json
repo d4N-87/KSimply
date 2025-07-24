@@ -1,7 +1,7 @@
 {
     "$schema": "https://inlang.com/schema/inlang-message-format",
     "app_title": "KSimply",
-    "app_subtitle": "Enter your PC specs to discover your potential in the world of generative AI.",
+    "app_subtitle": "Enter your PC specs to discover your potential in the world of open source generative AI.",
     "gpu_label": "Graphics Card (GPU)",
     "gpu_select_placeholder": "Choose a GPU from the list...",
     "ram_label": "System Memory (RAM)",

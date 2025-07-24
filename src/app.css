@@ -1,13 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Roboto+Mono:wght@400&display=swap');
 
-/* 1. Inietta gli stili di base di Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 2. Applica i nostri stili personalizzati sopra quelli di base */
 @layer base {
   body {
-    @apply bg-background text-primary-text font-sans antialiased;
+    background-color: theme('colors.background');
+    color: theme('colors.primary-text');
+    font-family: theme('fontFamily.sans');
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* --- CORREZIONE SCROLLBAR --- */
+    overflow-x: hidden;
   }
+}
+
+/* ... resto del file (stili HUD e scrollbar personalizzata) ... */
+@layer components {
+  .hud-panel { @apply relative; }
+  .hud-panel::before {
+    content: ''; position: absolute; width: 1rem; height: 1rem;
+    border-top: 2px solid theme('colors.primary-accent');
+    border-left: 2px solid theme('colors.primary-accent');
+    top: -1px; left: -1px;
+    box-shadow: 0 0 10px theme('colors.primary-accent / 0.5');
+  }
+  .hud-panel::after {
+    content: ''; position: absolute; width: 1rem; height: 1rem;
+    border-bottom: 2px solid theme('colors.primary-accent');
+    border-right: 2px solid theme('colors.primary-accent');
+    bottom: -1px; right: -1px;
+    box-shadow: 0 0 10px theme('colors.primary-accent / 0.5');
+  }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: theme('colors.surface'); }
+  ::-webkit-scrollbar-thumb {
+    background-color: theme('colors.primary-accent');
+    border-radius: 4px;
+    border: 2px solid theme('colors.surface');
+  }
+  ::-webkit-scrollbar-thumb:hover { background-color: theme('colors.secondary-accent'); }
 }

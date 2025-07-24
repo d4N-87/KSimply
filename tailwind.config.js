@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-import colors from 'tailwindcss/colors'; // <-- Usa 'import' invece di 'require'
+import colors from 'tailwindcss/colors';
 
-export default { // <-- Usa 'export default' invece di 'module.exports'
+export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {
@@ -11,8 +11,8 @@ export default { // <-- Usa 'export default' invece di 'module.exports'
         'border': 'rgb(55 65 81 / 0.5)',
         'primary-text': '#E5E7EB',
         'secondary-text': '#9CA3AF',
-        'primary-accent': '#22d3ee',
-        'secondary-accent': '#fbbf24',
+        'primary-accent': '#22d3ee',   // Ciano
+        'secondary-accent': '#fbbf24', // Ambra/Giallo
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
@@ -31,4 +31,3 @@ export default { // <-- Usa 'export default' invece di 'module.exports'
   },
   plugins: [],
 };
-
