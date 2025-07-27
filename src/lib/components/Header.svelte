@@ -4,13 +4,18 @@
 
 <header class="w-full p-4 border-b border-border">
 	<div class="max-w-5xl mx-auto flex justify-between items-center">
-		<!-- Logo Placeholder -->
-		<a
-			href="/"
-			class="flex items-center justify-center w-10 h-10 bg-surface border-2 border-primary-accent rounded-md text-2xl font-bold text-primary-accent hover:bg-primary-accent hover:text-background transition-colors"
-			aria-label="KSimply Home"
+		<!-- MODIFICA: Aggiunta animazione e effetto glow al logo -->
+		<a 
+			href="https://github.com/d4n-87" 
+			target="_blank" 
+			rel="noopener noreferrer"
+			class="transition-transform duration-300 hover:scale-105"
 		>
-			K
+			<img 
+				src="/ksimply_logo.png" 
+				alt="KSimply Logo" 
+				class="w-20 h-20 rounded-full animate-subtle-float transition-all duration-300 hover:drop-shadow-[0_0_12px_theme(colors.secondary-accent)]" 
+			/>
 		</a>
 
 		<!-- Azioni Header -->

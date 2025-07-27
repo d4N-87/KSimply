@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Roboto+Mono:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Unica+One&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -11,13 +11,13 @@
     font-family: theme('fontFamily.sans');
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* --- CORREZIONE SCROLLBAR --- */
     overflow-x: hidden;
   }
 }
 
-/* ... resto del file (stili HUD e scrollbar personalizzata) ... */
 @layer components {
+  /* La classe .animated-gradient-text è stata rimossa */
+
   .hud-panel { @apply relative; }
   .hud-panel::before {
     content: ''; position: absolute; width: 1rem; height: 1rem;

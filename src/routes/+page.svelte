@@ -12,6 +12,9 @@
 		};
 	}>();
 
+	// --- MODIFICA: Suddividiamo il titolo in un array di caratteri ---
+	const titleChars = m.app_title().split('');
+
 	const sortedModelNames = $derived(data.allModelNames.slice().sort((a: string, b: string) => a.localeCompare(b)));
 
 	const baseClass = 'px-4 py-1 text-sm rounded-full transition-all';
@@ -87,13 +90,18 @@
 </script>
 
 <main class="w-full flex flex-col items-center p-4 md:p-8 overflow-x-hidden">
-	<!-- Sezione Titolo -->
-	<div class="text-center max-w-2xl mx-auto mb-12">
-		<h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-primary-text">
-			<Bot class="inline-block w-12 h-12 -mt-2" />
-			{m.app_title()}
+	<div class="text-center max-w-3xl mx-auto mb-16">
+		<h1 class="text-6xl md:text-8xl tracking-wider leading-tight font-display uppercase">
+			<!-- MODIFICA: Usiamo un ciclo #each per renderizzare ogni lettera -->
+			{#each titleChars as char, i (char + i)}
+				<span class="transition-colors duration-200 hover:text-secondary-accent">
+					{char}
+				</span>
+			{/each}
 		</h1>
-		<p class="mt-4 text-lg md:text-xl text-secondary-text">{m.app_subtitle()}</p>
+		<p class="mt-4 text-lg md:text-xl text-secondary-text max-w-2xl mx-auto">
+			{m.app_subtitle()}
+		</p>
 	</div>
 
 	<!-- Sezione Form con effetto "vetro" -->
@@ -167,7 +175,6 @@
 			<h3 class="font-bold text-lg mb-4 text-primary-text">Modelli nel Database</h3>
 			<div class="max-h-60 overflow-y-auto pr-4 columns-1 md:columns-3 gap-x-6">
 				{#each sortedModelNames as modelName (modelName)}
-					<!-- --- MODIFICA FINALE: Aggiunto effetto hover --- -->
 					<p class="text-sm text-secondary-text mb-1 break-inside-avoid hover:text-secondary-accent transition-colors cursor-default">
 						{modelName}
 					</p>
