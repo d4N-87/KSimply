@@ -1,4 +1,4 @@
-// src/lib/core/analyzer.ts (VERSIONE FINALE CON AVVISO DI OFFLOAD)
+// src/lib/core/analyzer.ts (VERSIONE INTERNAZIONALIZZATA)
 
 import type { UserHardware } from './types';
 
@@ -8,19 +8,23 @@ interface EncoderRelease { id: number; encoder_id: number; quantization_id: numb
 interface VaeRelease { id: number; vae_id: number; quantization_id: number; file_size_gb: number; vae_name: string; quantization_name: string; quality_score: number; priority: number; compatible_with_model_id: number; }
 export interface RawDataPayload { models: ModelRelease[]; encoders: EncoderRelease[]; vaes: VaeRelease[]; }
 export type AnalysisLevel = 'Verde' | 'Giallo' | 'Rosso';
-export interface AnalysisResult { id: string; recipeName: string; modelType: string; level: AnalysisLevel; totalVramCost: number; totalRamCost: number; quality: number; notes: string[]; components: { model: { name: string; cost: number }; quantization: { name: string }; text_encoders: { name: string; cost: number; quantization: string }[]; vae: { name: string; cost: number; quantization: string }; }; }
 
-// --- LOGICA DI BUSINESS ---
+// --- MODIFICA: Le note ora sono oggetti con una chiave e parametri ---
+export interface AnalysisNote {
+	key: 'note_optimal_all_in_vram' | 'note_optimal_vram_usage' | 'note_possible_offload' | 'note_possible_ram_usage' | 'note_warning_heavy_offload';
+	params?: { [key: string]: string | number };
+}
+
+export interface AnalysisResult { id: string; recipeName: string; modelType: string; level: AnalysisLevel; totalVramCost: number; totalRamCost: number; quality: number; notes: AnalysisNote[]; components: { model: { name: string; cost: number }; quantization: { name: string }; text_encoders: { name: string; cost: number; quantization: string }[]; vae: { name: string; cost: number; quantization: string }; }; }
+
+// --- LOGICA DI BUSINESS (INVARIATA) ---
 const VRAM_BUFFER_PERCENTAGE = 1.03;
 const RAM_BASE_OVERHEAD_GB = 2.0;
 const ABSOLUTE_MAX_OFFLOAD_RAM_GB = 64;
 const HIGH_END_VRAM_THRESHOLD = 16;
 const MIN_MODEL_PRIORITY_FOR_HIGH_END = 10;
 
-type Champion = {
-	result: AnalysisResult;
-	score: number[];
-};
+type Champion = { result: AnalysisResult; score: number[]; };
 
 // --- FUNZIONE DI ANALISI PRINCIPALE ---
 export function analyzeHardware(
@@ -33,7 +37,6 @@ export function analyzeHardware(
 
 	const maxOffloadRam = Math.min(userRam * 0.75, ABSOLUTE_MAX_OFFLOAD_RAM_GB);
 
-	// 1. PRE-ELABORAZIONE
 	const baseModels = [...new Map(rawData.models.map((m) => [m.model_id, m])).values()].map((m) => ({ id: m.model_id, name: m.model_name, type: m.model_type as 'Image Generation' | 'Video Generation' | 'LLM' }));
 	const modelReleasesById = new Map<number, ModelRelease[]>();
 	for (const model of rawData.models) { if (!modelReleasesById.has(model.model_id)) modelReleasesById.set(model.model_id, []); modelReleasesById.get(model.model_id)!.push(model); }
@@ -86,13 +89,7 @@ export function analyzeHardware(
 					const avgEncoderPriority = encoderSet.length > 0 ? encoderSet.reduce((sum, e) => sum + e.priority, 0) / encoderSet.length : 20;
 					const avgEncoderQualityScore = encoderSet.length > 0 ? encoderSet.reduce((sum, e) => sum + e.quality_score, 0) / encoderSet.length : 100;
 
-					const hierarchicalScore = [
-						modelRelease.priority,
-						modelRelease.quality_score,
-						avgEncoderPriority,
-						avgEncoderQualityScore,
-						-totalVramCost
-					];
+					const hierarchicalScore = [ modelRelease.priority, modelRelease.quality_score, avgEncoderPriority, avgEncoderQualityScore, -totalVramCost ];
 
 					const currentResult: AnalysisResult = {
 						id: `${modelRelease.id}-${encoderSet.map((e) => e.id).join('_')}-${vaeRelease?.id ?? 'none'}`,
@@ -138,17 +135,18 @@ export function analyzeHardware(
 
 	const HEAVY_OFFLOAD_THRESHOLD_GB = 16;
 
+	// --- MODIFICA: La generazione delle note ora usa chiavi e parametri ---
 	finalRecommendations.forEach((r) => {
 		if (r.level === 'Verde') {
-			r.notes.push(`Soluzione ottimale: tutti i componenti risiedono in VRAM.`);
-			r.notes.push(`VRAM Stimata: ${r.totalVramCost.toFixed(2)}GB / ${userVram}GB.`);
+			r.notes.push({ key: 'note_optimal_all_in_vram' });
+			r.notes.push({ key: 'note_optimal_vram_usage', params: { used: r.totalVramCost.toFixed(2), total: userVram } });
 		} else {
 			const vramToOffload = r.totalVramCost > userVram ? r.totalVramCost - userVram : 0;
-			r.notes.push(`Soluzione di ripiego: richiede offload su RAM di sistema.`);
-			r.notes.push(`RAM Stimata: ${r.totalRamCost.toFixed(2)}GB (di cui ${vramToOffload.toFixed(2)}GB spostati dalla VRAM).`);
+			r.notes.push({ key: 'note_possible_offload' });
+			r.notes.push({ key: 'note_possible_ram_usage', params: { used: r.totalRamCost.toFixed(2), offloaded: vramToOffload.toFixed(2) } });
 
 			if (vramToOffload > HEAVY_OFFLOAD_THRESHOLD_GB) {
-				r.notes.push(`ATTENZIONE: L'offload è molto pesante. Le performance potrebbero essere basse e c'è un rischio maggiore di instabilità o crash.`);
+				r.notes.push({ key: 'note_warning_heavy_offload' });
 			}
 		}
 	});
@@ -168,19 +166,12 @@ function getQuantizationPermutations(
 	requiredEncoderIds: number[],
 	releasesById: Map<number, EncoderRelease[]>
 ): EncoderRelease[][] {
-	if (requiredEncoderIds.length === 0) {
-		return [[]];
-	}
-
+	if (requiredEncoderIds.length === 0) return [[]];
 	const firstEncoderId = requiredEncoderIds[0];
 	const remainingEncoderIds = requiredEncoderIds.slice(1);
 	const releasesForFirst = releasesById.get(firstEncoderId) ?? [];
 	const permutationsForRest = getQuantizationPermutations(remainingEncoderIds, releasesById);
-
-	if (releasesForFirst.length === 0) {
-		return [];
-	}
-
+	if (releasesForFirst.length === 0) return [];
 	const newPermutations: EncoderRelease[][] = [];
 	for (const release of releasesForFirst) {
 		for (const p of permutationsForRest) {

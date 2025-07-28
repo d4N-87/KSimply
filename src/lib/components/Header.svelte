@@ -4,9 +4,8 @@
 
 <header class="w-full p-4 border-b border-border">
 	<div class="max-w-5xl mx-auto flex justify-between items-center">
-		<!-- MODIFICA: Aggiunta animazione e effetto glow al logo -->
 		<a 
-			href="https://github.com/d4n-87" 
+			href="https://github.com/d4N-87/KSimply" 
 			target="_blank" 
 			rel="noopener noreferrer"
 			class="transition-transform duration-300 hover:scale-105"
@@ -18,7 +17,6 @@
 			/>
 		</a>
 
-		<!-- Azioni Header -->
 		<div class="flex items-center gap-4">
 			<LanguagePicker />
 		</div>

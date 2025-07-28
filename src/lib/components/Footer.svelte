@@ -1,5 +1,8 @@
 <script lang="ts">
+	import * as m from '$paraglide/messages';
 	import { Github } from 'lucide-svelte';
+	// 1. Importiamo la nostra nuova costante di versione.
+	import { APP_VERSION } from '$lib/config';
 </script>
 
 <footer class="w-full text-center p-8 mt-16 border-t border-border/50 text-secondary-text">
@@ -12,14 +15,13 @@
 				class="flex items-center gap-2 hover:text-primary-accent transition-colors"
 			>
 				<Github class="w-5 h-5" />
-				<span>GitHub</span>
+				<span>{m.footer_github()}</span>
 			</a>
 		</div>
 		<p class="text-xs italic mb-4">
-			Disclaimer: I risultati forniti sono a titolo puramente esemplificativo. Le performance reali
-			possono variare in base a ottimizzazioni software, driver e configurazioni specifiche del
-			sistema.
+			{m.footer_disclaimer()}
 		</p>
-		<p class="text-sm font-bold">KSimply v1.0</p>
+		<!-- 2. Usiamo la costante direttamente nel template. -->
+		<p class="text-sm font-bold">KSimply {APP_VERSION}</p>
 	</div>
 </footer>

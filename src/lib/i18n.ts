@@ -1,5 +1,18 @@
-// file initialized by the Paraglide-SvelteKit CLI - Feel free to edit it
 import { createI18n } from "@inlang/paraglide-sveltekit"
-import * as runtime from "$lib/paraglide/runtime.js"
+import * as runtime from "$paraglide/runtime.js"
 
-export const i18n = createI18n(runtime)
+// Con una configurazione pulita, il codice generato da Paraglide
+// accetterà questa configurazione per gestire il routing.
+export const i18n = createI18n(runtime, {
+	pathnames: {
+		'/': {
+			it: '/',
+			en: '/',
+			fr: '/',
+			de: '/',
+			es: '/',
+			pt: '/',
+			zh: '/'
+		}
+	}
+})
