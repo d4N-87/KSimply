@@ -1,32 +1,41 @@
-// src/lib/core/analyzer.ts (VERSIONE INTERNAZIONALIZZATA)
-
 import type { UserHardware } from './types';
 
-// --- INTERFACCE AGGIORNATE ---
+// --- INTERFACES ---
+// [EN] Raw data structures mapping directly to the database schema.
+// [IT] Strutture dati grezze che mappano direttamente lo schema del database.
 interface ModelRelease { id: number; model_id: number; quantization_id: number; file_size_gb: number; model_name: string; model_type: string; quantization_name: string; quality_score: number; priority: number; }
 interface EncoderRelease { id: number; encoder_id: number; quantization_id: number; file_size_gb: number; encoder_name: string; quantization_name: string; quality_score: number; priority: number; compatible_with_model_id: number; }
 interface VaeRelease { id: number; vae_id: number; quantization_id: number; file_size_gb: number; vae_name: string; quantization_name: string; quality_score: number; priority: number; compatible_with_model_id: number; }
 export interface RawDataPayload { models: ModelRelease[]; encoders: EncoderRelease[]; vaes: VaeRelease[]; }
 export type AnalysisLevel = 'Verde' | 'Giallo' | 'Rosso';
 
-// --- MODIFICA: Le note ora sono oggetti con una chiave e parametri ---
+// [EN] Represents a translatable analysis note. `key` maps to a Paraglide message.
+// [IT] Rappresenta una nota di analisi traducibile. `key` mappa a un messaggio Paraglide.
 export interface AnalysisNote {
 	key: 'note_optimal_all_in_vram' | 'note_optimal_vram_usage' | 'note_possible_offload' | 'note_possible_ram_usage' | 'note_warning_heavy_offload';
 	params?: { [key: string]: string | number };
 }
 
+// [EN] The final, structured result of an analysis for a single model recipe.
+// [IT] Il risultato finale e strutturato di un'analisi per una singola ricetta di modello.
 export interface AnalysisResult { id: string; recipeName: string; modelType: string; level: AnalysisLevel; totalVramCost: number; totalRamCost: number; quality: number; notes: AnalysisNote[]; components: { model: { name: string; cost: number }; quantization: { name: string }; text_encoders: { name: string; cost: number; quantization: string }[]; vae: { name: string; cost: number; quantization: string }; }; }
 
-// --- LOGICA DI BUSINESS (INVARIATA) ---
-const VRAM_BUFFER_PERCENTAGE = 1.03;
-const RAM_BASE_OVERHEAD_GB = 2.0;
-const ABSOLUTE_MAX_OFFLOAD_RAM_GB = 64;
-const HIGH_END_VRAM_THRESHOLD = 16;
-const MIN_MODEL_PRIORITY_FOR_HIGH_END = 10;
+// --- BUSINESS LOGIC CONSTANTS ---
+const VRAM_BUFFER_PERCENTAGE = 1.03; // [EN] 3% safety buffer for VRAM calculations. [IT] 3% di buffer di sicurezza per i calcoli VRAM.
+const RAM_BASE_OVERHEAD_GB = 2.0; // [EN] Base system RAM usage assumption. [IT] Assunzione di utilizzo base della RAM di sistema.
+const ABSOLUTE_MAX_OFFLOAD_RAM_GB = 64; // [EN] Hard cap on how much system RAM can be used for offloading. [IT] Limite massimo di RAM di sistema utilizzabile per l'offload.
+const HIGH_END_VRAM_THRESHOLD = 16; // [EN] VRAM amount to consider a GPU "high-end" for filtering models. [IT] Quantità di VRAM per considerare una GPU "high-end" per filtrare i modelli.
+const MIN_MODEL_PRIORITY_FOR_HIGH_END = 10; // [EN] Minimum model priority to show on high-end GPUs. [IT] Priorità minima del modello da mostrare su GPU high-end.
 
 type Champion = { result: AnalysisResult; score: number[]; };
 
-// --- FUNZIONE DI ANALISI PRINCIPALE ---
+/**
+ * [EN] The main analysis function. It iterates through all possible model combinations
+ * to find the best "Optimal" (Green) and "Possible" (Yellow) recommendation for each base model.
+ * ---
+ * [IT] La funzione di analisi principale. Itera attraverso tutte le possibili combinazioni di modelli
+ * per trovare la migliore raccomandazione "Ottimale" (Verde) e "Possibile" (Gialla) per ogni modello base.
+ */
 export function analyzeHardware(
 	userHardware: UserHardware,
 	gpuInfo: { vram_gb: number },
@@ -37,6 +46,8 @@ export function analyzeHardware(
 
 	const maxOffloadRam = Math.min(userRam * 0.75, ABSOLUTE_MAX_OFFLOAD_RAM_GB);
 
+	// [EN] Pre-process raw data into more efficient Maps for quick lookups.
+	// [IT] Pre-elabora i dati grezzi in Map più efficienti per ricerche rapide.
 	const baseModels = [...new Map(rawData.models.map((m) => [m.model_id, m])).values()].map((m) => ({ id: m.model_id, name: m.model_name, type: m.model_type as 'Image Generation' | 'Video Generation' | 'LLM' }));
 	const modelReleasesById = new Map<number, ModelRelease[]>();
 	for (const model of rawData.models) { if (!modelReleasesById.has(model.model_id)) modelReleasesById.set(model.model_id, []); modelReleasesById.get(model.model_id)!.push(model); }
@@ -48,6 +59,8 @@ export function analyzeHardware(
 
 	const finalRecommendations: AnalysisResult[] = [];
 	for (const baseModel of baseModels) {
+		// [EN] "Champion" pattern: find the best result for each level (Green, Yellow).
+		// [IT] Pattern "Champion": trova il miglior risultato per ogni livello (Verde, Giallo).
 		let bestGreen: Champion | null = null;
 		let bestYellow: Champion | null = null;
 
@@ -57,6 +70,8 @@ export function analyzeHardware(
 		const encoderQuantizationPermutations = getQuantizationPermutations(requiredEncoderIds, encoderReleasesById);
 
 		for (const modelRelease of modelReleases) {
+			// [EN] Optimization: skip low-priority models on high-end GPUs.
+			// [IT] Ottimizzazione: salta i modelli a bassa priorità su GPU high-end.
 			if (userVram > HIGH_END_VRAM_THRESHOLD && modelRelease.priority < MIN_MODEL_PRIORITY_FOR_HIGH_END) {
 				continue;
 			}
@@ -73,6 +88,8 @@ export function analyzeHardware(
 					let level: AnalysisLevel = 'Rosso';
 					let ramCostForLevel: number = RAM_BASE_OVERHEAD_GB;
 
+					// [EN] Determine compatibility level: Green (fits in VRAM), Yellow (fits with offload), or Red.
+					// [IT] Determina il livello di compatibilità: Verde (entra in VRAM), Giallo (entra con offload), o Rosso.
 					if (totalVramCost <= userVram) {
 						level = 'Verde';
 					} else {
@@ -86,9 +103,10 @@ export function analyzeHardware(
 
 					if (level === 'Rosso') continue;
 
+					// [EN] Hierarchical score for comparing results: priority first, then quality, then cost.
+					// [IT] Punteggio gerarchico per confrontare i risultati: prima la priorità, poi la qualità, poi il costo.
 					const avgEncoderPriority = encoderSet.length > 0 ? encoderSet.reduce((sum, e) => sum + e.priority, 0) / encoderSet.length : 20;
 					const avgEncoderQualityScore = encoderSet.length > 0 ? encoderSet.reduce((sum, e) => sum + e.quality_score, 0) / encoderSet.length : 100;
-
 					const hierarchicalScore = [ modelRelease.priority, modelRelease.quality_score, avgEncoderPriority, avgEncoderQualityScore, -totalVramCost ];
 
 					const currentResult: AnalysisResult = {
@@ -107,6 +125,8 @@ export function analyzeHardware(
 						}
 					};
 
+					// [EN] Compare with the current champion and replace if better.
+					// [IT] Confronta con il campione attuale e sostituiscilo se è migliore.
 					const championToCompare: Champion | null = level === 'Verde' ? bestGreen : bestYellow;
 					let isBetter = false;
 					if (!championToCompare) {
@@ -135,7 +155,8 @@ export function analyzeHardware(
 
 	const HEAVY_OFFLOAD_THRESHOLD_GB = 16;
 
-	// --- MODIFICA: La generazione delle note ora usa chiavi e parametri ---
+	// [EN] Post-process results to add context-specific notes.
+	// [IT] Post-elabora i risultati per aggiungere note specifiche al contesto.
 	finalRecommendations.forEach((r) => {
 		if (r.level === 'Verde') {
 			r.notes.push({ key: 'note_optimal_all_in_vram' });
@@ -151,6 +172,8 @@ export function analyzeHardware(
 		}
 	});
 
+	// [EN] Sort final results for display: by type, then level, then quality.
+	// [IT] Ordina i risultati finali per la visualizzazione: per tipo, poi livello, poi qualità.
 	const modelTypeOrder: Record<string, number> = { 'Image Generation': 1, 'Video Generation': 2, 'LLM': 3 };
 	return finalRecommendations.sort((a, b) => {
 		const typeA = modelTypeOrder[a.modelType] ?? 99;
@@ -162,6 +185,13 @@ export function analyzeHardware(
 	});
 }
 
+/**
+ * [EN] A recursive helper function to generate all possible combinations
+ * of quantizations for a given set of required encoders.
+ * ---
+ * [IT] Una funzione di supporto ricorsiva per generare tutte le possibili
+ * combinazioni di quantizzazioni per un dato set di encoder richiesti.
+ */
 function getQuantizationPermutations(
 	requiredEncoderIds: number[],
 	releasesById: Map<number, EncoderRelease[]>

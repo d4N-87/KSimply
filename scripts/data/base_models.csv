@@ -45,3 +45,6 @@ name,type
 "Wan2.1 14B T2V FusionX","Video Generation"
 "Wan2.1 14B I2V FusionX","Video Generation"
 "Wan2.1 14B VACE FusionX","Video Generation"
+"Wan2.2 A14B T2V (High + Low)","Video Generation"
+"Wan2.2 A14B I2V (High + Low)","Video Generation"
+"Wan2.2 5B TI2V","Video Generation"

@@ -1,8 +1,20 @@
-import { i18n } from '$lib/i18n';
+// src/hooks.server.ts
+import type { Handle } from '@sveltejs/kit';
+import { paraglideMiddleware } from '$paraglide/server';
 
-// TENTATIVO FINALE: Rimuoviamo `sequence`.
-// L'ipotesi è che `i18n.handle()` (ora che è correttamente configurato
-// in `i18n.ts`) restituisca già un handler perfettamente compatibile
-// con SvelteKit. `sequence` potrebbe essere un'inutile complicazione
-// che interferisce con la riscrittura dell'URL.
-export const handle = i18n.handle();
+/**
+ * L'hook `handle` viene eseguito sul server dopo che la rotta è stata trovata.
+ * Usa il middleware di Paraglide per impostare la lingua corretta per la richiesta.
+ */
+export const handle: Handle = ({ event, resolve }) => {
+	return paraglideMiddleware(event.request, ({ request: localizedRequest, locale }) => {
+		event.request = localizedRequest;
+		event.locals.paraglide = { lang: locale };
+
+		return resolve(event, {
+			transformPageChunk: ({ html }) => {
+				return html.replace('%lang%', locale);
+			}
+		});
+	});
+};

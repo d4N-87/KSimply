@@ -1,9 +1,18 @@
+/* [EN] Import custom fonts from Google Fonts. */
+/* [IT] Importa i font personalizzati da Google Fonts. */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Unica+One&display=swap');
 
+/* [EN] Standard Tailwind CSS directives. */
+/* [IT] Direttive standard di Tailwind CSS. */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* 
+  [EN] Base layer for global styles and resets.
+  ---
+  [IT] Layer di base per stili globali e reset.
+*/
 @layer base {
   body {
     background-color: theme('colors.background');
@@ -15,9 +24,17 @@
   }
 }
 
+/* 
+  [EN] Components layer for custom, reusable utility classes.
+  ---
+  [IT] Layer dei componenti per classi di utilità personalizzate e riutilizzabili.
+*/
 @layer components {
-  /* La classe .animated-gradient-text è stata rimossa */
-
+  /* 
+    [EN] Creates a "Heads-Up Display" panel effect with corner borders.
+    ---
+    [IT] Crea un effetto pannello "Heads-Up Display" con bordi angolari.
+  */
   .hud-panel { @apply relative; }
   .hud-panel::before {
     content: ''; position: absolute; width: 1rem; height: 1rem;
@@ -34,6 +51,11 @@
     box-shadow: 0 0 10px theme('colors.primary-accent / 0.5');
   }
 
+  /* 
+    [EN] Custom scrollbar styling for a consistent look and feel.
+    ---
+    [IT] Stile personalizzato per la barra di scorrimento per un aspetto coerente.
+  */
   ::-webkit-scrollbar { width: 8px; }
   ::-webkit-scrollbar-track { background: theme('colors.surface'); }
   ::-webkit-scrollbar-thumb {

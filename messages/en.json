@@ -28,15 +28,15 @@
   "card_composition_title": "Composition:",
   "card_precision": "Precision:",
   "card_analysis_notes": "Analysis Notes:",
-  "results_title_none": "No Results",
-  "results_title_one": "1 Result Found",
-  "results_title_many": "{count} Results Found",
   "note_optimal_all_in_vram": "Optimal solution: all components reside in VRAM.",
   "note_optimal_vram_usage": "Estimated VRAM: {used}GB / {total}GB.",
   "note_possible_offload": "Fallback solution: requires offloading to system RAM.",
-  "note_possible_ram_usage": "Estimated RAM: {used}GB (of which {offloaded}GB is offloaded from VRAM).",
-  "note_warning_heavy_offload": "WARNING: The offload is very heavy. Performance may be low, and there is a higher risk of instability or crashes.",
+  "note_possible_ram_usage": "Estimated RAM: {used}GB (of which {offloaded}GB moved from VRAM).",
+  "note_warning_heavy_offload": "WARNING: The offload is very heavy. Performance may be low and there is a higher risk of instability or crashes.",
   "footer_github": "GitHub",
   "footer_disclaimer": "Disclaimer: The results provided are for illustrative purposes only. Actual performance may vary based on software optimizations, drivers, and specific system configurations.",
-  "footer_version": "KSimply v1.0"
+  "footer_version": "KSimply v1.0",
+  "results_title_none": "No Results",
+  "results_title_one": "1 Result Found",
+  "results_title_many": "{count} Results Found"
 }

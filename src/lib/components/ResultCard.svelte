@@ -2,9 +2,10 @@
 	import * as m from '$paraglide/messages';
 	import type { AnalysisResult, AnalysisLevel, AnalysisNote } from '$lib/core/analyzer';
 
-
 	let { result }: { result: AnalysisResult } = $props();
 
+	// [EN] Style definitions for different analysis levels (Optimal, Possible, etc.).
+	// [IT] Definizioni di stile per i diversi livelli di analisi (Ottimale, Possibile, ecc.).
 	const levelStyles = {
 		Verde: { borderColor: 'border-green-500', textColor: 'text-green-300', badgeBg: 'bg-green-500/20' },
 		Giallo: { borderColor: 'border-amber-500', textColor: 'text-amber-300', badgeBg: 'bg-amber-500/20' },
@@ -12,6 +13,10 @@
 	};
 	const currentStyle = levelStyles[result.level];
 
+	/**
+	 * [EN] Returns the translated text for a given analysis level.
+	 * [IT] Restituisce il testo tradotto per un dato livello di analisi.
+	 */
 	function getLevelText(level: AnalysisLevel) {
 		switch (level) {
 			case 'Verde': return m.card_level_optimal();
@@ -20,11 +25,19 @@
 		}
 	}
 
+	/**
+	 * [EN] Translates an analysis note object by dynamically calling the correct
+	 * Paraglide message function with its parameters.
+	 * [IT] Traduce un oggetto nota di analisi chiamando dinamicamente la funzione
+	 * di messaggio Paraglide corretta con i suoi parametri.
+	 */
 	function translateNote(note: AnalysisNote): string {
 		const messageFunction = m[note.key] as (params: any) => string;
 		return messageFunction(note.params || {});
 	}
 
+	// [EN] Defines different "flavors" for quantization types to style them.
+	// [IT] Definisce diversi "flavor" per i tipi di quantizzazione per stilizzarli.
 	type Flavor = 'GGUF' | 'FP16' | 'FP8' | 'FP4' | 'Virtual' | 'Altro';
 	const flavorStyles: Record<Flavor, string> = {
 		GGUF: 'bg-purple-500/20 text-purple-300 border-purple-500/50',
@@ -35,6 +48,10 @@
 		Altro: 'bg-gray-500/20 text-gray-300 border-gray-500/50'
 	};
 
+	/**
+	 * [EN] Determines the quantization "flavor" from a string name for styling.
+	 * [IT] Determina il "flavor" di quantizzazione da un nome stringa per la stilizzazione.
+	 */
 	function getQuantizationFlavor(quantName: string): Flavor {
 		if (!quantName || quantName === 'N/A') return 'Altro';
 		const lower = quantName.toLowerCase();
@@ -50,7 +67,15 @@
 	const vaeFlavor = getQuantizationFlavor(result.components.vae.quantization);
 </script>
 
+<!-- 
+  [EN] Displays a single analysis result card.
+  It shows the model recipe, compatibility level, resource requirements, and analysis notes.
+  ---
+  [IT] Mostra una singola card con un risultato dell'analisi.
+  Visualizza la ricetta del modello, il livello di compatibilità, i requisiti di risorse e le note di analisi.
+-->
 <div class="hud-panel bg-surface border border-border rounded-lg p-6 shadow-lg transition-all hover:shadow-primary-accent/20 hover:scale-[1.02] flex flex-col h-full">
+	<!-- Header Section -->
 	<div class="flex justify-between items-start">
 		<div>
 			<h3 class="text-xl font-bold text-primary-text">{result.recipeName}</h3>
@@ -61,6 +86,7 @@
 		</span>
 	</div>
 
+	<!-- Component Tags Section -->
 	<div class="mt-3 flex gap-2 flex-wrap">
 		<span class="text-xs border px-2 py-0.5 rounded-full {flavorStyles[modelFlavor]}">
 			{m.card_label_model()} {result.components.quantization.name}
@@ -79,6 +105,7 @@
 		{/if}
 	</div>
 
+	<!-- Main Stats Section -->
 	<div class="mt-4 space-y-3 text-primary-text">
 		<div class="flex items-center justify-between">
 			<span>{m.card_quality_model()}</span>
@@ -94,6 +121,7 @@
 		</div>
 	</div>
 
+	<!-- Composition Breakdown Section -->
 	<div class="mt-4 pt-4 border-t border-border/50">
 		<h4 class="text-sm font-semibold text-secondary-text mb-2">{m.card_composition_title()}</h4>
 		<div class="space-y-2 text-sm">
@@ -119,6 +147,7 @@
 		</div>
 	</div>
 
+	<!-- Analysis Notes Section -->
 	<div class="mt-4 pt-4 border-t border-border/50 flex-grow flex flex-col">
 		<h4 class="text-sm font-semibold text-secondary-text mb-2">{m.card_analysis_notes()}</h4>
 		<ul class="list-disc list-inside space-y-1 text-sm {currentStyle.textColor}">

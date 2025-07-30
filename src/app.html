@@ -1,13 +1,35 @@
 <!doctype html>
-<!-- MODIFICA: Sostituisci lang="en" con i segnaposto di Paraglide -->
-<html lang="%paraglide.lang%" dir="%paraglide.textDirection%">
+<!--
+  [EN] The root HTML document shell.
+  The `lang` and `dir` attributes are dynamically replaced by Paraglide
+  to match the current user's language, which is crucial for accessibility and SEO.
+  ---
+  [IT] Il guscio del documento HTML di root.
+  Gli attributi `lang` e `dir` sono sostituiti dinamicamente da Paraglide
+  per corrispondere alla lingua dell'utente corrente, il che è cruciale per l'accessibilità e la SEO.
+-->
+<html lang="%lang%">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="/ksimply_logo.ico" /> 
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- 
+      [EN] SvelteKit's placeholder for injecting head content like <title>, <meta> tags,
+      and links to CSS files from page components and layouts.
+      ---
+      [IT] Segnaposto di SvelteKit per iniettare contenuto nell'head come tag <title>, <meta>,
+      e link a file CSS dai componenti di pagina e dai layout.
+    -->
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
+		<!-- 
+      [EN] SvelteKit's placeholder where the main application body will be rendered.
+      The `div` with `display: contents` is the standard wrapper.
+      ---
+      [IT] Segnaposto di SvelteKit dove verrà renderizzato il corpo principale dell'applicazione.
+      Il `div` con `display: contents` è il wrapper standard.
+    -->
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>

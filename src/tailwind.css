@@ -1,3 +1,14 @@
+/*
+  [EN] This is the main entry point for Tailwind CSS.
+  These directives inject Tailwind's base styles, component classes,
+  and utility classes into the final CSS build.
+  Custom styles are defined in `app.css`.
+  ---
+  [IT] Questo è il punto di ingresso principale per Tailwind CSS.
+  Queste direttive iniettano gli stili di base, le classi dei componenti
+  e le classi di utilità di Tailwind nel build CSS finale.
+  Gli stili personalizzati sono definiti in `app.css`.
+*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

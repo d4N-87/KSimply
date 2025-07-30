@@ -5,6 +5,8 @@
 	import type { AnalysisResult, AnalysisLevel } from '$lib/core/analyzer';
 	import { Cpu, MemoryStick, Search } from 'lucide-svelte';
 
+	// [EN] Page data loaded from `+page.server.ts`.
+	// [IT] Dati della pagina caricati da `+page.server.ts`.
 	const { data } = $props<{
 		data: {
 			gpus: { id: number; name: string }[];
@@ -12,20 +14,35 @@
 		};
 	}>();
 
-	// Questa ora è una costante semplice. Verrà ricalcolata al cambio di pagina.
+	// [EN] The title is split into characters for a simple animation effect.
+	// [IT] Il titolo viene diviso in caratteri per un semplice effetto di animazione.
 	const titleChars = m.app_title().split('');
 
+	// --- STATE MANAGEMENT (Svelte 5 Runes) ---
+	// [EN] All reactive state for the page is managed here using runes.
+	// [IT] Tutto lo stato reattivo della pagina è gestito qui tramite le runes.
+
+	// [EN] Derived state for a sorted list of model names.
+	// [IT] Stato derivato per una lista ordinata di nomi di modelli.
 	const sortedModelNames = $derived(data.allModelNames.slice().sort((a: string, b: string) => a.localeCompare(b)));
+	
+	// [EN] UI state.
+	// [IT] Stato della UI.
 	const baseClass = 'px-4 py-1 text-sm rounded-full transition-all';
 	let isModelListVisible = $state(false);
 	let selectedGpuName = $state('');
 	let selectedRam = $state<number>(16);
 	const ramOptions = [4, 8, 16, 32, 64, 128, 256];
+	
+	// [EN] Analysis process state.
+	// [IT] Stato del processo di analisi.
 	let isLoading = $state(false);
 	let analysisResults = $state<AnalysisResult[]>([]);
 	let analysisPerformed = $state(false);
 	let progressPercent = $state(0);
 
+	// [EN] State and logic for filtering results by level (Optimal/Possible).
+	// [IT] Stato e logica per filtrare i risultati per livello (Ottimale/Possibile).
 	let activeLevelFilters = $state<Set<AnalysisLevel>>(new Set(['Verde', 'Giallo']));
 	function toggleLevelFilter(level: AnalysisLevel) {
 		const newSet = new Set(activeLevelFilters);
@@ -34,6 +51,8 @@
 		activeLevelFilters = newSet;
 	}
 
+	// [EN] State and logic for filtering results by model type.
+	// [IT] Stato e logica per filtrare i risultati per tipo di modello.
 	let modelTypes = $derived([...new Set(analysisResults.map((r) => r.modelType))]);
 	let activeTypeFilters = $state<Set<string>>(new Set());
 	function toggleTypeFilter(type: string) {
@@ -43,6 +62,8 @@
 		activeTypeFilters = newSet;
 	}
 
+	// [EN] Derived state that automatically computes the filtered results when dependencies change.
+	// [IT] Stato derivato che calcola automaticamente i risultati filtrati quando le dipendenze cambiano.
 	const filteredResults = $derived(
 		analysisResults.filter((result) => {
 			const levelMatch = activeLevelFilters.has(result.level);
@@ -51,12 +72,21 @@
 		})
 	);
 
+	/**
+	 * [EN] Handles the form submission to start the hardware analysis.
+	 * It sends user hardware data to a server action and processes the results.
+	 * ---
+	 * [IT] Gestisce l'invio del form per avviare l'analisi dell'hardware.
+	 * Invia i dati hardware dell'utente a una server action e processa i risultati.
+	 */
 	async function analyzeHardware(event: SubmitEvent) {
 		event.preventDefault();
 		if (!selectedGpuName) {
 			window.alert(m.gpu_select_placeholder());
 			return;
 		}
+		// [EN] Reset state and start loading sequence.
+		// [IT] Resetta lo stato e avvia la sequenza di caricamento.
 		isLoading = true;
 		analysisPerformed = true;
 		analysisResults = [];
@@ -86,7 +116,12 @@
 	}
 </script>
 
+<!-- 
+  [EN] The main content of the application, including the title, input form, and results display.
+  [IT] Il contenuto principale dell'applicazione, inclusi il titolo, il form di input e la visualizzazione dei risultati.
+-->
 <main class="w-full flex flex-col items-center p-4 md:p-8 overflow-x-hidden">
+	<!-- Hero Section -->
 	<div class="text-center max-w-3xl mx-auto mb-16">
 		<h1 class="text-6xl md:text-8xl tracking-wider leading-tight font-display uppercase">
 			{#each titleChars as char, i (char + i)}
@@ -100,6 +135,7 @@
 		</p>
 	</div>
 
+	<!-- Input Form Panel -->
 	<div class="hud-panel bg-surface border border-border rounded-lg p-6 md:p-8 w-full max-w-lg backdrop-blur-sm">
 		<form class="space-y-6" onsubmit={analyzeHardware}>
 			<div>
@@ -138,6 +174,7 @@
 		</form>
 	</div>
 
+	<!-- Toggle for All Models List -->
 	<div class="text-center mt-6">
 		<button onclick={() => (isModelListVisible = !isModelListVisible)} class="text-sm text-primary-accent border border-primary-accent/50 rounded-full px-4 py-2 hover:bg-primary-accent/10 transition-colors">
 			{isModelListVisible ? m.hide_models_button() : m.show_models_button()}
@@ -156,14 +193,17 @@
 		</div>
 	{/if}
 
+	<!-- Results Section -->
 	<div class="w-full max-w-5xl mx-auto mt-16">
 		{#if isLoading}
+			<!-- Loading Bar -->
 			<div class="w-full max-w-lg mx-auto text-center">
 				<div class="w-full bg-surface rounded-full h-4 overflow-hidden border border-border">
 					<div class="h-4 rounded-full transition-all duration-500 ease-in-out animation-stripes bg-secondary-accent" style="width: {progressPercent}%;"></div>
 				</div>
 			</div>
 		{:else if analysisResults.length > 0}
+			<!-- Filters and Results Grid -->
 			<div class="hud-panel mb-8 p-4 bg-surface/50 border border-border rounded-lg space-y-4">
 				<div class="flex items-center gap-4 flex-wrap">
 					<span class="font-semibold text-secondary-text min-w-max">{m.filter_show()}</span>
@@ -205,6 +245,7 @@
 				{/each}
 			</div>
 		{:else if analysisPerformed}
+			<!-- No Results Message -->
 			<div class="text-center bg-surface border border-border p-8 rounded-2xl">
 				<h3 class="text-2xl font-bold text-secondary-accent">{m.no_results_title()}</h3>
 				<p class="mt-2 text-secondary-text">{m.no_results_subtitle()}</p>

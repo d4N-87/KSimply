@@ -1,16 +1,19 @@
-import type { AvailableLanguageTag } from "../../lib/paraglide/runtime"
-import type { ParaglideLocals } from "@inlang/paraglide-sveltekit"
-// See https://svelte.dev/docs/kit/types#app.d.ts
-// for information about these interfaces
+// CORREZIONE: Entrambe le importazioni ora usano l'alias `$paraglide`
+// per puntare al codice generato localmente.
+import type { ParaglideLocals, AvailableLanguageTag } from '$paraglide/runtime';
+
 declare global {
 	namespace App {
-		// interface Error {}
-		 interface Locals {
-    paraglide: ParaglideLocals<AvailableLanguageTag>,
-}
-		// interface PageData {}
-		// interface PageState {}
-		// interface Platform {}
+		/**
+		 * [EN] Augments the SvelteKit `Locals` interface to include Paraglide's context.
+		 * This makes the language context available in `event.locals` for server-side code.
+		 * ---
+		 * [IT] Estende l'interfaccia `Locals` di SvelteKit per includere il contesto di Paraglide.
+		 * Questo rende il contesto della lingua disponibile in `event.locals` per il codice lato server.
+		 */
+		interface Locals {
+			paraglide: ParaglideLocals;
+		}
 	}
 }
 
