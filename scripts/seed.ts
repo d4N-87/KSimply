@@ -1,4 +1,5 @@
-// scripts/seed.ts (VERSIONE AGGIORNATA PER INCLUDERE 'priority')
+// [EN] This script seeds the SQLite database from CSV files.
+// [IT] Questo script popola il database SQLite a partire da file CSV.
 import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
 import fs from 'fs/promises';
@@ -6,9 +7,15 @@ import path from 'path';
 import Papa from 'papaparse';
 import { fileURLToPath } from 'url';
 
+// [EN] Setup to get the correct directory path in an ES module environment.
+// [IT] Setup per ottenere il percorso corretto della directory in un ambiente ES module.
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dataFolderPath = path.join(__dirname, 'data');
 
+/**
+ * [EN] A generic utility to parse a CSV file into an array of objects.
+ * [IT] Una utility generica per parsare un file CSV in un array di oggetti.
+ */
 async function parseCsv<T>(fileName: string): Promise<T[]> {
 	const filePath = path.join(dataFolderPath, fileName);
 	console.log(`   -> Lettura: ${path.basename(filePath)}`);
@@ -27,34 +34,33 @@ async function parseCsv<T>(fileName: string): Promise<T[]> {
 	});
 }
 
+/**
+ * [EN] Main function to orchestrate the entire database seeding process.
+ * [IT] Funzione principale che orchestra l'intero processo di seeding del database.
+ */
 async function seed() {
 	console.log('🌱 Inizio del processo di seeding...');
 	const db = await open({ filename: './ksimply.db', driver: sqlite3.Database });
 	console.log('🔗 Connessione al database stabilita.');
 
-	// --- 1. PULIZIA ---
+	// [EN] Step 1: Clean up existing tables to ensure a fresh start.
+	// [IT] Passo 1: Pulisce le tabelle esistenti per garantire una partenza pulita.
 	console.log('🧹 Pulizia delle tabelle...');
 	await db.exec('PRAGMA foreign_keys = OFF;');
 	const tables = ['model_encoder_compatibility', 'model_vae_compatibility', 'model_releases', 'text_encoder_releases', 'vae_releases', 'gpus', 'base_models', 'text_encoders', 'vaes', 'quantizations'];
-	for (const table of tables) { await db.exec(`DROP TABLE IF EXISTS ${table};`); } // Usiamo DROP per essere sicuri che la nuova struttura venga creata
+	for (const table of tables) { await db.exec(`DROP TABLE IF EXISTS ${table};`); }
 	await db.exec("DELETE FROM sqlite_sequence;");
 	console.log('✅ Tabelle eliminate.');
 	
-	// --- 1.1 CREAZIONE TABELLE ---
+	// [EN] Step 1.1: Recreate the database schema from scratch.
+	// [IT] Passo 1.1: Ricrea lo schema del database da zero.
 	console.log('🏗️ Creazione della nuova struttura delle tabelle...');
 	await db.exec(`
 		CREATE TABLE "base_models" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "name" TEXT NOT NULL UNIQUE, "type" TEXT NOT NULL);
 		CREATE TABLE "gpus" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "name" TEXT NOT NULL UNIQUE, "vram_gb" INTEGER NOT NULL, "family" TEXT, "fp8_support" TEXT, "fp4_support" TEXT);
 		CREATE TABLE "text_encoders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "name" TEXT NOT NULL UNIQUE);
 		CREATE TABLE "vaes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "name" TEXT NOT NULL UNIQUE);
-		
-		CREATE TABLE "quantizations" (
-			"id" INTEGER PRIMARY KEY AUTOINCREMENT,
-			"name" TEXT NOT NULL UNIQUE,
-			"quality_score" INTEGER NOT NULL,
-			"priority" INTEGER NOT NULL DEFAULT 0
-		);
-
+		CREATE TABLE "quantizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "name" TEXT NOT NULL UNIQUE, "quality_score" INTEGER NOT NULL, "priority" INTEGER NOT NULL DEFAULT 0);
 		CREATE TABLE "model_encoder_compatibility" ("model_id" INTEGER NOT NULL, "encoder_id" INTEGER NOT NULL, PRIMARY KEY (model_id, encoder_id), FOREIGN KEY(model_id) REFERENCES base_models(id) ON DELETE CASCADE, FOREIGN KEY(encoder_id) REFERENCES text_encoders(id) ON DELETE CASCADE);
 		CREATE TABLE "model_releases" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "model_id" INTEGER NOT NULL, "quantization_id" INTEGER NOT NULL, "file_size_gb" REAL NOT NULL, FOREIGN KEY(model_id) REFERENCES base_models(id) ON DELETE CASCADE, FOREIGN KEY(quantization_id) REFERENCES quantizations(id) ON DELETE CASCADE);
 		CREATE TABLE "model_vae_compatibility" ("model_id" INTEGER NOT NULL, "vae_id" INTEGER NOT NULL, PRIMARY KEY (model_id, vae_id), FOREIGN KEY(model_id) REFERENCES base_models(id) ON DELETE CASCADE, FOREIGN KEY(vae_id) REFERENCES vaes(id) ON DELETE CASCADE);
@@ -64,8 +70,8 @@ async function seed() {
 	await db.exec('PRAGMA foreign_keys = ON;');
 	console.log('✅ Nuova struttura creata.');
 
-
-	// --- 2. LETTURA DATI DAI CSV ---
+	// [EN] Step 2: Load all data from CSV files into memory.
+	// [IT] Passo 2: Carica tutti i dati dai file CSV in memoria.
 	console.log('🚚 Caricamento dati dai file CSV...');
 	const gpus = await parseCsv<any>('gpus.csv');
 	const base_models = await parseCsv<any>('base_models.csv');
@@ -77,7 +83,8 @@ async function seed() {
 	const vae_releases = await parseCsv<any>('vae_releases.csv');
 	const model_compatibilities = await parseCsv<any>('model_compatibilities.csv');
 
-	// --- 3. POPOLAMENTO ANAGRAFICHE E CREAZIONE MAPPE ---
+	// [EN] Step 3: Populate core tables and create name-to-ID maps for later use.
+	// [IT] Passo 3: Popola le tabelle principali e crea mappe nome-ID per uso futuro.
 	console.log('📝 Inserimento anagrafiche e creazione mappe ID...');
 	const nameToIdMaps: { [key: string]: Map<string, number> } = {};
 	const anagrafiche = [
@@ -85,7 +92,6 @@ async function seed() {
 		{ name: 'base_models', data: base_models, cols: '(name, type)', vals: [':name', ':type'] },
 		{ name: 'text_encoders', data: text_encoders, cols: '(name)', vals: [':name'] },
 		{ name: 'vaes', data: vaes, cols: '(name)', vals: [':name'] },
-		// --- MODIFICA CHIAVE ---
 		{ name: 'quantizations', data: quantizations, cols: '(name, quality_score, priority)', vals: [':name', ':quality_score', ':priority'] }
 	];
 	for (const anag of anagrafiche) {
@@ -107,7 +113,8 @@ async function seed() {
 		console.log(`   -> Inseriti ${itemsFromDb.length} record in ${anag.name}.`);
 	}
 
-	// --- 4. POPOLAMENTO TABELLE "RELEASES" ---
+	// [EN] Step 4: Populate "release" tables, using the maps to link foreign keys.
+	// [IT] Passo 4: Popola le tabelle "release", usando le mappe per collegare le chiavi esterne.
 	console.log('📦 Inserimento delle versioni specifiche (releases)...');
 	for (const release of model_releases) { if(release && release.model_name) { await db.run('INSERT INTO model_releases (model_id, quantization_id, file_size_gb) VALUES (?, ?, ?)', nameToIdMaps['base_models'].get(release.model_name), nameToIdMaps['quantizations'].get(release.quantization_name), release.file_size_gb); }}
 	console.log(`   -> Inserite ${model_releases.length} versioni di modelli.`);
@@ -116,7 +123,8 @@ async function seed() {
 	for (const release of vae_releases) { if(release && release.vae_name) { await db.run('INSERT INTO vae_releases (vae_id, quantization_id, file_size_gb) VALUES (?, ?, ?)', nameToIdMaps['vaes'].get(release.vae_name), nameToIdMaps['quantizations'].get(release.quantization_name), release.file_size_gb); }}
 	console.log(`   -> Inserite ${vae_releases.length} versioni di VAE.`);
 
-	// --- 5. POPOLAMENTO TABELLE DI GIUNZIONE ---
+	// [EN] Step 5: Populate join tables to create compatibility relationships.
+	// [IT] Passo 5: Popola le tabelle di giunzione per creare le relazioni di compatibilità.
 	console.log('🔗 Creazione dei collegamenti di compatibilità...');
 	for (const comp of model_compatibilities) {
 		if (comp && comp.model_name) {
@@ -128,11 +136,14 @@ async function seed() {
 	}
 	console.log('✅ Collegamenti creati con successo.');
 
-	// --- 6. CHIUSURA ---
+	// [EN] Step 6: Close the database connection.
+	// [IT] Passo 6: Chiude la connessione al database.
 	await db.close();
 	console.log('🎉 Processo di seeding completato con successo!');
 }
 
+// [EN] Execute the seed function and handle potential errors.
+// [IT] Esegue la funzione di seed e gestisce i potenziali errori.
 seed().catch((err) => {
 	console.error('❌ Errore durante il processo di seeding:', err);
 	process.exit(1);

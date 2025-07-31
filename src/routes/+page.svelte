@@ -1,12 +1,14 @@
 <script lang="ts">
+	// [EN] Import i18n messages, Svelte transitions, components, types, and icons.
+	// [IT] Importa messaggi i18n, transizioni Svelte, componenti, tipi e icone.
 	import * as m from '$paraglide/messages';
 	import { fly } from 'svelte/transition';
 	import ResultCard from '$lib/components/ResultCard.svelte';
 	import type { AnalysisResult, AnalysisLevel } from '$lib/core/analyzer';
 	import { Cpu, MemoryStick, Search } from 'lucide-svelte';
 
-	// [EN] Page data loaded from `+page.server.ts`.
-	// [IT] Dati della pagina caricati da `+page.server.ts`.
+	// [EN] Page data loaded from the `load` function in `+page.ts` or `+page.server.ts`.
+	// [IT] Dati della pagina caricati dalla funzione `load` in `+page.ts` o `+page.server.ts`.
 	const { data } = $props<{
 		data: {
 			gpus: { id: number; name: string }[];
@@ -14,35 +16,35 @@
 		};
 	}>();
 
-	// [EN] The title is split into characters for a simple animation effect.
-	// [IT] Il titolo viene diviso in caratteri per un semplice effetto di animazione.
+	// [EN] The title is split into characters for a simple hover animation effect.
+	// [IT] Il titolo viene diviso in caratteri per un semplice effetto di animazione al passaggio del mouse.
 	const titleChars = m.app_title().split('');
 
 	// --- STATE MANAGEMENT (Svelte 5 Runes) ---
-	// [EN] All reactive state for the page is managed here using runes.
-	// [IT] Tutto lo stato reattivo della pagina è gestito qui tramite le runes.
+	// [EN] All reactive state for the page is managed here using Svelte 5 runes.
+	// [IT] Tutto lo stato reattivo della pagina è gestito qui tramite le runes di Svelte 5.
 
-	// [EN] Derived state for a sorted list of model names.
-	// [IT] Stato derivato per una lista ordinata di nomi di modelli.
+	// [EN] Derived state for a sorted list of model names. It re-calculates automatically if `data` changes.
+	// [IT] Stato derivato per una lista ordinata di nomi di modelli. Si ricalcola automaticamente se `data` cambia.
 	const sortedModelNames = $derived(data.allModelNames.slice().sort((a: string, b: string) => a.localeCompare(b)));
 	
-	// [EN] UI state.
-	// [IT] Stato della UI.
+	// [EN] UI state variables for user selections and component visibility.
+	// [IT] Variabili di stato della UI per le selezioni dell'utente e la visibilità dei componenti.
 	const baseClass = 'px-4 py-1 text-sm rounded-full transition-all';
 	let isModelListVisible = $state(false);
 	let selectedGpuName = $state('');
 	let selectedRam = $state<number>(16);
 	const ramOptions = [4, 8, 16, 32, 64, 128, 256];
 	
-	// [EN] Analysis process state.
-	// [IT] Stato del processo di analisi.
+	// [EN] State variables to manage the analysis process flow.
+	// [IT] Variabili di stato per gestire il flusso del processo di analisi.
 	let isLoading = $state(false);
 	let analysisResults = $state<AnalysisResult[]>([]);
 	let analysisPerformed = $state(false);
 	let progressPercent = $state(0);
 
-	// [EN] State and logic for filtering results by level (Optimal/Possible).
-	// [IT] Stato e logica per filtrare i risultati per livello (Ottimale/Possibile).
+	// [EN] State for the active level filters (e.g., Optimal, Possible).
+	// [IT] Stato per i filtri di livello attivi (es. Ottimale, Possibile).
 	let activeLevelFilters = $state<Set<AnalysisLevel>>(new Set(['Verde', 'Giallo']));
 	function toggleLevelFilter(level: AnalysisLevel) {
 		const newSet = new Set(activeLevelFilters);
@@ -51,8 +53,8 @@
 		activeLevelFilters = newSet;
 	}
 
-	// [EN] State and logic for filtering results by model type.
-	// [IT] Stato e logica per filtrare i risultati per tipo di modello.
+	// [EN] Derived state for available model types, and state for active type filters.
+	// [IT] Stato derivato per i tipi di modello disponibili e stato per i filtri di tipo attivi.
 	let modelTypes = $derived([...new Set(analysisResults.map((r) => r.modelType))]);
 	let activeTypeFilters = $state<Set<string>>(new Set());
 	function toggleTypeFilter(type: string) {
@@ -62,8 +64,8 @@
 		activeTypeFilters = newSet;
 	}
 
-	// [EN] Derived state that automatically computes the filtered results when dependencies change.
-	// [IT] Stato derivato che calcola automaticamente i risultati filtrati quando le dipendenze cambiano.
+	// [EN] A derived state that automatically computes the filtered results whenever `analysisResults` or the filters change.
+	// [IT] Uno stato derivato che calcola automaticamente i risultati filtrati ogni volta che `analysisResults` o i filtri cambiano.
 	const filteredResults = $derived(
 		analysisResults.filter((result) => {
 			const levelMatch = activeLevelFilters.has(result.level);
@@ -74,10 +76,10 @@
 
 	/**
 	 * [EN] Handles the form submission to start the hardware analysis.
-	 * It sends user hardware data to a server action and processes the results.
+	 * It sends user hardware data to the root server endpoint and processes the results.
 	 * ---
 	 * [IT] Gestisce l'invio del form per avviare l'analisi dell'hardware.
-	 * Invia i dati hardware dell'utente a una server action e processa i risultati.
+	 * Invia i dati hardware dell'utente all'endpoint server di root e processa i risultati.
 	 */
 	async function analyzeHardware(event: SubmitEvent) {
 		event.preventDefault();
@@ -85,8 +87,6 @@
 			window.alert(m.gpu_select_placeholder());
 			return;
 		}
-		// [EN] Reset state and start loading sequence.
-		// [IT] Resetta lo stato e avvia la sequenza di caricamento.
 		isLoading = true;
 		analysisPerformed = true;
 		analysisResults = [];
@@ -117,11 +117,12 @@
 </script>
 
 <!-- 
-  [EN] The main content of the application, including the title, input form, and results display.
-  [IT] Il contenuto principale dell'applicazione, inclusi il titolo, il form di input e la visualizzazione dei risultati.
+  [EN] The main page component, responsible for user input and displaying analysis results.
+  [IT] Il componente della pagina principale, responsabile dell'input utente e della visualizzazione dei risultati dell'analisi.
 -->
 <main class="w-full flex flex-col items-center p-4 md:p-8 overflow-x-hidden">
-	<!-- Hero Section -->
+	<!-- [EN] Hero section with title and subtitle. -->
+	<!-- [IT] Sezione "Hero" con titolo e sottotitolo. -->
 	<div class="text-center max-w-3xl mx-auto mb-16">
 		<h1 class="text-6xl md:text-8xl tracking-wider leading-tight font-display uppercase">
 			{#each titleChars as char, i (char + i)}
@@ -135,7 +136,8 @@
 		</p>
 	</div>
 
-	<!-- Input Form Panel -->
+	<!-- [EN] The main form for hardware selection. -->
+	<!-- [IT] Il form principale per la selezione dell'hardware. -->
 	<div class="hud-panel bg-surface border border-border rounded-lg p-6 md:p-8 w-full max-w-lg backdrop-blur-sm">
 		<form class="space-y-6" onsubmit={analyzeHardware}>
 			<div>
@@ -174,7 +176,8 @@
 		</form>
 	</div>
 
-	<!-- Toggle for All Models List -->
+	<!-- [EN] A toggle button to show/hide the full list of models in the database. -->
+	<!-- [IT] Un pulsante per mostrare/nascondere la lista completa dei modelli nel database. -->
 	<div class="text-center mt-6">
 		<button onclick={() => (isModelListVisible = !isModelListVisible)} class="text-sm text-primary-accent border border-primary-accent/50 rounded-full px-4 py-2 hover:bg-primary-accent/10 transition-colors">
 			{isModelListVisible ? m.hide_models_button() : m.show_models_button()}
@@ -193,17 +196,18 @@
 		</div>
 	{/if}
 
-	<!-- Results Section -->
+	<!-- [EN] This section conditionally renders the loading state, the results, or a "no results" message. -->
+	<!-- [IT] Questa sezione renderizza condizionalmente lo stato di caricamento, i risultati o un messaggio di "nessun risultato". -->
 	<div class="w-full max-w-5xl mx-auto mt-16">
 		{#if isLoading}
-			<!-- Loading Bar -->
 			<div class="w-full max-w-lg mx-auto text-center">
 				<div class="w-full bg-surface rounded-full h-4 overflow-hidden border border-border">
 					<div class="h-4 rounded-full transition-all duration-500 ease-in-out animation-stripes bg-secondary-accent" style="width: {progressPercent}%;"></div>
 				</div>
 			</div>
 		{:else if analysisResults.length > 0}
-			<!-- Filters and Results Grid -->
+			<!-- [EN] Filters and grid for displaying analysis results. -->
+			<!-- [IT] Filtri e griglia per la visualizzazione dei risultati dell'analisi. -->
 			<div class="hud-panel mb-8 p-4 bg-surface/50 border border-border rounded-lg space-y-4">
 				<div class="flex items-center gap-4 flex-wrap">
 					<span class="font-semibold text-secondary-text min-w-max">{m.filter_show()}</span>
@@ -230,6 +234,8 @@
 				{/if}
 			</div>
 
+			<!-- [EN] Dynamically displays the result count title using i18n messages. -->
+			<!-- [IT] Mostra dinamicamente il titolo del conteggio dei risultati usando i messaggi i18n. -->
 			<h2 class="text-3xl font-bold text-center mb-8">
 				{#if filteredResults.length === 0}
 					{m.results_title_none()}
@@ -245,7 +251,8 @@
 				{/each}
 			</div>
 		{:else if analysisPerformed}
-			<!-- No Results Message -->
+			<!-- [EN] Message displayed when analysis is done but yields no compatible models. -->
+			<!-- [IT] Messaggio visualizzato quando l'analisi è completata ma non produce modelli compatibili. -->
 			<div class="text-center bg-surface border border-border p-8 rounded-2xl">
 				<h3 class="text-2xl font-bold text-secondary-accent">{m.no_results_title()}</h3>
 				<p class="mt-2 text-secondary-text">{m.no_results_subtitle()}</p>
