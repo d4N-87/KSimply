@@ -130,6 +130,9 @@ The application will now be available at `http://localhost:5173`.
 
 [![Donate with PayPal](https://raw.githubusercontent.com/stefan-niedermann/paypal-donate-button/master/paypal-donate-button.png)](https://paypal.me/d4n87?country.x=IT&locale.x=it_IT)
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=d4N-87/KSimply&type=Date)](https://www.star-history.com/#d4N-87/KSimply&Date)
 
 ---
 
