@@ -17,7 +17,7 @@
 	<div class="max-w-2xl mx-auto">
 		<div class="flex justify-center items-center gap-4 mb-4">
 			<a
-				href="https://github.com/d4N-87"
+				href="https://github.com/d4N-87/KSimply"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="flex items-center gap-2 hover:text-primary-accent transition-colors"
