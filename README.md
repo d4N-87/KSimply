@@ -26,7 +26,7 @@
 
 ## 🖼️ Anteprima / Preview
 
-| 🇮🇹 Form di Input / 🇬🇧 Input Form | 🇮🇹 Risultati / 🇬🇧 Results | 🇮🇹 Filtri / 🇬🇧 Filters |
+| 🇮🇹 Form di Input / 🇬🇧 Input Form | 🇮🇹 Analisi / 🇬🇧 Analyses | 🇮🇹 Filtri / 🇬🇧 Filters |
 | :---: | :---: | :---: |
 | <img src="https://raw.githubusercontent.com/d4N-87/KSimply/main/.github/assets/screenshot_01.png" alt="Schermata di input" width="100%"> | <img src="https://raw.githubusercontent.com/d4N-87/KSimply/main/.github/assets/screenshot_02.png" alt="Schermata dei risultati" width="100%"> | <img src="https://raw.githubusercontent.com/d4N-87/KSimply/main/.github/assets/screenshot_03.png" alt="Filtri e lista modelli" width="100%"> |
 
