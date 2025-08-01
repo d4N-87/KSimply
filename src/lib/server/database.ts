@@ -1,70 +1,48 @@
-import initSqlJs, { type Database, type SqlJsStatic } from 'sql.js';
-import fs from 'fs/promises';
-import path from 'path';
+// src/lib/server/database.ts
 
-let SQL: SqlJsStatic | null = null;
-// [EN] We store the Promise that resolves to the database instance, not the instance itself.
-// This prevents race conditions during initialization.
-// ---
-// [IT] Memorizziamo la Promise che risolve l'istanza del database, non l'istanza stessa.
-// Questo previene race conditions durante l'inizializzazione.
-let dbPromise: Promise<Database> | null = null;
+// [EN] Import the Turso client for production and Node.js environment variables.
+// [IT] Importa il client Turso per la produzione e le variabili d'ambiente di Node.js.
+import { createClient } from '@libsql/client';
+const { TURSO_DATABASE_URL, TURSO_AUTH_TOKEN, VERCEL_ENV } = process.env;
+
+// [EN] Reliably detect if the app is running in a Vercel production environment.
+// [IT] Rileva in modo affidabile se l'app è in esecuzione in un ambiente di produzione Vercel.
+const isProduction = VERCEL_ENV === 'production';
+
+// [EN] A singleton instance to hold the database connection client.
+// [IT] Un'istanza singleton per mantenere il client di connessione al database.
+let db: any;
 
 /**
- * [EN] Initializes the SQL.js instance and loads the database file into memory.
- * This function is designed to be called only once.
+ * [EN] Database connection helper (singleton).
+ * It connects to Turso in production or dynamically loads the local SQLite
+ * driver for development. This prevents the local driver from being bundled in production.
  * ---
- * [IT] Inizializza l'istanza di SQL.js e carica il file del database in memoria.
- * Questa funzione è progettata per essere chiamata una sola volta.
- * @returns A Promise that resolves to the database instance.
+ * [IT] Helper per la connessione al database (singleton).
+ * Si connette a Turso in produzione o carica dinamicamente il driver SQLite
+ * locale per lo sviluppo. Questo impedisce che il driver locale venga incluso nel bundle di produzione.
  */
-async function initializeDatabase(): Promise<Database> {
-	try {
-		if (!SQL) {
-			// [EN] Locate and load the .wasm file required by SQL.js.
-			// [IT] Individua e carica il file .wasm richiesto da SQL.js.
-			const wasmPath = path.join(process.cwd(), 'node_modules/sql.js/dist/sql-wasm.wasm');
-			const wasmBinaryFile = await fs.readFile(wasmPath);
-			const wasmBinary = wasmBinaryFile.buffer; 
-			
-			SQL = await initSqlJs({ wasmBinary: wasmBinary as ArrayBuffer });
+export async function getDb() {
+	if (db) return db;
+
+	if (isProduction) {
+		// --- PRODUCTION ENVIRONMENT (Vercel) ---
+		console.log('[DB Helper] Production environment detected. Connecting to Turso...');
+		if (!TURSO_DATABASE_URL || !TURSO_AUTH_TOKEN) {
+			throw new Error('Database environment variables are not set in production.');
 		}
-
-		// [EN] Load the physical database file from disk.
-		// [IT] Carica il file fisico del database dal disco.
-		const dbFileBuffer = await fs.readFile('ksimply.db');
-		const db = new SQL.Database(dbFileBuffer);
-		console.log('[DB Helper] Database caricato in memoria con successo.');
-		return db;
-	} catch (error) {
-		console.error('[DB Helper] Errore critico durante il caricamento del database:', error);
-		// [EN] Reset the promise on failure to allow for a retry on the next call.
-		// [IT] Resetta la promise in caso di fallimento per permettere un nuovo tentativo alla prossima chiamata.
-		dbPromise = null; 
-		throw new Error('Impossibile caricare il database.');
+		db = createClient({ url: TURSO_DATABASE_URL, authToken: TURSO_AUTH_TOKEN });
+	} else {
+		// --- DEVELOPMENT ENVIRONMENT (Local) ---
+		console.log('[DB Helper] Development environment detected. Connecting to local SQLite file...');
+		// [EN] Dynamically import local DB packages to avoid bundling them in production.
+		// [IT] Importa dinamicamente i pacchetti DB locali per evitare di includerli nel bundle di produzione.
+		const { open } = await import('sqlite');
+		const sqlite3 = await import('sqlite3');
+		db = await open({
+			filename: './ksimply.db',
+			driver: sqlite3.default.Database
+		});
 	}
-}
-
-/**
- * [EN] Gets a connection to the database.
- * It handles initialization atomically to prevent race conditions.
- * This is an asynchronous singleton pattern.
- * ---
- * [IT] Ottiene una connessione al database.
- * Gestisce l'inizializzazione in modo atomico per prevenire race conditions.
- * Questo è un pattern singleton asincrono.
- * @returns A Promise that resolves to the database instance.
- */
-export function getDb(): Promise<Database> {
-	if (!dbPromise) {
-		// [EN] If no initialization is in progress, start one.
-		// [IT] Se nessuna inizializzazione è in corso, ne avviamo una.
-		dbPromise = initializeDatabase();
-	}
-	// [EN] Always return the promise. Subsequent calls while the first is loading
-	// will receive the same promise and wait for it to resolve.
-	// ---
-	// [IT] Restituiamo sempre la promise. Le chiamate successive mentre la prima
-	// sta ancora caricando riceveranno la stessa promise e attenderanno che si risolva.
-	return dbPromise;
+	return db;
 }

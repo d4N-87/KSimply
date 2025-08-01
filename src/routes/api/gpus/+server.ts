@@ -1,34 +1,30 @@
-// [EN] API endpoint to retrieve a list of all available GPUs.
-// [IT] Endpoint API per recuperare la lista di tutte le GPU disponibili.
-// Path: src/routes/api/gpus/+server.ts
+// src/routes/api/gpus/+server.ts
 
+// [EN] Import SvelteKit's JSON helper and our database helper.
+// [IT] Importa l'helper JSON di SvelteKit e il nostro helper per il database.
 import { json } from '@sveltejs/kit';
 import { getDb } from '$lib/server/database';
 
+// [EN] Reliably detect if the app is running in a Vercel production environment.
+// [IT] Rileva in modo affidabile se l'app è in esecuzione in un ambiente di produzione Vercel.
+const isProduction = process.env.VERCEL_ENV === 'production';
+
 /**
- * [EN] Handles GET requests to fetch and return a sorted list of GPUs from the database.
- * It uses a singleton database connection helper to ensure efficiency.
- * ---
- * [IT] Gestisce le richieste GET per recuperare e restituire una lista ordinata di GPU dal database.
- * Utilizza un helper per la connessione al database (singleton) per garantire l'efficienza.
+ * [EN] Handles GET requests to fetch and return a sorted list of GPUs.
+ * [IT] Gestisce le richieste GET per recuperare e restituire una lista ordinata di GPU.
  */
 export async function GET() {
 	try {
-		// [EN] Get a memoized database connection instance.
-		// [IT] Ottiene un'istanza memoizzata della connessione al database.
 		const db = await getDb();
+		const sql = 'SELECT id, name FROM gpus ORDER BY name ASC';
 
-		// [EN] Prepare and execute the SQL query to select all GPUs.
-		// [IT] Prepara ed esegue la query SQL per selezionare tutte le GPU.
-		const stmt = db.prepare('SELECT id, name FROM gpus ORDER BY name ASC');
-		const gpus = [];
-		while (stmt.step()) {
-			gpus.push(stmt.getAsObject());
-		}
-		stmt.free();
+		// [EN] Use the correct method to fetch all rows based on the environment.
+		// The Turso client returns results in a `rows` property, while the local client returns an array directly.
+		// ---
+		// [IT] Usa il metodo corretto per recuperare tutte le righe in base all'ambiente.
+		// Il client Turso restituisce i risultati in una proprietà `rows`, mentre il client locale restituisce direttamente un array.
+		const gpus = isProduction ? (await db.execute(sql)).rows : await db.all(sql);
 
-		// [EN] The database connection is intentionally left open for subsequent requests.
-		// [IT] La connessione al database viene lasciata intenzionalmente aperta per le richieste successive.
 		return json(gpus);
 	} catch (error) {
 		console.error('[API /api/gpus] Errore:', error);
