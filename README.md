@@ -146,4 +146,4 @@ The application will now be available at `http://localhost:5173`.
 [license-shield]: https://img.shields.io/github/license/d4N-87/KSimply?style=for-the-badge
 [license-url]: https://github.com/d4N-87/KSimply/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/tuo-profilo/
+[linkedin-url]: https://www.linkedin.com/in/danielenofi
