@@ -1,6 +1,6 @@
 name,vram_gb,family,fp8_support,fp4_support
 # --- RTX 50 Series (Desktop) ---
-RTX 5090 24GB,24,rtx-50-desktop,native,native
+RTX 5090 32GB,32,rtx-50-desktop,native,native
 RTX 5080 16GB,16,rtx-50-desktop,native,native
 RTX 5070 Ti 16GB,16,rtx-50-desktop,native,native
 RTX 5070 12GB,12,rtx-50-desktop,native,native
