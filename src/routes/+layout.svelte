@@ -19,10 +19,19 @@
   Include un'animazione di sfondo e impila l'Header, il contenuto principale e il Footer.
 -->
 <div class="relative min-h-screen">
-    <!-- [EN] Background canvas for the neural network animation. -->
-	<!-- [IT] Canvas di sfondo per l'animazione della rete neurale. -->
-    <div class="absolute inset-0 z-0">
+    <!-- 
+      [EN] Background container with the animation and a gradient overlay for a fade-out effect.
+      [IT] Contenitore di sfondo con l'animazione e un velo con gradiente per un effetto di sfumatura.
+    -->
+    <div class="fixed inset-0 z-0">
+        <!-- [EN] The p5.js canvas animation component. -->
+        <!-- [IT] Il componente dell'animazione canvas di p5.js. -->
         <NeuralNetwork />
+
+        <!-- [EN] GRADIENT OVERLAY: This div sits on top of the canvas. -->
+        <!-- [IT] VELO CON GRADIENTE: Questo div è posizionato sopra il canvas. -->
+        <div class="absolute inset-0 z-10 [background-image:linear-gradient(to_bottom,transparent_70%,#030b17_100%)]">            
+        </div>
     </div>
     <!-- [EN] Main content container, stacked above the background. -->
 	<!-- [IT] Contenitore del contenuto principale, posizionato sopra lo sfondo. -->

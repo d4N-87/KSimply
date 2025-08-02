@@ -6,4 +6,4 @@
  * Modificando un valore qui, verrà aggiornato in tutto il sito.
  */
 
-export const APP_VERSION = 'v1.0';
+export const APP_VERSION = 'v1.0.1';

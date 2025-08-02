@@ -64,4 +64,13 @@
     border: 2px solid theme('colors.surface');
   }
   ::-webkit-scrollbar-thumb:hover { background-color: theme('colors.secondary-accent'); }
+
+  /*
+  [EN] Adds a fade-out effect to the bottom of the background animation container.
+  [IT] Aggiunge un effetto di sfumatura in fondo al contenitore dell'animazione di sfondo.
+  */
+  .animation-fade-out {
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
 }

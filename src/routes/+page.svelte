@@ -34,7 +34,7 @@
 	let isModelListVisible = $state(false);
 	let selectedGpuName = $state('');
 	let selectedRam = $state<number>(16);
-	const ramOptions = [4, 8, 16, 32, 64, 128, 256];
+	const ramOptions = [4, 8, 16, 24, 32, 48, 64, 96, 128, 256];
 	
 	// [EN] State variables to manage the analysis process flow.
 	// [IT] Variabili di stato per gestire il flusso del processo di analisi.
