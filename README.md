@@ -1,6 +1,6 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/d4N-87/KSimply/main/static/logo.png" alt="KSimply Logo" width="200"/>
-  <h1>KSimply v1.0</h1>
+  <h1>KSimply</h1>
   <p><strong>🇮🇹 Un analizzatore di potenziale AI che consiglia modelli open source in base all'hardware dell'utente.</strong></p>
   <p><strong>🇬🇧 An AI Potential Analyzer that recommends open-source models based on user hardware.</strong></p>
 </div>
