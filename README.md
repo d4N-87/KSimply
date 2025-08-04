@@ -1,6 +1,6 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/d4N-87/KSimply/main/static/logo.png" alt="KSimply Logo" width="200"/>
-  <h1>KSimply v1.0</h1>
+  <h1>KSimply</h1>
   <p><strong>🇮🇹 Un analizzatore di potenziale AI che consiglia modelli open source in base all'hardware dell'utente.</strong></p>
   <p><strong>🇬🇧 An AI Potential Analyzer that recommends open-source models based on user hardware.</strong></p>
 </div>
@@ -130,7 +130,7 @@ The application will now be available at `http://localhost:5173`.
 
 [![Donate with PayPal](https://raw.githubusercontent.com/stefan-niedermann/paypal-donate-button/master/paypal-donate-button.png)](https://paypal.me/d4n87?country.x=IT&locale.x=it_IT)
 
-## Star History
+# Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=d4N-87/KSimply&type=Date)](https://www.star-history.com/#d4N-87/KSimply&Date)
 
