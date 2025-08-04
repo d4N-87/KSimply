@@ -57,6 +57,10 @@
 	// [IT] Stato derivato per i tipi di modello disponibili e stato per i filtri di tipo attivi.
 	let modelTypes = $derived([...new Set(analysisResults.map((r) => r.modelType))]);
 	let activeTypeFilters = $state<Set<string>>(new Set());
+	
+	// [EN] State for the model name text filter.
+	// [IT] Stato per il filtro testuale del nome modello.
+	let modelNameFilter = $state('');	
 	function toggleTypeFilter(type: string) {
 		const newSet = new Set(activeTypeFilters);
 		if (newSet.has(type)) newSet.delete(type);
@@ -67,11 +71,17 @@
 	// [EN] A derived state that automatically computes the filtered results whenever `analysisResults` or the filters change.
 	// [IT] Uno stato derivato che calcola automaticamente i risultati filtrati ogni volta che `analysisResults` o i filtri cambiano.
 	const filteredResults = $derived(
-		analysisResults.filter((result) => {
-			const levelMatch = activeLevelFilters.has(result.level);
-			const typeMatch = activeTypeFilters.size === 0 || activeTypeFilters.has(result.modelType);
-			return levelMatch && typeMatch;
-		})
+    	analysisResults.filter((result) => {
+        	const levelMatch = activeLevelFilters.has(result.level);
+        	const typeMatch = activeTypeFilters.size === 0 || activeTypeFilters.has(result.modelType);
+        
+        	// [EN] Add the new condition for the name filter.
+        	// [IT] Aggiunge la nuova condizione per il filtro sul nome.
+        	const nameMatch = modelNameFilter.trim() === '' || 
+                          		result.recipeName.toLowerCase().includes(modelNameFilter.toLowerCase());
+
+        	return levelMatch && typeMatch && nameMatch;
+    	})
 	);
 
 	/**
@@ -232,6 +242,23 @@
 						</div>
 					</div>
 				{/if}
+
+				<!-- [EN] New filter row for searching by model name. -->
+    			<!-- [IT] Nuova riga di filtri per la ricerca per nome modello. -->
+    			<div class="flex items-center gap-4 flex-wrap pt-2">
+       				<label for="modelNameFilter" class="font-semibold text-secondary-text min-w-max">
+            			{m.filter_results_label()}
+        			</label>
+        		<div class="relative flex-grow">
+            		<input
+                		type="text"
+                		id="modelNameFilter"
+                		placeholder={m.filter_placeholder()}
+                		bind:value={modelNameFilter}
+                		class="w-full bg-transparent border-2 border-border rounded-md px-3 py-2 text-primary-text focus:ring-2 focus:ring-primary-accent focus:border-primary-accent transition"
+            		/>
+        		</div>
+    		</div>
 			</div>
 
 			<!-- [EN] Dynamically displays the result count title using i18n messages. -->

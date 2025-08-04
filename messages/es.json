@@ -38,5 +38,7 @@
   "footer_version": "KSimply v1.0",
   "results_title_none": "Sin Resultados",
   "results_title_one": "1 Resultado Encontrado",
-  "results_title_many": "{count} Resultados Encontrados"
+  "results_title_many": "{count} Resultados Encontrados",
+  "filter_results_label": "Filtro por nombre:",
+  "filter_placeholder": "Escribir para filtrar los resultados..."
 }

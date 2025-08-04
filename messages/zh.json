@@ -38,5 +38,7 @@
   "footer_version": "KSimply v1.0",
   "results_title_none": "没有结果",
   "results_title_one": "找到 1 个结果",
-  "results_title_many": "找到 {count} 个结果"
+  "results_title_many": "找到 {count} 个结果",
+  "filter_results_label": "按名称筛选结果：",
+  "filter_placeholder": "输入以筛选结果..."
 }

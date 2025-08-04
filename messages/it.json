@@ -37,5 +37,7 @@
   "footer_disclaimer": "Disclaimer: I risultati forniti sono a titolo puramente esemplificativo. Le performance reali possono variare in base a ottimizzazioni software, driver e configurazioni specifiche del sistema.",
   "results_title_none": "Nessun Risultato",
   "results_title_one": "1 Risultato Trovato",
-  "results_title_many": "{count} Risultati Trovati"
+  "results_title_many": "{count} Risultati Trovati",
+  "filter_results_label": "Filtra per nome:",
+  "filter_placeholder": "Scrivi per filtrare i risultati..."
 }
