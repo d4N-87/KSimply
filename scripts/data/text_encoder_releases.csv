@@ -65,3 +65,18 @@ encoder_name,quantization_name,file_size_gb
 "UMT5-xxl",Q8_0,6.04
 # --- Llava Llama 3 Vision --
 "Llava Llama 3 Vision",FP16,0.649
+# --- Qwen2.5 VL 7B --
+"Qwen2.5 VL 7B",FP16,16.6
+"Qwen2.5 VL 7B",FP8 scaled,9.38
+"Qwen2.5 VL 7B",Q2_K,3.02
+"Qwen2.5 VL 7B",Q2_K_L,3.14
+"Qwen2.5 VL 7B",Q3_K_M,3.81
+"Qwen2.5 VL 7B",Q3_K_S,3.49
+"Qwen2.5 VL 7B",Q4_0,4.44
+"Qwen2.5 VL 7B",Q4_1,4.87
+"Qwen2.5 VL 7B",Q4_K_M,4.68
+"Qwen2.5 VL 7B",Q4_K_S,4.46
+"Qwen2.5 VL 7B",Q5_K_M,5.44
+"Qwen2.5 VL 7B",Q5_K_S,5.32
+"Qwen2.5 VL 7B",Q6_K,6.25
+"Qwen2.5 VL 7B",Q8_0,8.1
