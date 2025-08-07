@@ -5,4 +5,4 @@ vae_name,quantization_name,file_size_gb
 "SD3.5 VAE",FP16,0.168
 "Wan2.1 VAE",FP16,0.254
 "Wan2.2 VAE",FP16,1.41
-"Qwen-Image VAE",FP16,254
+"Qwen-Image VAE",FP16,0.254
