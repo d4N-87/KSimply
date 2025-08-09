@@ -8,6 +8,7 @@
 <div align="center">
 
 [![Stargazers][stars-shield]][stars-url]
+[![Release Version Badge](https://img.shields.io/github/v/release/d4N-87/KSimply?style=for-the-badge)](https://github.com/d4N-87/KSimply/releases)
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
