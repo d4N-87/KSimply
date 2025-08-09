@@ -141,10 +141,36 @@ async function seed() {
 	console.log('🔗 Creazione dei collegamenti di compatibilità...');
 	for (const comp of model_compatibilities) {
 		if (comp && comp.model_name) {
+			process.stdout.write(`- Analisi compatibilità per il modello: "${comp.model_name}"... `);
 			const modelId = nameToIdMaps['base_models'].get(comp.model_name);
-			if (!modelId) continue;
-			for (const teName of comp.compatible_text_encoders.split('|')) { const teId = nameToIdMaps['text_encoders'].get(teName.trim()); if (teId) { await db.run('INSERT OR IGNORE INTO model_encoder_compatibility (model_id, encoder_id) VALUES (?, ?)', modelId, teId); } }
-			for (const vaeName of comp.compatible_vaes.split('|')) { const vaeId = nameToIdMaps['vaes'].get(vaeName.trim()); if (vaeId) { await db.run('INSERT OR IGNORE INTO model_vae_compatibility (model_id, vae_id) VALUES (?, ?)', modelId, vaeId); } }
+
+			if (!modelId) {
+				process.stdout.write(`ERRORE: Modello base non trovato!\n`);
+				continue;
+			}
+
+			const encoders = comp.compatible_text_encoders.split('|');
+			for (const teName of encoders) {
+				const trimmedTeName = teName.trim();
+				const teId = nameToIdMaps['text_encoders'].get(trimmedTeName);
+				if (teId) {
+					await db.run('INSERT OR IGNORE INTO model_encoder_compatibility (model_id, encoder_id) VALUES (?, ?)', modelId, teId);
+				} else {
+					process.stdout.write(`ERRORE: Text Encoder "${trimmedTeName}" non trovato! `);
+				}
+			}
+
+			const vaes = comp.compatible_vaes.split('|');
+			for (const vaeName of vaes) {
+				const trimmedVaeName = vaeName.trim();
+				const vaeId = nameToIdMaps['vaes'].get(trimmedVaeName);
+				if (vaeId) {
+					await db.run('INSERT OR IGNORE INTO model_vae_compatibility (model_id, vae_id) VALUES (?, ?)', modelId, vaeId);
+				} else {
+					process.stdout.write(`ERRORE: VAE "${trimmedVaeName}" non trovato! `);
+				}
+			}
+			process.stdout.write('OK\n');
 		}
 	}
 	console.log('✅ Collegamenti creati con successo.');
