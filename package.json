@@ -16,6 +16,7 @@
 		"test": "npm run test:unit -- --run && npm run test:e2e",
 		"test:e2e": "playwright test",
 		"db:seed": "npx tsx scripts/seed.ts",
+		"db:seed:prod": "npx tsx scripts/seed-prod.ts",
 		"paraglide:compile": "paraglide-js compile --project ./project.inlang",
 		"machine-translate": "inlang machine translate --project project.inlang"
 	},
@@ -34,6 +35,7 @@
 		"@types/papaparse": "^5.3.16",
 		"@types/sql.js": "^1.4.9",
 		"autoprefixer": "^10.4.21",
+		"dotenv": "^17.2.1",
 		"eslint": "^9.18.0",
 		"eslint-config-prettier": "^10.0.1",
 		"eslint-plugin-svelte": "^3.0.0",
