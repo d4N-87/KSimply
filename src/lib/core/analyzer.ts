@@ -51,11 +51,53 @@ export function analyzeHardware(
 	const baseModels = [...new Map(rawData.models.map((m) => [m.model_id, m])).values()].map((m) => ({ id: m.model_id, name: m.model_name, type: m.model_type as 'Image Generation' | 'Video Generation' | 'LLM' }));
 	const modelReleasesById = new Map<number, ModelRelease[]>();
 	for (const model of rawData.models) { if (!modelReleasesById.has(model.model_id)) modelReleasesById.set(model.model_id, []); modelReleasesById.get(model.model_id)!.push(model); }
+	// [EN] Create a map of required encoder IDs for each model.
+	// [IT] Crea una mappa degli ID degli encoder richiesti per ogni modello.
 	const requiredEncoderIdsByModelId = new Map<number, number[]>();
+	for (const enc of rawData.encoders) {
+		if (!requiredEncoderIdsByModelId.has(enc.compatible_with_model_id)) {
+			requiredEncoderIdsByModelId.set(enc.compatible_with_model_id, []);
+		}
+		const reqList = requiredEncoderIdsByModelId.get(enc.compatible_with_model_id)!;
+		if (!reqList.includes(enc.encoder_id)) {
+			reqList.push(enc.encoder_id);
+		}
+	}
+
+	// [EN] Create a map of all available releases for each encoder, avoiding duplicates.
+	// [IT] Crea una mappa di tutte le versioni disponibili per ogni encoder, evitando duplicati.
 	const encoderReleasesById = new Map<number, EncoderRelease[]>();
-	for (const enc of rawData.encoders) { if (!requiredEncoderIdsByModelId.has(enc.compatible_with_model_id)) requiredEncoderIdsByModelId.set(enc.compatible_with_model_id, []); const reqList = requiredEncoderIdsByModelId.get(enc.compatible_with_model_id)!; if (!reqList.includes(enc.encoder_id)) reqList.push(enc.encoder_id); if (!encoderReleasesById.has(enc.encoder_id)) encoderReleasesById.set(enc.encoder_id, []); encoderReleasesById.get(enc.encoder_id)!.push(enc); }
+	const seenEncoderReleases = new Set<number>();
+	for (const enc of rawData.encoders) {
+		if (!encoderReleasesById.has(enc.encoder_id)) {
+			encoderReleasesById.set(enc.encoder_id, []);
+		}
+		// [EN] The raw data might have duplicates if an encoder is used by multiple models, so we check.
+		// [IT] I dati grezzi potrebbero avere duplicati se un encoder è usato da più modelli, quindi controlliamo.
+		if (!seenEncoderReleases.has(enc.id)) {
+			encoderReleasesById.get(enc.encoder_id)!.push(enc);
+			seenEncoderReleases.add(enc.id);
+		}
+	}
+	// [EN] Create a map of VAE releases for each compatible model, avoiding duplicates.
+	// [IT] Crea una mappa delle versioni di VAE per ogni modello compatibile, evitando duplicati.
 	const vaeReleasesByModelId = new Map<number, VaeRelease[]>();
-	for (const vae of rawData.vaes) { if (!vaeReleasesByModelId.has(vae.compatible_with_model_id)) vaeReleasesByModelId.set(vae.compatible_with_model_id, []); vaeReleasesByModelId.get(vae.compatible_with_model_id)!.push(vae); }
+	const seenVaeCompatibilities = new Set<string>();
+	for (const vae of rawData.vaes) {
+		// [EN] Use a composite key to uniquely identify a VAE release for a specific model compatibility.
+		// [IT] Usa una chiave composita per identificare univocamente un rilascio VAE per una specifica compatibilità di modello.
+		const compositeKey = `${vae.id}-${vae.compatible_with_model_id}`;
+		if (seenVaeCompatibilities.has(compositeKey)) {
+			continue;
+		}
+
+		if (!vaeReleasesByModelId.has(vae.compatible_with_model_id)) {
+			vaeReleasesByModelId.set(vae.compatible_with_model_id, []);
+		}
+		
+		vaeReleasesByModelId.get(vae.compatible_with_model_id)!.push(vae);
+		seenVaeCompatibilities.add(compositeKey);
+	}
 
 	const finalRecommendations: AnalysisResult[] = [];
 	for (const baseModel of baseModels) {
