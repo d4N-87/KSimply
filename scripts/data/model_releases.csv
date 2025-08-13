@@ -1,7 +1,9 @@
 model_name,quantization_name,file_size_gb
 "ACE-Step v1.0",FP16,7.7
-"NVIDIA Cosmos v1.0",BF16,28.5
-"NVIDIA Cosmos v1.0",BF16,14.5
+"NVIDIA Cosmos 14B T2W v1.0",BF16,28.5
+"NVIDIA Cosmos 14B V2W v1.0",BF16,28.5
+"NVIDIA Cosmos 7B V2W v1.0",BF16,14.5
+"NVIDIA Cosmos 7B T2W v1.0",BF16,14.5
 "FLUX.1 Schnell",FP8,17.2
 "FLUX.1 Schnell",FP16,23.8
 "FLUX.1 Schnell",Q2_K,4.01

@@ -1,6 +1,9 @@
 model_name,compatible_text_encoders,compatible_vaes
 "ACE-Step v1.0","(Included in Model)","(Included in Model)"
-"NVIDIA Cosmos v1.0","T5-xxl v1.0","Cosmos cv8x8x8 v1.0"
+"NVIDIA Cosmos 14B T2W v1.0","T5-xxl v1.0","Cosmos cv8x8x8 v1.0"
+"NVIDIA Cosmos 14B V2W v1.0","T5-xxl v1.0","Cosmos cv8x8x8 v1.0"
+"NVIDIA Cosmos 7B V2W v1.0","T5-xxl v1.0","Cosmos cv8x8x8 v1.0"
+"NVIDIA Cosmos 7B T2W v1.0","T5-xxl v1.0","Cosmos cv8x8x8 v1.0"
 "FLUX.1 Schnell","CLIP L|T5-xxl v1.1","AE"
 "FLUX.1 Dev","CLIP L|T5-xxl v1.1","AE"
 "FLUX.1 Dev Fill","CLIP L|T5-xxl v1.1","AE"

@@ -1,6 +1,9 @@
 name,type
 "ACE-Step v1.0","Audio Generation"
-"NVIDIA Cosmos v1.0","Video Generation"
+"NVIDIA Cosmos 14B T2W v1.0","Video Generation"
+"NVIDIA Cosmos 14B V2W v1.0","Video Generation"
+"NVIDIA Cosmos 7B T2W v1.0","Video Generation"
+"NVIDIA Cosmos 7B V2W v1.0","Video Generation"
 "FLUX.1 Schnell","Image Generation"
 "FLUX.1 Dev","Image Generation"
 "FLUX.1 Dev Fill","Image Generation"
