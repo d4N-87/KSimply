@@ -141,19 +141,21 @@ model_name,quantization_name,file_size_gb
 "HiDream-E1 Full",Q5_K_M,13
 "HiDream-E1 Full",Q6_K,14.7
 "HiDream-E1 Full",Q8_0,18.7
-"HiDream-E1.1",FP16,34.2
+"HiDream-E1.1",FP8,17.1
 "HiDream-E1.1",BF16,34.2
-"HiDream-E1.1",Q3_K_L,10.4
-"HiDream-E1.1",Q3_K_M,9.86
-"HiDream-E1.1",Q3_K_S,9.31
-"HiDream-E1.1",Q4_0,11.7
-"HiDream-E1.1",Q4_1,12.5
-"HiDream-E1.1",Q4_K_M,12.6
-"HiDream-E1.1",Q4_K_S,12
-"HiDream-E1.1",Q5_0,13.8
-"HiDream-E1.1",Q5_1,14.6
-"HiDream-E1.1",Q6_K,15.8
-"HiDream-E1.1",Q8_0,19.8
+"HiDream-E1.1",Q2_K,6.57
+"HiDream-E1.1",Q3_K_M,8.77
+"HiDream-E1.1",Q3_K_S,8.22
+"HiDream-E1.1",Q4_0,10.7
+"HiDream-E1.1",Q4_1,11.5
+"HiDream-E1.1",Q4_K_M,11.5
+"HiDream-E1.1",Q4_K_S,10.9
+"HiDream-E1.1",Q5_0,12.7
+"HiDream-E1.1",Q5_1,13.5
+"HiDream-E1.1",Q5_K_M,13
+"HiDream-E1.1",Q5_K_S,12.5
+"HiDream-E1.1",Q6_K,14.7
+"HiDream-E1.1",Q8_0,18.7
 "HunyuanVideo T2V 720p","FP8 e4m3fn",13.2
 "HunyuanVideo T2V 720p",BF16,25.6
 "HunyuanVideo T2V 720p",Q3_K_M,6.24
@@ -240,7 +242,12 @@ model_name,quantization_name,file_size_gb
 "Stable Diffusion 3.5 Large",Q5_0,5.77
 "Stable Diffusion 3.5 Large",Q5_1,6.27
 "Stable Diffusion 3.5 Large",Q8_0,8.78
-"Stable Diffusion Turbo",FP16,5.21
+"Stable Diffusion 3.5 Large Turbo",FP16,16.5
+"Stable Diffusion 3.5 Large Turbo",Q4_0,4.77
+"Stable Diffusion 3.5 Large Turbo",Q4_1,5.27
+"Stable Diffusion 3.5 Large Turbo",Q5_0,5.77
+"Stable Diffusion 3.5 Large Turbo",Q5_1,6.27
+"Stable Diffusion 3.5 Large Turbo",Q8_0,8.78
 "Stable Diffusion XL Turbo",FP16,13.9
 "NVIDIA Cosmos Predict2 14B V2W 480p 10fps",FP16,28.5
 "NVIDIA Cosmos Predict2 14B V2W 480p 16fps",FP16,28.5

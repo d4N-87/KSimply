@@ -27,7 +27,7 @@ model_name,compatible_text_encoders,compatible_vaes
 "Stable Diffusion 3 Medium","CLIP G|CLIP L|T5-xxl v1.1","(Included in Model)"
 "Stable Diffusion 3.5 Medium","CLIP G|CLIP L|T5-xxl v1.1","SD3.5 VAE"
 "Stable Diffusion 3.5 Large","CLIP G|CLIP L|T5-xxl v1.1","SD3.5 VAE"
-"Stable Diffusion Turbo","(Included in Model)","(Included in Model)"
+"Stable Diffusion 3.5 Large Turbo","CLIP G|CLIP L|T5-xxl v1.1","SD3.5 VAE"
 "Stable Diffusion XL Turbo","(Included in Model)","(Included in Model)"
 "NVIDIA Cosmos Predict2 14B V2W 480p 10fps","T5-xxl v1.0","Wan2.1 VAE"
 "NVIDIA Cosmos Predict2 14B V2W 480p 16fps","T5-xxl v1.0","Wan2.1 VAE"

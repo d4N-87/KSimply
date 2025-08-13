@@ -27,7 +27,7 @@ name,type
 "Stable Diffusion 3 Medium","Image Generation"
 "Stable Diffusion 3.5 Medium","Image Generation"
 "Stable Diffusion 3.5 Large","Image Generation"
-"Stable Diffusion Turbo","Image Generation"
+"Stable Diffusion 3.5 Large Turbo","Image Generation"
 "Stable Diffusion XL Turbo","Image Generation"
 "NVIDIA Cosmos Predict2 14B V2W 480p 10fps","Video Generation"
 "NVIDIA Cosmos Predict2 14B V2W 480p 16fps","Video Generation"
