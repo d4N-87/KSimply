@@ -40,5 +40,6 @@
   "results_title_one": "1 Result Found",
   "results_title_many": "{count} Results Found",
   "filter_results_label": "Filter by name:",
-  "filter_placeholder": "Type to filter results..."
+  "filter_placeholder": "Type to filter results...",
+  "repository_link_title": "View on Hugging Face"
 }

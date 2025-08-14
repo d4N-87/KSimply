@@ -1,8 +1,8 @@
-vae_name,quantization_name,file_size_gb
-"Cosmos cv8x8x8 v1.0",FP16,0.221
-"AE",FP16,0.335
-"Hunyuan Video VAE",FP16,0.493
-"SD3.5 VAE",FP16,0.168
-"Wan2.1 VAE",FP16,0.254
-"Wan2.2 VAE",FP16,1.41
-"Qwen-Image VAE",FP16,0.254
+vae_name,quantization_name,file_size_gb,repository
+"Cosmos cv8x8x8 v1.0",FP16,0.221,https://huggingface.co/comfyanonymous/cosmos_1.0_text_encoder_and_VAE_ComfyUI/tree/main/vae
+"AE",FP16,0.335,https://huggingface.co/Comfy-Org/Lumina_Image_2.0_Repackaged/tree/main/split_files/vae
+"Hunyuan Video VAE",BF16,0.493,https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/tree/main/split_files/vae
+"SD3.5 VAE",FP16,0.168,https://huggingface.co/stabilityai/stable-diffusion-3.5-large/tree/main/vae
+"Wan2.1 VAE",FP16,0.254,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/vae
+"Wan2.2 VAE",FP16,1.41,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/vae
+"Qwen-Image VAE",FP16,0.254,https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/tree/main/split_files/vae

@@ -39,5 +39,6 @@
   "results_title_one": "1 Risultato Trovato",
   "results_title_many": "{count} Risultati Trovati",
   "filter_results_label": "Filtra per nome:",
-  "filter_placeholder": "Scrivi per filtrare i risultati..."
+  "filter_placeholder": "Scrivi per filtrare i risultati...",
+  "repository_link_title": "Vedi su Hugging Face"
 }

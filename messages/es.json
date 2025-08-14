@@ -40,5 +40,6 @@
   "results_title_one": "1 Resultado Encontrado",
   "results_title_many": "{count} Resultados Encontrados",
   "filter_results_label": "Filtro por nombre:",
-  "filter_placeholder": "Escribir para filtrar los resultados..."
+  "filter_placeholder": "Escribir para filtrar los resultados...",
+  "repository_link_title": "Ver en Hugging Face"
 }

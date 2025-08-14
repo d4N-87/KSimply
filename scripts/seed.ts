@@ -75,10 +75,10 @@ async function seed() {
 		CREATE TABLE "vaes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "name" TEXT NOT NULL UNIQUE);
 		CREATE TABLE "quantizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "name" TEXT NOT NULL UNIQUE, "quality_score" INTEGER NOT NULL, "priority" INTEGER NOT NULL DEFAULT 0);
 		CREATE TABLE "model_encoder_compatibility" ("model_id" INTEGER NOT NULL, "encoder_id" INTEGER NOT NULL, PRIMARY KEY (model_id, encoder_id), FOREIGN KEY(model_id) REFERENCES base_models(id) ON DELETE CASCADE, FOREIGN KEY(encoder_id) REFERENCES text_encoders(id) ON DELETE CASCADE);
-		CREATE TABLE "model_releases" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "model_id" INTEGER NOT NULL, "quantization_id" INTEGER NOT NULL, "file_size_gb" REAL NOT NULL, FOREIGN KEY(model_id) REFERENCES base_models(id) ON DELETE CASCADE, FOREIGN KEY(quantization_id) REFERENCES quantizations(id) ON DELETE CASCADE);
+		CREATE TABLE "model_releases" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "model_id" INTEGER NOT NULL, "quantization_id" INTEGER NOT NULL, "file_size_gb" REAL NOT NULL, "repository" TEXT, FOREIGN KEY(model_id) REFERENCES base_models(id) ON DELETE CASCADE, FOREIGN KEY(quantization_id) REFERENCES quantizations(id) ON DELETE CASCADE);
 		CREATE TABLE "model_vae_compatibility" ("model_id" INTEGER NOT NULL, "vae_id" INTEGER NOT NULL, PRIMARY KEY (model_id, vae_id), FOREIGN KEY(model_id) REFERENCES base_models(id) ON DELETE CASCADE, FOREIGN KEY(vae_id) REFERENCES vaes(id) ON DELETE CASCADE);
-		CREATE TABLE "text_encoder_releases" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "encoder_id" INTEGER NOT NULL, "quantization_id" INTEGER NOT NULL, "file_size_gb" REAL NOT NULL, FOREIGN KEY(encoder_id) REFERENCES text_encoders(id) ON DELETE CASCADE, FOREIGN KEY(quantization_id) REFERENCES quantizations(id) ON DELETE CASCADE);
-		CREATE TABLE "vae_releases" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "vae_id" INTEGER NOT NULL, "quantization_id" INTEGER NOT NULL, "file_size_gb" REAL NOT NULL, FOREIGN KEY(vae_id) REFERENCES vaes(id) ON DELETE CASCADE, FOREIGN KEY(quantization_id) REFERENCES quantizations(id) ON DELETE CASCADE);
+		CREATE TABLE "text_encoder_releases" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "encoder_id" INTEGER NOT NULL, "quantization_id" INTEGER NOT NULL, "file_size_gb" REAL NOT NULL, "repository" TEXT, FOREIGN KEY(encoder_id) REFERENCES text_encoders(id) ON DELETE CASCADE, FOREIGN KEY(quantization_id) REFERENCES quantizations(id) ON DELETE CASCADE);
+		CREATE TABLE "vae_releases" ("id" INTEGER PRIMARY KEY AUTOINCREMENT, "vae_id" INTEGER NOT NULL, "quantization_id" INTEGER NOT NULL, "file_size_gb" REAL NOT NULL, "repository" TEXT, FOREIGN KEY(vae_id) REFERENCES vaes(id) ON DELETE CASCADE, FOREIGN KEY(quantization_id) REFERENCES quantizations(id) ON DELETE CASCADE);
 	`);
 	await db.exec('PRAGMA foreign_keys = ON;');
 	console.log('✅ Nuova struttura creata.');
@@ -129,11 +129,11 @@ async function seed() {
 	// [EN] Step 4: Populate "release" tables, using the maps to link foreign keys.
 	// [IT] Passo 4: Popola le tabelle "release", usando le mappe per collegare le chiavi esterne.
 	console.log('📦 Inserimento delle versioni specifiche (releases)...');
-	for (const release of model_releases) { if (release && release.model_name) { await db.run('INSERT INTO model_releases (model_id, quantization_id, file_size_gb) VALUES (?, ?, ?)', nameToIdMaps['base_models'].get(release.model_name), nameToIdMaps['quantizations'].get(release.quantization_name), release.file_size_gb); } }
+	for (const release of model_releases) { if (release && release.model_name) { await db.run('INSERT INTO model_releases (model_id, quantization_id, file_size_gb, repository) VALUES (?, ?, ?, ?)', nameToIdMaps['base_models'].get(release.model_name), nameToIdMaps['quantizations'].get(release.quantization_name), release.file_size_gb, release.repository); } }
 	console.log(`   -> Inserite ${model_releases.length} versioni di modelli.`);
-	for (const release of text_encoder_releases) { if (release && release.encoder_name) { await db.run('INSERT INTO text_encoder_releases (encoder_id, quantization_id, file_size_gb) VALUES (?, ?, ?)', nameToIdMaps['text_encoders'].get(release.encoder_name), nameToIdMaps['quantizations'].get(release.quantization_name), release.file_size_gb); } }
+	for (const release of text_encoder_releases) { if (release && release.encoder_name) { await db.run('INSERT INTO text_encoder_releases (encoder_id, quantization_id, file_size_gb, repository) VALUES (?, ?, ?, ?)', nameToIdMaps['text_encoders'].get(release.encoder_name), nameToIdMaps['quantizations'].get(release.quantization_name), release.file_size_gb, release.repository); } }
 	console.log(`   -> Inserite ${text_encoder_releases.length} versioni di text encoder.`);
-	for (const release of vae_releases) { if (release && release.vae_name) { await db.run('INSERT INTO vae_releases (vae_id, quantization_id, file_size_gb) VALUES (?, ?, ?)', nameToIdMaps['vaes'].get(release.vae_name), nameToIdMaps['quantizations'].get(release.quantization_name), release.file_size_gb); } }
+	for (const release of vae_releases) { if (release && release.vae_name) { await db.run('INSERT INTO vae_releases (vae_id, quantization_id, file_size_gb, repository) VALUES (?, ?, ?, ?)', nameToIdMaps['vaes'].get(release.vae_name), nameToIdMaps['quantizations'].get(release.quantization_name), release.file_size_gb, release.repository); } }
 	console.log(`   -> Inserite ${vae_releases.length} versioni di VAE.`);
 
 	// [EN] Step 5: Populate join tables to create compatibility relationships.

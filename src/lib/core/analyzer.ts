@@ -3,9 +3,9 @@ import type { UserHardware } from './types';
 // --- INTERFACES ---
 // [EN] Raw data structures mapping directly to the database schema.
 // [IT] Strutture dati grezze che mappano direttamente lo schema del database.
-interface ModelRelease { id: number; model_id: number; quantization_id: number; file_size_gb: number; model_name: string; model_type: string; quantization_name: string; quality_score: number; priority: number; }
-interface EncoderRelease { id: number; encoder_id: number; quantization_id: number; file_size_gb: number; encoder_name: string; quantization_name: string; quality_score: number; priority: number; compatible_with_model_id: number; }
-interface VaeRelease { id: number; vae_id: number; quantization_id: number; file_size_gb: number; vae_name: string; quantization_name: string; quality_score: number; priority: number; compatible_with_model_id: number; }
+interface ModelRelease { id: number; model_id: number; quantization_id: number; file_size_gb: number; model_name: string; model_type: string; quantization_name: string; quality_score: number; priority: number; repository: string; }
+interface EncoderRelease { id: number; encoder_id: number; quantization_id: number; file_size_gb: number; encoder_name: string; quantization_name: string; quality_score: number; priority: number; compatible_with_model_id: number; repository: string; }
+interface VaeRelease { id: number; vae_id: number; quantization_id: number; file_size_gb: number; vae_name: string; quantization_name: string; quality_score: number; priority: number; compatible_with_model_id: number; repository: string; }
 export interface RawDataPayload { models: ModelRelease[]; encoders: EncoderRelease[]; vaes: VaeRelease[]; }
 export type AnalysisLevel = 'Verde' | 'Giallo' | 'Rosso';
 
@@ -18,7 +18,7 @@ export interface AnalysisNote {
 
 // [EN] The final, structured result of an analysis for a single model recipe.
 // [IT] Il risultato finale e strutturato di un'analisi per una singola ricetta di modello.
-export interface AnalysisResult { id: string; recipeName: string; modelType: string; level: AnalysisLevel; totalVramCost: number; totalRamCost: number; quality: number; notes: AnalysisNote[]; components: { model: { name: string; cost: number }; quantization: { name: string }; text_encoders: { name: string; cost: number; quantization: string }[]; vae: { name: string; cost: number; quantization: string }; }; }
+export interface AnalysisResult { id: string; recipeName: string; modelType: string; level: AnalysisLevel; totalVramCost: number; totalRamCost: number; quality: number; notes: AnalysisNote[]; repository: string; components: { model: { name: string; cost: number; repository: string; }; quantization: { name: string }; text_encoders: { name: string; cost: number; quantization: string; repository: string; }[]; vae: { name: string; cost: number; quantization: string; repository: string; }; }; }
 
 // --- BUSINESS LOGIC CONSTANTS ---
 const VRAM_BUFFER_PERCENTAGE = 1.03; // [EN] 3% safety buffer for VRAM calculations. [IT] 3% di buffer di sicurezza per i calcoli VRAM.
@@ -155,15 +155,27 @@ export function analyzeHardware(
 						id: `${modelRelease.id}-${encoderSet.map((e) => e.id).join('_')}-${vaeRelease?.id ?? 'none'}`,
 						recipeName: `${baseModel.name} (${modelRelease.quantization_name})`,
 						modelType: baseModel.type,
-						level, totalVramCost,
+						level,
+						totalVramCost,
 						totalRamCost: ramCostForLevel,
 						quality: modelRelease.quality_score,
 						notes: [],
+						repository: modelRelease.repository,
 						components: {
-							model: { name: baseModel.name, cost: modelCost },
+							model: { name: baseModel.name, cost: modelCost, repository: modelRelease.repository },
 							quantization: { name: modelRelease.quantization_name },
-							text_encoders: encoderSet.map((e) => ({ name: `${e.encoder_name} (${e.quantization_name})`, cost: e.file_size_gb, quantization: e.quantization_name })),
-							vae: { name: vaeRelease ? `${vaeRelease.vae_name} (${vaeRelease.quantization_name})` : 'N/A', cost: vaeCost, quantization: vaeRelease?.quantization_name ?? 'N/A' }
+							text_encoders: encoderSet.map((e) => ({
+								name: `${e.encoder_name} (${e.quantization_name})`,
+								cost: e.file_size_gb,
+								quantization: e.quantization_name,
+								repository: e.repository
+							})),
+							vae: {
+								name: vaeRelease ? `${vaeRelease.vae_name} (${vaeRelease.quantization_name})` : 'N/A',
+								cost: vaeCost,
+								quantization: vaeRelease?.quantization_name ?? 'N/A',
+								repository: vaeRelease?.repository ?? ''
+							}
 						}
 					};
 

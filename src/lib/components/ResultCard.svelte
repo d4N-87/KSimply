@@ -1,6 +1,7 @@
 <script lang="ts">
 	import * as m from '$paraglide/messages';
 	import type { AnalysisResult, AnalysisLevel, AnalysisNote } from '$lib/core/analyzer';
+	import HuggingFaceIcon from './HuggingFaceIcon.svelte';
 
 	let { result }: { result: AnalysisResult } = $props();
 
@@ -78,30 +79,72 @@
 	<!-- Header Section -->
 	<div class="flex justify-between items-start">
 		<div>
-			<h3 class="text-xl font-bold text-primary-text">{result.recipeName}</h3>
+			<div class="flex items-center gap-2">
+				<h3 class="text-xl font-bold text-primary-text">{result.recipeName}</h3>
+				{#if result.repository}
+					<a
+						href={result.repository}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="text-secondary-text hover:text-primary-accent transition-colors"
+						title={m.repository_link_title()}
+					>
+						<HuggingFaceIcon />
+					</a>
+				{/if}
+			</div>
 			<p class="text-sm text-secondary-text">{result.modelType}</p>
 		</div>
-		<span class="text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap {currentStyle.badgeBg} {currentStyle.textColor}">
+		<span
+			class="text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap {currentStyle.badgeBg} {currentStyle.textColor}"
+		>
 			{getLevelText(result.level)}
 		</span>
 	</div>
 
 	<!-- Component Tags Section -->
 	<div class="mt-3 flex gap-2 flex-wrap">
-		<span class="text-xs border px-2 py-0.5 rounded-full {flavorStyles[modelFlavor]}">
-			{m.card_label_model()} {result.components.quantization.name}
-		</span>
+		<a
+			href={result.components.model.repository}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="text-xs border px-2 py-0.5 rounded-full {flavorStyles[
+				modelFlavor
+			]} flex items-center gap-1 hover:border-primary-accent"
+			title={m.repository_link_title()}
+		>
+			<span>{m.card_label_model()} {result.components.quantization.name}</span>
+			<HuggingFaceIcon width={12} height={12} />
+		</a>
 		{#each result.components.text_encoders as encoder (encoder.name)}
 			{#if encoder.cost > 0}
-				<span class="text-xs border px-2 py-0.5 rounded-full {flavorStyles[getQuantizationFlavor(encoder.quantization)]}">
-					{m.card_label_encoder()} {encoder.quantization}
-				</span>
+				<a
+					href={encoder.repository}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-xs border px-2 py-0.5 rounded-full {flavorStyles[
+						getQuantizationFlavor(encoder.quantization)
+					]} flex items-center gap-1 hover:border-primary-accent"
+					title={m.repository_link_title()}
+				>
+					<span>{m.card_label_encoder()} {encoder.quantization}</span>
+					<HuggingFaceIcon width={12} height={12} />
+				</a>
 			{/if}
 		{/each}
-		{#if result.components.vae.cost > 0}
-			<span class="text-xs border px-2 py-0.5 rounded-full {flavorStyles[vaeFlavor]}">
-				{m.card_label_vae()} {result.components.vae.quantization}
-			</span>
+		{#if result.components.vae.cost > 0 && result.components.vae.repository}
+			<a
+				href={result.components.vae.repository}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-xs border px-2 py-0.5 rounded-full {flavorStyles[
+					vaeFlavor
+				]} flex items-center gap-1 hover:border-primary-accent"
+				title={m.repository_link_title()}
+			>
+				<span>{m.card_label_vae()} {result.components.vae.quantization}</span>
+				<HuggingFaceIcon width={12} height={12} />
+			</a>
 		{/if}
 	</div>
 

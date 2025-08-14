@@ -1,444 +1,444 @@
-model_name,quantization_name,file_size_gb
-"ACE-Step v1.0",FP16,7.7
-"NVIDIA Cosmos 14B T2W v1.0",BF16,28.5
-"NVIDIA Cosmos 14B V2W v1.0",BF16,28.5
-"NVIDIA Cosmos 7B V2W v1.0",BF16,14.5
-"NVIDIA Cosmos 7B T2W v1.0",BF16,14.5
-"FLUX.1 Schnell",FP8,17.2
-"FLUX.1 Schnell",FP16,23.8
-"FLUX.1 Schnell",Q2_K,4.01
-"FLUX.1 Schnell",Q3_K_S,5.21
-"FLUX.1 Schnell",Q4_0,6.77
-"FLUX.1 Schnell",Q4_1,7.51
-"FLUX.1 Schnell",Q4_K_S,6.78
-"FLUX.1 Schnell",Q5_0,8.25
-"FLUX.1 Schnell",Q5_1,8.99
-"FLUX.1 Schnell",Q5_K_S,8.26
-"FLUX.1 Schnell",Q6_K,9.83
-"FLUX.1 Schnell",Q8_0,12.7
-"FLUX.1 Dev",FP8,17.2
-"FLUX.1 Dev",FP16,23.8
-"FLUX.1 Dev",Q2_K,4.03
-"FLUX.1 Dev",Q3_K_S,5.23
-"FLUX.1 Dev",Q4_0,6.79
-"FLUX.1 Dev",Q4_1,7.53
-"FLUX.1 Dev",Q4_K_S,6.81
-"FLUX.1 Dev",Q5_0,8.27
-"FLUX.1 Dev",Q5_1,9.01
-"FLUX.1 Dev",Q5_K_S,8.29
-"FLUX.1 Dev",Q6_K,9.86
-"FLUX.1 Dev",Q8_0,12.7
-"FLUX.1 Dev Fill",FP8,11.9
-"FLUX.1 Dev Fill",FP16,23.8
-"FLUX.1 Dev Fill",Q3_K_S,5.24
-"FLUX.1 Dev Fill",Q4_0,6.81
-"FLUX.1 Dev Fill",Q4_1,7.55
-"FLUX.1 Dev Fill",Q4_K_S,6.81
-"FLUX.1 Dev Fill",Q5_0,8.29
-"FLUX.1 Dev Fill",Q5_1,9.03
-"FLUX.1 Dev Fill",Q5_K_S,8.29
-"FLUX.1 Dev Fill",Q6_K,9.86
-"FLUX.1 Dev Fill",Q8_0,12.7
-"FLUX.1 Dev Canny",FP8,11.9
-"FLUX.1 Dev Canny",FP16,23.8
-"FLUX.1 Dev Canny",Q2_K,4.15
-"FLUX.1 Dev Canny",Q3_K,5.35
-"FLUX.1 Dev Canny",Q4_0,6.93
-"FLUX.1 Dev Canny",Q4_1,7.67
-"FLUX.1 Dev Canny",Q4_K,6.93
-"FLUX.1 Dev Canny",Q5_0,8.41
-"FLUX.1 Dev Canny",Q5_1,9.15
-"FLUX.1 Dev Canny",Q8_0,12.8
-"FLUX.1 Dev Depth",FP8,11.9
-"FLUX.1 Dev Depth",FP16,23.8
-"FLUX.1 Dev Depth",Q4_0,6.8
-"FLUX.1 Dev Depth",Q5_0,8.28
-"FLUX.1 Dev Depth",Q8_0,12.7
-"FLUX.1 Kontext Dev","FP8 scaled",11.9
-"FLUX.1 Kontext Dev",FP16,23.8
-"FLUX.1 Kontext Dev",Q2_K,4.02
-"FLUX.1 Kontext Dev",Q3_K_S,5.23
-"FLUX.1 Kontext Dev",Q4_0,6.8
-"FLUX.1 Kontext Dev",Q4_1,7.54
-"FLUX.1 Kontext Dev",Q4_K_M,6.93
-"FLUX.1 Kontext Dev",Q4_K_S,6.8
-"FLUX.1 Kontext Dev",Q5_0,8.28
-"FLUX.1 Kontext Dev",Q5_1,9.02
-"FLUX.1 Kontext Dev",Q5_K_M,8.42
-"FLUX.1 Kontext Dev",Q5_K_S,8.28
-"FLUX.1 Kontext Dev",Q6_K,9.85
-"FLUX.1 Kontext Dev",Q8_0,12.7
-"FLUX.1 Krea Dev",FP16,23.8
-"FLUX.1 Krea Dev",FP8,11.9
-"FLUX.1 Krea Dev",Q2_K,4.02
-"FLUX.1 Krea Dev",Q3_K_M,5.37
-"FLUX.1 Krea Dev",Q3_K_S,5.23
-"FLUX.1 Krea Dev",Q4_0,6.8
-"FLUX.1 Krea Dev",Q4_1,7.54
-"FLUX.1 Krea Dev",Q4_K_M,6.93
-"FLUX.1 Krea Dev",Q4_K_S,6.8
-"FLUX.1 Krea Dev",Q5_0,8.28
-"FLUX.1 Krea Dev",Q5_1,9.02
-"FLUX.1 Krea Dev",Q5_K_M,8.42
-"FLUX.1 Krea Dev",Q5_K_S,8.28
-"FLUX.1 Krea Dev",Q6_K,9.85
-"FLUX.1 Krea Dev",Q8_0,12.7
-"HiDream-I1 Full",FP8,17.1
-"HiDream-I1 Full",FP16,34.2
-"HiDream-I1 Full",Q2_K,6.56
-"HiDream-I1 Full",Q3_K_M,8.77
-"HiDream-I1 Full",Q3_K_S,8.21
-"HiDream-I1 Full",Q4_0,10.7
-"HiDream-I1 Full",Q4_1,11.4
-"HiDream-I1 Full",Q4_K_M,11.5
-"HiDream-I1 Full",Q4_K_S,10.9
-"HiDream-I1 Full",Q5_0,12.7
-"HiDream-I1 Full",Q5_1,13.5
-"HiDream-I1 Full",Q5_K_M,13
-"HiDream-I1 Full",Q5_K_S,12.5
-"HiDream-I1 Full",Q6_K,14.7
-"HiDream-I1 Full",Q8_0,18.7
-"HiDream-I1 Dev",FP8,17.1
-"HiDream-I1 Dev",BF16,34.2
-"HiDream-I1 Dev",Q2_K,6.57
-"HiDream-I1 Dev",Q3_K_M,8.77
-"HiDream-I1 Dev",Q3_K_S,8.22
-"HiDream-I1 Dev",Q4_0,10.7
-"HiDream-I1 Dev",Q4_1,11.5
-"HiDream-I1 Dev",Q4_K_M,11.5
-"HiDream-I1 Dev",Q4_K_S,10.9
-"HiDream-I1 Dev",Q5_0,12.7
-"HiDream-I1 Dev",Q5_1,13.5
-"HiDream-I1 Dev",Q5_K_M,13
-"HiDream-I1 Dev",Q5_K_S,12.5
-"HiDream-I1 Dev",Q6_K,14.7
-"HiDream-I1 Dev",Q8_0,18.7
-"HiDream-I1 Fast",FP8,17.1
-"HiDream-I1 Fast",BF16,34.2
-"HiDream-I1 Fast",Q2_K,6.57
-"HiDream-I1 Fast",Q3_K_M,8.77
-"HiDream-I1 Fast",Q3_K_S,8.22
-"HiDream-I1 Fast",Q4_0,10.7
-"HiDream-I1 Fast",Q4_1,11.5
-"HiDream-I1 Fast",Q4_K_M,11.5
-"HiDream-I1 Fast",Q4_K_S,10.9
-"HiDream-I1 Fast",Q5_0,12.7
-"HiDream-I1 Fast",Q5_1,13.5
-"HiDream-I1 Fast",Q5_K_M,13
-"HiDream-I1 Fast",Q5_K_S,12.5
-"HiDream-I1 Fast",Q6_K,14.7
-"HiDream-I1 Fast",Q8_0,18.7
-"HiDream-E1 Full",FP8,17.1
-"HiDream-E1 Full",BF16,34.2
-"HiDream-E1 Full",Q2_K,6.57
-"HiDream-E1 Full",Q4_0,10.7
-"HiDream-E1 Full",Q4_1,11.5
-"HiDream-E1 Full",Q4_K_M,11.5
-"HiDream-E1 Full",Q4_K,11.5
-"HiDream-E1 Full",Q5_0,12.7
-"HiDream-E1 Full",Q5_1,13.5
-"HiDream-E1 Full",Q5_K,13
-"HiDream-E1 Full",Q5_K_M,13
-"HiDream-E1 Full",Q6_K,14.7
-"HiDream-E1 Full",Q8_0,18.7
-"HiDream-E1.1",FP8,17.1
-"HiDream-E1.1",BF16,34.2
-"HiDream-E1.1",Q2_K,6.57
-"HiDream-E1.1",Q3_K_M,8.77
-"HiDream-E1.1",Q3_K_S,8.22
-"HiDream-E1.1",Q4_0,10.7
-"HiDream-E1.1",Q4_1,11.5
-"HiDream-E1.1",Q4_K_M,11.5
-"HiDream-E1.1",Q4_K_S,10.9
-"HiDream-E1.1",Q5_0,12.7
-"HiDream-E1.1",Q5_1,13.5
-"HiDream-E1.1",Q5_K_M,13
-"HiDream-E1.1",Q5_K_S,12.5
-"HiDream-E1.1",Q6_K,14.7
-"HiDream-E1.1",Q8_0,18.7
-"HunyuanVideo T2V 720p",FP8 e4m3fn,13.2
-"HunyuanVideo T2V 720p",BF16,25.6
-"HunyuanVideo T2V 720p",Q3_K_M,6.24
-"HunyuanVideo T2V 720p",Q3_K_S,6.09
-"HunyuanVideo T2V 720p",Q4_0,7.74
-"HunyuanVideo T2V 720p",Q4_1,8.52
-"HunyuanVideo T2V 720p",Q4_K_M,7.88
-"HunyuanVideo T2V 720p",Q4_K,7.74
-"HunyuanVideo T2V 720p",Q5_0,9.3
-"HunyuanVideo T2V 720p",Q5_1,10.1
-"HunyuanVideo T2V 720p",Q5_K_M,9.45
-"HunyuanVideo T2V 720p",Q5_K_S,9.3
-"HunyuanVideo T2V 720p",Q6_K,11
-"HunyuanVideo T2V 720p",Q8_0,14
-"HunyuanVideo I2V 720p",FP8 e4m3fn,13.2
-"HunyuanVideo I2V 720p",BF16,25.6
-"HunyuanVideo I2V 720p",Q3_K_M,6.24
-"HunyuanVideo I2V 720p",Q3_K_S,6.09
-"HunyuanVideo I2V 720p",Q4_0,7.74
-"HunyuanVideo I2V 720p",Q4_1,8.52
-"HunyuanVideo I2V 720p",Q4_K_M,7.88
-"HunyuanVideo I2V 720p",Q4_K,7.74
-"HunyuanVideo I2V 720p",Q5_0,9.3
-"HunyuanVideo I2V 720p",Q5_1,10.1
-"HunyuanVideo I2V 720p",Q5_K_M,9.45
-"HunyuanVideo I2V 720p",Q5_K_S,9.3
-"HunyuanVideo I2V 720p",Q6_K,11
-"HunyuanVideo I2V 720p",Q8_0,14
-"LTX-Video Dev 13B v0.9.8",FP8,15.7
-"LTX-Video Dev 13B v0.9.8",FP16,28.6
-"LTX-Video Dev 13B v0.9.8",Q2_K,4.72
-"LTX-Video Dev 13B v0.9.8",Q3_K_M,6.51
-"LTX-Video Dev 13B v0.9.8",Q3_K_S,5.86
-"LTX-Video Dev 13B v0.9.8",Q4_K_M,8.82
-"LTX-Video Dev 13B v0.9.8",Q4_K_S,7.98
-"LTX-Video Dev 13B v0.9.8",Q5_K_M,9.82
-"LTX-Video Dev 13B v0.9.8",Q5_K_S,9.18
-"LTX-Video Dev 13B v0.9.8",Q6_K,10.9
-"LTX-Video Dev 13B v0.9.8",Q8_0,14
-"LTX-Video Distilled 13B v0.9.8",FP8,15.7
-"LTX-Video Distilled 13B v0.9.8",FP16,28.6
-"LTX-Video Distilled 13B v0.9.8",Q2_K,4.72
-"LTX-Video Distilled 13B v0.9.8",Q3_K_M,6.51
-"LTX-Video Distilled 13B v0.9.8",Q3_K_S,5.86
-"LTX-Video Distilled 13B v0.9.8",Q4_K_M,8.82
-"LTX-Video Distilled 13B v0.9.8",Q4_K_S,7.98
-"LTX-Video Distilled 13B v0.9.8",Q5_K_M,9.82
-"LTX-Video Distilled 13B v0.9.8",Q5_K_S,9.18
-"LTX-Video Distilled 13B v0.9.8",Q6_K,10.9
-"LTX-Video Distilled 13B v0.9.8",Q8_0,14
-"LTX-Video Distilled 2B v0.9.8",FP8,4.46
-"LTX-Video Distilled 2B v0.9.8",FP16,6.34
-"Stable Diffusion 1.5 Pruned",FP16,7.7
-"Stable Diffusion 1.5 Pruned-Emaonly",FP16,4.27
-"Stable Diffusion XL Base + Refiner",FP16,13.02
-"Stable Diffusion 3 Medium",FP16,4.34
-"Stable Diffusion 3 Medium",Q4_0,1.28
-"Stable Diffusion 3 Medium",Q4_1,1.41
-"Stable Diffusion 3 Medium",Q4_K_M,1.33
-"Stable Diffusion 3 Medium",Q4_K_S,1.28
-"Stable Diffusion 3 Medium",Q5_0,1.53
-"Stable Diffusion 3 Medium",Q5_1,1.66
-"Stable Diffusion 3 Medium",Q5_K_M,1.58
-"Stable Diffusion 3 Medium",Q5_K_S,1.53
-"Stable Diffusion 3 Medium",Q6_K,1.8
-"Stable Diffusion 3 Medium",Q8_0,2.29
-"Stable Diffusion 3.5 Medium",FP16,5.11
-"Stable Diffusion 3.5 Medium",Q3_K_M,1.49
-"Stable Diffusion 3.5 Medium",Q3_K_S,1.45
-"Stable Diffusion 3.5 Medium",Q4_0,1.74
-"Stable Diffusion 3.5 Medium",Q4_1,1.88
-"Stable Diffusion 3.5 Medium",Q4_K_M,1.79
-"Stable Diffusion 3.5 Medium",Q4_K_S,1.74
-"Stable Diffusion 3.5 Medium",Q5_0,2.02
-"Stable Diffusion 3.5 Medium",Q5_1,2.16
-"Stable Diffusion 3.5 Medium",Q5_K_M,2.07
-"Stable Diffusion 3.5 Medium",Q5_K_S,2.02
-"Stable Diffusion 3.5 Medium",Q6_K,2.32
-"Stable Diffusion 3.5 Medium",Q8_0,2.86
-"Stable Diffusion 3.5 Large",FP16,16.5
-"Stable Diffusion 3.5 Large","FP8 scaled",11.6
-"Stable Diffusion 3.5 Large",Q4_0,4.77
-"Stable Diffusion 3.5 Large",Q4_1,5.27
-"Stable Diffusion 3.5 Large",Q5_0,5.77
-"Stable Diffusion 3.5 Large",Q5_1,6.27
-"Stable Diffusion 3.5 Large",Q8_0,8.78
-"Stable Diffusion 3.5 Large Turbo",FP16,16.5
-"Stable Diffusion 3.5 Large Turbo",Q4_0,4.77
-"Stable Diffusion 3.5 Large Turbo",Q4_1,5.27
-"Stable Diffusion 3.5 Large Turbo",Q5_0,5.77
-"Stable Diffusion 3.5 Large Turbo",Q5_1,6.27
-"Stable Diffusion 3.5 Large Turbo",Q8_0,8.78
-"Stable Diffusion XL Turbo",FP16,13.9
-"NVIDIA Cosmos Predict2 14B V2W 480p 10fps",FP16,28.5
-"NVIDIA Cosmos Predict2 14B V2W 480p 16fps",FP16,28.5
-"NVIDIA Cosmos Predict2 14B V2W 720p 10fps",FP16,28.5
-"NVIDIA Cosmos Predict2 14B V2W 720p 16fps",FP16,28.5
-"NVIDIA Cosmos Predict2 14B T2I",FP16,28.5
-"NVIDIA Cosmos Predict2 2B V2W 480p 10fps",FP16,3.91
-"NVIDIA Cosmos Predict2 2B V2W 480p 16fps",FP16,3.91
-"NVIDIA Cosmos Predict2 2B V2W 720p 10fps",FP16,3.91
-"NVIDIA Cosmos Predict2 2B V2W 720p 16fps",FP16,3.91
-"NVIDIA Cosmos Predict2 2B T2I",FP16,3.91
-"Wan2.1 14B T2V",FP16,28.6
-"Wan2.1 14B T2V",BF16,28.6
-"Wan2.1 14B T2V",FP8 e4m3fn,14.3
-"Wan2.1 14B T2V",FP8 scaled,14.3
-"Wan2.1 14B T2V",Q3_K_M,7.65
-"Wan2.1 14B T2V",Q3_K_S,6.99
-"Wan2.1 14B T2V",Q4_0,9.03
-"Wan2.1 14B T2V",Q4_1,9.73
-"Wan2.1 14B T2V",Q4_K_M,10.1
-"Wan2.1 14B T2V",Q4_K_S,9.22
-"Wan2.1 14B T2V",Q5_0,10.8
-"Wan2.1 14B T2V",Q5_1,11.5
-"Wan2.1 14B T2V",Q5_K_M,11.3
-"Wan2.1 14B T2V",Q5_K_S,10.6
-"Wan2.1 14B T2V",Q6_K,12.5
-"Wan2.1 14B T2V",Q8_0,15.9
-"Wan2.1 1.3B T2V",FP16,2.84
-"Wan2.1 1.3B T2V",BF16,2.84
-"Wan2.1 14B I2V 480p",FP16,32.8
-"Wan2.1 14B I2V 480p",BF16,32.8
-"Wan2.1 14B I2V 480p",FP8 e4m3fn,16.4
-"Wan2.1 14B I2V 480p",FP8 scaled,16.4
-"Wan2.1 14B I2V 480p",Q3_K_M,8.59
-"Wan2.1 14B I2V 480p",Q3_K_S,7.93
-"Wan2.1 14B I2V 480p",Q4_0,10.2
-"Wan2.1 14B I2V 480p",Q4_1,11.1
-"Wan2.1 14B I2V 480p",Q4_K_M,11.3
-"Wan2.1 14B I2V 480p",Q4_K_S,10.4
-"Wan2.1 14B I2V 480p",Q5_0,12.3
-"Wan2.1 14B I2V 480p",Q5_1,13.1
-"Wan2.1 14B I2V 480p",Q5_K_M,12.7
-"Wan2.1 14B I2V 480p",Q5_K_S,12.1
-"Wan2.1 14B I2V 480p",Q6_K,14.2
-"Wan2.1 14B I2V 480p",Q8_0,18.1
-"Wan2.1 14B I2V 720p",FP16,32.8
-"Wan2.1 14B I2V 720p",BF16,32.8
-"Wan2.1 14B I2V 720p",FP8 e4m3fn,16.4
-"Wan2.1 14B I2V 720p",FP8 scaled,16.4
-"Wan2.1 14B I2V 720p",Q3_K_M,8.59
-"Wan2.1 14B I2V 720p",Q3_K_S,7.93
-"Wan2.1 14B I2V 720p",Q4_0,10.2
-"Wan2.1 14B I2V 720p",Q4_1,11.1
-"Wan2.1 14B I2V 720p",Q4_K_M,11.3
-"Wan2.1 14B I2V 720p",Q4_K_S,10.4
-"Wan2.1 14B I2V 720p",Q5_0,12.3
-"Wan2.1 14B I2V 720p",Q5_1,13.1
-"Wan2.1 14B I2V 720p",Q5_K_M,12.7
-"Wan2.1 14B I2V 720p",Q5_K_S,12.1
-"Wan2.1 14B I2V 720p",Q6_K,14.2
-"Wan2.1 14B I2V 720p",Q8_0,18.1
-"Wan2.1 14B VACE",FP16,34.7
-"Wan2.1 14B VACE",FP8 e4m3fn,17.3
-"Wan2.1 14B VACE",Q3_K_S,7.84
-"Wan2.1 14B VACE",Q4_0,10.3
-"Wan2.1 14B VACE",Q4_1,11.2
-"Wan2.1 14B VACE",Q4_K_M,11.6
-"Wan2.1 14B VACE",Q4_K_S,10.6
-"Wan2.1 14B VACE",Q5_0,12.5
-"Wan2.1 14B VACE",Q5_1,13.3
-"Wan2.1 14B VACE",Q5_K_M,13
-"Wan2.1 14B VACE",Q5_K_S,12.3
-"Wan2.1 14B VACE",Q6_K,14.5
-"Wan2.1 14B VACE",Q8_0,18.7
-"Wan2.1 1.3B VACE",FP16,4.31
-"Wan2.1 14B FLF2V 720p",FP16,32.8
-"Wan2.1 14B FLF2V 720p",FP8 e4m3fn,16.4
-"Wan2.1 14B FLF2V 720p",Q3_K_M,8.59
-"Wan2.1 14B FLF2V 720p",Q3_K_S,7.93
-"Wan2.1 14B FLF2V 720p",Q4_0,10.3
-"Wan2.1 14B FLF2V 720p",Q4_1,11.1
-"Wan2.1 14B FLF2V 720p",Q4_K_M,11.3
-"Wan2.1 14B FLF2V 720p",Q4_K_S,10.4
-"Wan2.1 14B FLF2V 720p",Q5_0,12.3
-"Wan2.1 14B FLF2V 720p",Q5_1,13.1
-"Wan2.1 14B FLF2V 720p",Q5_K_M,12.7
-"Wan2.1 14B FLF2V 720p",Q5_K_S,12.1
-"Wan2.1 14B FLF2V 720p",Q6_K,14.2
-"Wan2.1 14B FLF2V 720p",Q8_0,18.1
-"Wan2.1 14B T2V FusionX",FP16,28.6
-"Wan2.1 14B T2V FusionX",FP8,14.3
-"Wan2.1 14B T2V FusionX",Q2_K,5.3
-"Wan2.1 14B T2V FusionX",Q3_K_L,7.78
-"Wan2.1 14B T2V FusionX",Q3_K_M,7.17
-"Wan2.1 14B T2V FusionX",Q3_K_S,6.51
-"Wan2.1 14B T2V FusionX",Q4_0,8.56
-"Wan2.1 14B T2V FusionX",Q4_1,9.26
-"Wan2.1 14B T2V FusionX",Q4_K_M,9.65
-"Wan2.1 14B T2V FusionX",Q4_K_S,8.75
-"Wan2.1 14B T2V FusionX",Q5_0,10.3
-"Wan2.1 14B T2V FusionX",Q5_1,11
-"Wan2.1 14B T2V FusionX",Q5_K_M,10.8
-"Wan2.1 14B T2V FusionX",Q5_K_S,10.1
-"Wan2.1 14B T2V FusionX",Q6_K,12
-"Wan2.1 14B T2V FusionX",Q8_0,15.4
-"Wan2.1 14B I2V FusionX",FP16,32.8
-"Wan2.1 14B I2V FusionX",FP8,16.4
-"Wan2.1 14B I2V FusionX",Q2_K,6.01
-"Wan2.1 14B I2V FusionX",Q3_K_L,8.7
-"Wan2.1 14B I2V FusionX",Q3_K_M,8.09
-"Wan2.1 14B I2V FusionX",Q3_K_S,7.43
-"Wan2.1 14B I2V FusionX",Q4_0,9.76
-"Wan2.1 14B I2V FusionX",Q4_1,10.6
-"Wan2.1 14B I2V FusionX",Q4_K_M,10.8
-"Wan2.1 14B I2V FusionX",Q4_K_S,9.95
-"Wan2.1 14B I2V FusionX",Q5_0,11.8
-"Wan2.1 14B I2V FusionX",Q5_1,12.6
-"Wan2.1 14B I2V FusionX",Q5_K_M,12.3
-"Wan2.1 14B I2V FusionX",Q5_K_S,11.6
-"Wan2.1 14B I2V FusionX",Q6_K,13.7
-"Wan2.1 14B I2V FusionX",Q8_0,15.4
-"Wan2.1 14B VACE FusionX",FP16,34.7
-"Wan2.1 14B VACE FusionX",FP8 e4m3fn,17.3
-"Wan2.1 14B VACE FusionX",Q2_K,6.35
-"Wan2.1 14B VACE FusionX",Q3_K_L,9.36
-"Wan2.1 14B VACE FusionX",Q3_K_S,7.83
-"Wan2.1 14B VACE FusionX",Q4_0,10.3
-"Wan2.1 14B VACE FusionX",Q4_1,11.2
-"Wan2.1 14B VACE FusionX",Q4_K_M,11.6
-"Wan2.1 14B VACE FusionX",Q4_K_S,10.5
-"Wan2.1 14B VACE FusionX",Q5_0,12.5
-"Wan2.1 14B VACE FusionX",Q5_1,13.3
-"Wan2.1 14B VACE FusionX",Q5_K_M,13
-"Wan2.1 14B VACE FusionX",Q5_K_S,12.2
-"Wan2.1 14B VACE FusionX",Q6_K,14.5
-"Wan2.1 14B VACE FusionX",Q8_0,18.7
-"Wan2.2 A14B I2V (High + Low)",FP16,57.2
-"Wan2.2 A14B I2V (High + Low)",FP8,28.6
-"Wan2.2 A14B I2V (High + Low)",Q8_0,30.8
-"Wan2.2 A14B I2V (High + Low)",Q6_K,24
-"Wan2.2 A14B I2V (High + Low)",Q5_K_S,20.2
-"Wan2.2 A14B I2V (High + Low)",Q5_K_M,21.6
-"Wan2.2 A14B I2V (High + Low)",Q5_1,22
-"Wan2.2 A14B I2V (High + Low)",Q5_0,20.6
-"Wan2.2 A14B I2V (High + Low)",Q4_K_S,17.5
-"Wan2.2 A14B I2V (High + Low)",Q4_K_M,19.3
-"Wan2.2 A14B I2V (High + Low)",Q3_K_S,13.04
-"Wan2.2 A14B I2V (High + Low)",Q3_K_M,14.36
-"Wan2.2 A14B I2V (High + Low)",Q2_K,10.6
-"Wan2.2 A14B T2V (High + Low)",FP16,57.2
-"Wan2.2 A14B T2V (High + Low)",FP8,28.6
-"Wan2.2 A14B T2V (High + Low)",Q8_0,30.8
-"Wan2.2 A14B T2V (High + Low)",Q6_K,24
-"Wan2.2 A14B T2V (High + Low)",Q5_K_S,20.2
-"Wan2.2 A14B T2V (High + Low)",Q5_K_M,21.6
-"Wan2.2 A14B T2V (High + Low)",Q5_1,22
-"Wan2.2 A14B T2V (High + Low)",Q5_0,20.6
-"Wan2.2 A14B T2V (High + Low)",Q4_K_S,17.5
-"Wan2.2 A14B T2V (High + Low)",Q4_K_M,19.3
-"Wan2.2 A14B T2V (High + Low)",Q4_1,18.52
-"Wan2.2 A14B T2V (High + Low)",Q4_0,17.12
-"Wan2.2 A14B T2V (High + Low)",Q3_K_S,13.02
-"Wan2.2 A14B T2V (High + Low)",Q3_K_M,14.34
-"Wan2.2 A14B T2V (High + Low)",Q2_K,10.6
-"Wan2.2 5B TI2V",FP16,10
-"Wan2.2 5B TI2V",FP8,5
-"Wan2.2 5B TI2V",Q8_0,5.4
-"Wan2.2 5B TI2V",Q6_K,4.21
-"Wan2.2 5B TI2V",Q5_K_S,3.56
-"Wan2.2 5B TI2V",Q5_K_M,3.81
-"Wan2.2 5B TI2V",Q5_1,3.87
-"Wan2.2 5B TI2V",Q5_0,3.64
-"Wan2.2 5B TI2V",Q4_K_S,3.12
-"Wan2.2 5B TI2V",Q4_K_M,3.43
-"Wan2.2 5B TI2V",Q4_1,3.25
-"Wan2.2 5B TI2V",Q4_0,3.03
-"Wan2.2 5B TI2V",Q3_K_S,2.29
-"Wan2.2 5B TI2V",Q3_K_M,2.55
-"Wan2.2 5B TI2V",Q2_K,1.85
-"Qwen-Image",BF16,40.9
-"Qwen-Image",FP8 e4m3fn,20.4
-"Qwen-Image",Q2_K,7.06
-"Qwen-Image",Q3_K_M,9.68
-"Qwen-Image",Q3_K_S,8.95
-"Qwen-Image",Q4_0,11.9
-"Qwen-Image",Q4_1,12.8
-"Qwen-Image",Q4_K_M,13.1
-"Qwen-Image",Q4_K_S,12.1
-"Qwen-Image",Q5_0,14.4
-"Qwen-Image",Q5_1,15.4
-"Qwen-Image",Q5_K_M,14.9
-"Qwen-Image",Q5_K_S,14.1
-"Qwen-Image",Q6_K,16.8
-"Qwen-Image",Q8_0,21.8
+model_name,quantization_name,file_size_gb,repository
+"ACE-Step v1.0",FP16,7.7,https://huggingface.co/Comfy-Org/ACE-Step_ComfyUI_repackaged/tree/main/all_in_one
+"NVIDIA Cosmos 14B T2W v1.0",BF16,28.5,https://huggingface.co/mcmonkey/cosmos-1.0/tree/main
+"NVIDIA Cosmos 14B V2W v1.0",BF16,28.5,https://huggingface.co/mcmonkey/cosmos-1.0/tree/main
+"NVIDIA Cosmos 7B V2W v1.0",BF16,14.5,https://huggingface.co/mcmonkey/cosmos-1.0/tree/main
+"NVIDIA Cosmos 7B T2W v1.0",BF16,14.5,https://huggingface.co/mcmonkey/cosmos-1.0/tree/main
+"FLUX.1 Schnell",FP8,17.2,https://huggingface.co/Comfy-Org/flux1-schnell/tree/main
+"FLUX.1 Schnell",FP16,23.8,https://huggingface.co/black-forest-labs/FLUX.1-schnell/tree/main
+"FLUX.1 Schnell",Q2_K,4.01,https://huggingface.co/city96/FLUX.1-schnell-gguf/tree/main
+"FLUX.1 Schnell",Q3_K_S,5.21,https://huggingface.co/city96/FLUX.1-schnell-gguf/tree/main
+"FLUX.1 Schnell",Q4_0,6.77,https://huggingface.co/city96/FLUX.1-schnell-gguf/tree/main
+"FLUX.1 Schnell",Q4_1,7.51,https://huggingface.co/city96/FLUX.1-schnell-gguf/tree/main
+"FLUX.1 Schnell",Q4_K_S,6.78,https://huggingface.co/city96/FLUX.1-schnell-gguf/tree/main
+"FLUX.1 Schnell",Q5_0,8.25,https://huggingface.co/city96/FLUX.1-schnell-gguf/tree/main
+"FLUX.1 Schnell",Q5_1,8.99,https://huggingface.co/city96/FLUX.1-schnell-gguf/tree/main
+"FLUX.1 Schnell",Q5_K_S,8.26,https://huggingface.co/city96/FLUX.1-schnell-gguf/tree/main
+"FLUX.1 Schnell",Q6_K,9.83,https://huggingface.co/city96/FLUX.1-schnell-gguf/tree/main
+"FLUX.1 Schnell",Q8_0,12.7,https://huggingface.co/city96/FLUX.1-schnell-gguf/tree/main
+"FLUX.1 Dev",FP8,17.2,https://huggingface.co/Comfy-Org/flux1-dev/tree/main
+"FLUX.1 Dev",FP16,23.8,https://huggingface.co/black-forest-labs/FLUX.1-dev/tree/main
+"FLUX.1 Dev",Q2_K,4.03,https://huggingface.co/city96/FLUX.1-dev-gguf/tree/main
+"FLUX.1 Dev",Q3_K_S,5.23,https://huggingface.co/city96/FLUX.1-dev-gguf/tree/main
+"FLUX.1 Dev",Q4_0,6.79,https://huggingface.co/city96/FLUX.1-dev-gguf/tree/main
+"FLUX.1 Dev",Q4_1,7.53,https://huggingface.co/city96/FLUX.1-dev-gguf/tree/main
+"FLUX.1 Dev",Q4_K_S,6.81,https://huggingface.co/city96/FLUX.1-dev-gguf/tree/main
+"FLUX.1 Dev",Q5_0,8.27,https://huggingface.co/city96/FLUX.1-dev-gguf/tree/main
+"FLUX.1 Dev",Q5_1,9.01,https://huggingface.co/city96/FLUX.1-dev-gguf/tree/main
+"FLUX.1 Dev",Q5_K_S,8.29,https://huggingface.co/city96/FLUX.1-dev-gguf/tree/main
+"FLUX.1 Dev",Q6_K,9.86,https://huggingface.co/city96/FLUX.1-dev-gguf/tree/main
+"FLUX.1 Dev",Q8_0,12.7,https://huggingface.co/city96/FLUX.1-dev-gguf/tree/main
+"FLUX.1 Dev Fill",FP8,11.9,https://huggingface.co/boricuapab/flux1-fill-dev-fp8/tree/main
+"FLUX.1 Dev Fill",FP16,23.8,https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev/tree/main
+"FLUX.1 Dev Fill",Q3_K_S,5.24,https://huggingface.co/YarvixPA/FLUX.1-Fill-dev-GGUF/tree/main
+"FLUX.1 Dev Fill",Q4_0,6.81,https://huggingface.co/YarvixPA/FLUX.1-Fill-dev-GGUF/tree/main
+"FLUX.1 Dev Fill",Q4_1,7.55,https://huggingface.co/YarvixPA/FLUX.1-Fill-dev-GGUF/tree/main
+"FLUX.1 Dev Fill",Q4_K_S,6.81,https://huggingface.co/YarvixPA/FLUX.1-Fill-dev-GGUF/tree/main
+"FLUX.1 Dev Fill",Q5_0,8.29,https://huggingface.co/YarvixPA/FLUX.1-Fill-dev-GGUF/tree/main
+"FLUX.1 Dev Fill",Q5_1,9.03,https://huggingface.co/YarvixPA/FLUX.1-Fill-dev-GGUF/tree/main
+"FLUX.1 Dev Fill",Q5_K_S,8.29,https://huggingface.co/YarvixPA/FLUX.1-Fill-dev-GGUF/tree/main
+"FLUX.1 Dev Fill",Q6_K,9.86,https://huggingface.co/YarvixPA/FLUX.1-Fill-dev-GGUF/tree/main
+"FLUX.1 Dev Fill",Q8_0,12.7,https://huggingface.co/YarvixPA/FLUX.1-Fill-dev-GGUF/tree/main
+"FLUX.1 Dev Canny",FP8,11.9,https://huggingface.co/boricuapab/flux1-canny-dev-fp8/tree/main
+"FLUX.1 Dev Canny",FP16,23.8,https://huggingface.co/black-forest-labs/FLUX.1-Canny-dev/tree/main
+"FLUX.1 Dev Canny",Q2_K,4.15,https://huggingface.co/second-state/FLUX.1-Canny-dev-GGUF/tree/main
+"FLUX.1 Dev Canny",Q3_K,5.35,https://huggingface.co/second-state/FLUX.1-Canny-dev-GGUF/tree/main
+"FLUX.1 Dev Canny",Q4_0,6.93,https://huggingface.co/second-state/FLUX.1-Canny-dev-GGUF/tree/main
+"FLUX.1 Dev Canny",Q4_1,7.67,https://huggingface.co/second-state/FLUX.1-Canny-dev-GGUF/tree/main
+"FLUX.1 Dev Canny",Q4_K,6.93,https://huggingface.co/second-state/FLUX.1-Canny-dev-GGUF/tree/main
+"FLUX.1 Dev Canny",Q5_0,8.41,https://huggingface.co/second-state/FLUX.1-Canny-dev-GGUF/tree/main
+"FLUX.1 Dev Canny",Q5_1,9.15,https://huggingface.co/second-state/FLUX.1-Canny-dev-GGUF/tree/main
+"FLUX.1 Dev Canny",Q8_0,12.8,https://huggingface.co/second-state/FLUX.1-Canny-dev-GGUF/tree/main
+"FLUX.1 Dev Depth",FP8,11.9,https://huggingface.co/boricuapab/flux1-depth-dev-fp8/tree/main
+"FLUX.1 Dev Depth",FP16,23.8,https://huggingface.co/black-forest-labs/FLUX.1-Depth-dev/tree/main
+"FLUX.1 Dev Depth",Q4_0,6.8,https://huggingface.co/SporkySporkness/FLUX.1-Depth-dev-GGUF/tree/main
+"FLUX.1 Dev Depth",Q5_0,8.28,https://huggingface.co/SporkySporkness/FLUX.1-Depth-dev-GGUF/tree/main
+"FLUX.1 Dev Depth",Q8_0,12.7,https://huggingface.co/SporkySporkness/FLUX.1-Depth-dev-GGUF/tree/main
+"FLUX.1 Kontext Dev",FP8 scaled,11.9,https://huggingface.co/Comfy-Org/flux1-kontext-dev_ComfyUI/tree/main/split_files/diffusion_models
+"FLUX.1 Kontext Dev",FP16,23.8,https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev/tree/main
+"FLUX.1 Kontext Dev",Q2_K,4.02,https://huggingface.co/QuantStack/FLUX.1-Kontext-dev-GGUF/tree/main
+"FLUX.1 Kontext Dev",Q3_K_S,5.23,https://huggingface.co/QuantStack/FLUX.1-Kontext-dev-GGUF/tree/main
+"FLUX.1 Kontext Dev",Q4_0,6.8,https://huggingface.co/QuantStack/FLUX.1-Kontext-dev-GGUF/tree/main
+"FLUX.1 Kontext Dev",Q4_1,7.54,https://huggingface.co/QuantStack/FLUX.1-Kontext-dev-GGUF/tree/main
+"FLUX.1 Kontext Dev",Q4_K_M,6.93,https://huggingface.co/QuantStack/FLUX.1-Kontext-dev-GGUF/tree/main
+"FLUX.1 Kontext Dev",Q4_K_S,6.8,https://huggingface.co/QuantStack/FLUX.1-Kontext-dev-GGUF/tree/main
+"FLUX.1 Kontext Dev",Q5_0,8.28,https://huggingface.co/QuantStack/FLUX.1-Kontext-dev-GGUF/tree/main
+"FLUX.1 Kontext Dev",Q5_1,9.02,https://huggingface.co/QuantStack/FLUX.1-Kontext-dev-GGUF/tree/main
+"FLUX.1 Kontext Dev",Q5_K_M,8.42,https://huggingface.co/QuantStack/FLUX.1-Kontext-dev-GGUF/tree/main
+"FLUX.1 Kontext Dev",Q5_K_S,8.28,https://huggingface.co/QuantStack/FLUX.1-Kontext-dev-GGUF/tree/main
+"FLUX.1 Kontext Dev",Q6_K,9.85,https://huggingface.co/QuantStack/FLUX.1-Kontext-dev-GGUF/tree/main
+"FLUX.1 Kontext Dev",Q8_0,12.7,https://huggingface.co/QuantStack/FLUX.1-Kontext-dev-GGUF/tree/main
+"FLUX.1 Krea Dev",FP16,23.8,https://huggingface.co/black-forest-labs/FLUX.1-Krea-dev/tree/main
+"FLUX.1 Krea Dev",FP8,11.9,https://huggingface.co/Comfy-Org/FLUX.1-Krea-dev_ComfyUI/tree/main/split_files/diffusion_models
+"FLUX.1 Krea Dev",Q2_K,4.02,https://huggingface.co/QuantStack/FLUX.1-Krea-dev-GGUF/tree/main
+"FLUX.1 Krea Dev",Q3_K_M,5.37,https://huggingface.co/QuantStack/FLUX.1-Krea-dev-GGUF/tree/main
+"FLUX.1 Krea Dev",Q3_K_S,5.23,https://huggingface.co/QuantStack/FLUX.1-Krea-dev-GGUF/tree/main
+"FLUX.1 Krea Dev",Q4_0,6.8,https://huggingface.co/QuantStack/FLUX.1-Krea-dev-GGUF/tree/main
+"FLUX.1 Krea Dev",Q4_1,7.54,https://huggingface.co/QuantStack/FLUX.1-Krea-dev-GGUF/tree/main
+"FLUX.1 Krea Dev",Q4_K_M,6.93,https://huggingface.co/QuantStack/FLUX.1-Krea-dev-GGUF/tree/main
+"FLUX.1 Krea Dev",Q4_K_S,6.8,https://huggingface.co/QuantStack/FLUX.1-Krea-dev-GGUF/tree/main
+"FLUX.1 Krea Dev",Q5_0,8.28,https://huggingface.co/QuantStack/FLUX.1-Krea-dev-GGUF/tree/main
+"FLUX.1 Krea Dev",Q5_1,9.02,https://huggingface.co/QuantStack/FLUX.1-Krea-dev-GGUF/tree/main
+"FLUX.1 Krea Dev",Q5_K_M,8.42,https://huggingface.co/QuantStack/FLUX.1-Krea-dev-GGUF/tree/main
+"FLUX.1 Krea Dev",Q5_K_S,8.28,https://huggingface.co/QuantStack/FLUX.1-Krea-dev-GGUF/tree/main
+"FLUX.1 Krea Dev",Q6_K,9.85,https://huggingface.co/QuantStack/FLUX.1-Krea-dev-GGUF/tree/main
+"FLUX.1 Krea Dev",Q8_0,12.7,https://huggingface.co/QuantStack/FLUX.1-Krea-dev-GGUF/tree/main
+"HiDream-I1 Full",FP8,17.1,https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/tree/main/split_files/diffusion_models
+"HiDream-I1 Full",FP16,34.2,https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/tree/main/split_files/diffusion_models
+"HiDream-I1 Full",Q2_K,6.56,https://huggingface.co/city96/HiDream-I1-Full-gguf/tree/main
+"HiDream-I1 Full",Q3_K_M,8.77,https://huggingface.co/city96/HiDream-I1-Full-gguf/tree/main
+"HiDream-I1 Full",Q3_K_S,8.21,https://huggingface.co/city96/HiDream-I1-Full-gguf/tree/main
+"HiDream-I1 Full",Q4_0,10.7,https://huggingface.co/city96/HiDream-I1-Full-gguf/tree/main
+"HiDream-I1 Full",Q4_1,11.4,https://huggingface.co/city96/HiDream-I1-Full-gguf/tree/main
+"HiDream-I1 Full",Q4_K_M,11.5,https://huggingface.co/city96/HiDream-I1-Full-gguf/tree/main
+"HiDream-I1 Full",Q4_K_S,10.9,https://huggingface.co/city96/HiDream-I1-Full-gguf/tree/main
+"HiDream-I1 Full",Q5_0,12.7,https://huggingface.co/city96/HiDream-I1-Full-gguf/tree/main
+"HiDream-I1 Full",Q5_1,13.5,https://huggingface.co/city96/HiDream-I1-Full-gguf/tree/main
+"HiDream-I1 Full",Q5_K_M,13,https://huggingface.co/city96/HiDream-I1-Full-gguf/tree/main
+"HiDream-I1 Full",Q5_K_S,12.5,https://huggingface.co/city96/HiDream-I1-Full-gguf/tree/main
+"HiDream-I1 Full",Q6_K,14.7,https://huggingface.co/city96/HiDream-I1-Full-gguf/tree/main
+"HiDream-I1 Full",Q8_0,18.7,https://huggingface.co/city96/HiDream-I1-Full-gguf/tree/main
+"HiDream-I1 Dev",FP8,17.1,https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/tree/main/split_files/diffusion_models
+"HiDream-I1 Dev",BF16,34.2,https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/tree/main/split_files/diffusion_models
+"HiDream-I1 Dev",Q2_K,6.57,https://huggingface.co/city96/HiDream-I1-Dev-gguf/tree/main
+"HiDream-I1 Dev",Q3_K_M,8.77,https://huggingface.co/city96/HiDream-I1-Dev-gguf/tree/main
+"HiDream-I1 Dev",Q3_K_S,8.22,https://huggingface.co/city96/HiDream-I1-Dev-gguf/tree/main
+"HiDream-I1 Dev",Q4_0,10.7,https://huggingface.co/city96/HiDream-I1-Dev-gguf/tree/main
+"HiDream-I1 Dev",Q4_1,11.5,https://huggingface.co/city96/HiDream-I1-Dev-gguf/tree/main
+"HiDream-I1 Dev",Q4_K_M,11.5,https://huggingface.co/city96/HiDream-I1-Dev-gguf/tree/main
+"HiDream-I1 Dev",Q4_K_S,10.9,https://huggingface.co/city96/HiDream-I1-Dev-gguf/tree/main
+"HiDream-I1 Dev",Q5_0,12.7,https://huggingface.co/city96/HiDream-I1-Dev-gguf/tree/main
+"HiDream-I1 Dev",Q5_1,13.5,https://huggingface.co/city96/HiDream-I1-Dev-gguf/tree/main
+"HiDream-I1 Dev",Q5_K_M,13,https://huggingface.co/city96/HiDream-I1-Dev-gguf/tree/main
+"HiDream-I1 Dev",Q5_K_S,12.5,https://huggingface.co/city96/HiDream-I1-Dev-gguf/tree/main
+"HiDream-I1 Dev",Q6_K,14.7,https://huggingface.co/city96/HiDream-I1-Dev-gguf/tree/main
+"HiDream-I1 Dev",Q8_0,18.7,https://huggingface.co/city96/HiDream-I1-Dev-gguf/tree/main
+"HiDream-I1 Fast",FP8,17.1,https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/tree/main/split_files/diffusion_models
+"HiDream-I1 Fast",BF16,34.2,https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/tree/main/split_files/diffusion_models
+"HiDream-I1 Fast",Q2_K,6.57,https://huggingface.co/city96/HiDream-I1-Fast-gguf/tree/main
+"HiDream-I1 Fast",Q3_K_M,8.77,https://huggingface.co/city96/HiDream-I1-Fast-gguf/tree/main
+"HiDream-I1 Fast",Q3_K_S,8.22,https://huggingface.co/city96/HiDream-I1-Fast-gguf/tree/main
+"HiDream-I1 Fast",Q4_0,10.7,https://huggingface.co/city96/HiDream-I1-Fast-gguf/tree/main
+"HiDream-I1 Fast",Q4_1,11.5,https://huggingface.co/city96/HiDream-I1-Fast-gguf/tree/main
+"HiDream-I1 Fast",Q4_K_M,11.5,https://huggingface.co/city96/HiDream-I1-Fast-gguf/tree/main
+"HiDream-I1 Fast",Q4_K_S,10.9,https://huggingface.co/city96/HiDream-I1-Fast-gguf/tree/main
+"HiDream-I1 Fast",Q5_0,12.7,https://huggingface.co/city96/HiDream-I1-Fast-gguf/tree/main
+"HiDream-I1 Fast",Q5_1,13.5,https://huggingface.co/city96/HiDream-I1-Fast-gguf/tree/main
+"HiDream-I1 Fast",Q5_K_M,13,https://huggingface.co/city96/HiDream-I1-Fast-gguf/tree/main
+"HiDream-I1 Fast",Q5_K_S,12.5,https://huggingface.co/city96/HiDream-I1-Fast-gguf/tree/main
+"HiDream-I1 Fast",Q6_K,14.7,https://huggingface.co/city96/HiDream-I1-Fast-gguf/tree/main
+"HiDream-I1 Fast",Q8_0,18.7,https://huggingface.co/city96/HiDream-I1-Fast-gguf/tree/main
+"HiDream-E1 Full",FP8,17.1,https://huggingface.co/boricuapab/hidream_e1_1_full_bf16-fp8/tree/main
+"HiDream-E1 Full",BF16,34.2,https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/tree/main/split_files/diffusion_models
+"HiDream-E1 Full",Q2_K,6.57,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1 Full",Q4_0,10.7,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1 Full",Q4_1,11.5,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1 Full",Q4_K_M,11.5,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1 Full",Q4_K,11.5,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1 Full",Q5_0,12.7,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1 Full",Q5_1,13.5,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1 Full",Q5_K,13,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1 Full",Q5_K_M,13,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1 Full",Q6_K,14.7,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1 Full",Q8_0,18.7,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1.1",FP8,17.1,https://huggingface.co/boricuapab/hidream_e1_1_full_bf16-fp8/tree/main
+"HiDream-E1.1",BF16,34.2,https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/tree/main/split_files/diffusion_models
+"HiDream-E1.1",Q2_K,6.57,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1.1",Q3_K_M,8.77,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1.1",Q3_K_S,8.22,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1.1",Q4_0,10.7,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1.1",Q4_1,11.5,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1.1",Q4_K_M,11.5,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1.1",Q4_K_S,10.9,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1.1",Q5_0,12.7,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1.1",Q5_1,13.5,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1.1",Q5_K_M,13,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1.1",Q5_K_S,12.5,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1.1",Q6_K,14.7,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HiDream-E1.1",Q8_0,18.7,https://huggingface.co/QuantStack/HiDream-E1-1-GGUF/tree/main
+"HunyuanVideo T2V 720p",FP8 e4m3fn,13.2,https://huggingface.co/Kijai/HunyuanVideo_comfy/tree/main
+"HunyuanVideo T2V 720p",BF16,25.6,https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/tree/main/split_files/diffusion_models
+"HunyuanVideo T2V 720p",Q3_K_M,6.24,https://huggingface.co/city96/HunyuanVideo-gguf/tree/main
+"HunyuanVideo T2V 720p",Q3_K_S,6.09,https://huggingface.co/city96/HunyuanVideo-gguf/tree/main
+"HunyuanVideo T2V 720p",Q4_0,7.74,https://huggingface.co/city96/HunyuanVideo-gguf/tree/main
+"HunyuanVideo T2V 720p",Q4_1,8.52,https://huggingface.co/city96/HunyuanVideo-gguf/tree/main
+"HunyuanVideo T2V 720p",Q4_K_M,7.88,https://huggingface.co/city96/HunyuanVideo-gguf/tree/main
+"HunyuanVideo T2V 720p",Q4_K,7.74,https://huggingface.co/city96/HunyuanVideo-gguf/tree/main
+"HunyuanVideo T2V 720p",Q5_0,9.3,https://huggingface.co/city96/HunyuanVideo-gguf/tree/main
+"HunyuanVideo T2V 720p",Q5_1,10.1,https://huggingface.co/city96/HunyuanVideo-gguf/tree/main
+"HunyuanVideo T2V 720p",Q5_K_M,9.45,https://huggingface.co/city96/HunyuanVideo-gguf/tree/main
+"HunyuanVideo T2V 720p",Q5_K_S,9.3,https://huggingface.co/city96/HunyuanVideo-gguf/tree/main
+"HunyuanVideo T2V 720p",Q6_K,11,https://huggingface.co/city96/HunyuanVideo-gguf/tree/main
+"HunyuanVideo T2V 720p",Q8_0,14,https://huggingface.co/city96/HunyuanVideo-gguf/tree/main
+"HunyuanVideo I2V 720p",FP8 e4m3fn,13.2,https://huggingface.co/Kijai/HunyuanVideo_comfy/tree/main
+"HunyuanVideo I2V 720p",BF16,25.6,https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/tree/main/split_files/diffusion_models
+"HunyuanVideo I2V 720p",Q3_K_M,6.24,https://huggingface.co/city96/HunyuanVideo-I2V-gguf/tree/main
+"HunyuanVideo I2V 720p",Q3_K_S,6.09,https://huggingface.co/city96/HunyuanVideo-I2V-gguf/tree/main
+"HunyuanVideo I2V 720p",Q4_0,7.74,https://huggingface.co/city96/HunyuanVideo-I2V-gguf/tree/main
+"HunyuanVideo I2V 720p",Q4_1,8.52,https://huggingface.co/city96/HunyuanVideo-I2V-gguf/tree/main
+"HunyuanVideo I2V 720p",Q4_K_M,7.88,https://huggingface.co/city96/HunyuanVideo-I2V-gguf/tree/main
+"HunyuanVideo I2V 720p",Q4_K,7.74,https://huggingface.co/city96/HunyuanVideo-I2V-gguf/tree/main
+"HunyuanVideo I2V 720p",Q5_0,9.3,https://huggingface.co/city96/HunyuanVideo-I2V-gguf/tree/main
+"HunyuanVideo I2V 720p",Q5_1,10.1,https://huggingface.co/city96/HunyuanVideo-I2V-gguf/tree/main
+"HunyuanVideo I2V 720p",Q5_K_M,9.45,https://huggingface.co/city96/HunyuanVideo-I2V-gguf/tree/main
+"HunyuanVideo I2V 720p",Q5_K_S,9.3,https://huggingface.co/city96/HunyuanVideo-I2V-gguf/tree/main
+"HunyuanVideo I2V 720p",Q6_K,11,https://huggingface.co/city96/HunyuanVideo-I2V-gguf/tree/main
+"HunyuanVideo I2V 720p",Q8_0,14,https://huggingface.co/city96/HunyuanVideo-I2V-gguf/tree/main
+"LTX-Video Dev 13B v0.9.8",FP8,15.7,https://huggingface.co/Lightricks/LTX-Video/tree/main
+"LTX-Video Dev 13B v0.9.8",FP16,28.6,https://huggingface.co/Lightricks/LTX-Video/tree/main
+"LTX-Video Dev 13B v0.9.8",Q2_K,4.72,https://huggingface.co/QuantStack/LTXV-13B-0.9.8-dev-GGUF/tree/main
+"LTX-Video Dev 13B v0.9.8",Q3_K_M,6.51,https://huggingface.co/QuantStack/LTXV-13B-0.9.8-dev-GGUF/tree/main
+"LTX-Video Dev 13B v0.9.8",Q3_K_S,5.86,https://huggingface.co/QuantStack/LTXV-13B-0.9.8-dev-GGUF/tree/main
+"LTX-Video Dev 13B v0.9.8",Q4_K_M,8.82,https://huggingface.co/QuantStack/LTXV-13B-0.9.8-dev-GGUF/tree/main
+"LTX-Video Dev 13B v0.9.8",Q4_K_S,7.98,https://huggingface.co/QuantStack/LTXV-13B-0.9.8-dev-GGUF/tree/main
+"LTX-Video Dev 13B v0.9.8",Q5_K_M,9.82,https://huggingface.co/QuantStack/LTXV-13B-0.9.8-dev-GGUF/tree/main
+"LTX-Video Dev 13B v0.9.8",Q5_K_S,9.18,https://huggingface.co/QuantStack/LTXV-13B-0.9.8-dev-GGUF/tree/main
+"LTX-Video Dev 13B v0.9.8",Q6_K,10.9,https://huggingface.co/QuantStack/LTXV-13B-0.9.8-dev-GGUF/tree/main
+"LTX-Video Dev 13B v0.9.8",Q8_0,14,https://huggingface.co/QuantStack/LTXV-13B-0.9.8-dev-GGUF/tree/main
+"LTX-Video Distilled 13B v0.9.8",FP8,15.7,https://huggingface.co/Lightricks/LTX-Video/tree/main
+"LTX-Video Distilled 13B v0.9.8",FP16,28.6,https://huggingface.co/Lightricks/LTX-Video/tree/main
+"LTX-Video Distilled 13B v0.9.8",Q2_K,4.72,https://huggingface.co/QuantStack/LTXV-13B-0.9.8-distilled-GGUF/tree/main
+"LTX-Video Distilled 13B v0.9.8",Q3_K_M,6.51.72,https://huggingface.co/QuantStack/LTXV-13B-0.9.8-distilled-GGUF/tree/main
+"LTX-Video Distilled 13B v0.9.8",Q3_K_S,5.86.72,https://huggingface.co/QuantStack/LTXV-13B-0.9.8-distilled-GGUF/tree/main
+"LTX-Video Distilled 13B v0.9.8",Q4_K_M,8.82.72,https://huggingface.co/QuantStack/LTXV-13B-0.9.8-distilled-GGUF/tree/main
+"LTX-Video Distilled 13B v0.9.8",Q4_K_S,7.98.72,https://huggingface.co/QuantStack/LTXV-13B-0.9.8-distilled-GGUF/tree/main
+"LTX-Video Distilled 13B v0.9.8",Q5_K_M,9.82.72,https://huggingface.co/QuantStack/LTXV-13B-0.9.8-distilled-GGUF/tree/main
+"LTX-Video Distilled 13B v0.9.8",Q5_K_S,9.18.72,https://huggingface.co/QuantStack/LTXV-13B-0.9.8-distilled-GGUF/tree/main
+"LTX-Video Distilled 13B v0.9.8",Q6_K,10.9.72,https://huggingface.co/QuantStack/LTXV-13B-0.9.8-distilled-GGUF/tree/main
+"LTX-Video Distilled 13B v0.9.8",Q8_0,14.72,https://huggingface.co/QuantStack/LTXV-13B-0.9.8-distilled-GGUF/tree/main
+"LTX-Video Distilled 2B v0.9.8",FP8,4.46,https://huggingface.co/Lightricks/LTX-Video/tree/main
+"LTX-Video Distilled 2B v0.9.8",FP16,6.34,https://huggingface.co/Lightricks/LTX-Video/tree/main
+"Stable Diffusion 1.5 Pruned",FP16,7.7,https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/tree/main
+"Stable Diffusion 1.5 Pruned-Emaonly",FP16,4.27,https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/tree/main
+"Stable Diffusion XL Base + Refiner",FP16,13.02,https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/tree/main
+"Stable Diffusion 3 Medium",FP16,4.34,https://huggingface.co/stabilityai/stable-diffusion-3-medium/tree/main
+"Stable Diffusion 3 Medium",Q4_0,1.28,https://huggingface.co/city96/stable-diffusion-3-medium-gguf/tree/main
+"Stable Diffusion 3 Medium",Q4_1,1.41,https://huggingface.co/city96/stable-diffusion-3-medium-gguf/tree/main
+"Stable Diffusion 3 Medium",Q4_K_M,1.33,https://huggingface.co/city96/stable-diffusion-3-medium-gguf/tree/main
+"Stable Diffusion 3 Medium",Q4_K_S,1.28,https://huggingface.co/city96/stable-diffusion-3-medium-gguf/tree/main
+"Stable Diffusion 3 Medium",Q5_0,1.53,https://huggingface.co/city96/stable-diffusion-3-medium-gguf/tree/main
+"Stable Diffusion 3 Medium",Q5_1,1.66,https://huggingface.co/city96/stable-diffusion-3-medium-gguf/tree/main
+"Stable Diffusion 3 Medium",Q5_K_M,1.58,https://huggingface.co/city96/stable-diffusion-3-medium-gguf/tree/main
+"Stable Diffusion 3 Medium",Q5_K_S,1.53,https://huggingface.co/city96/stable-diffusion-3-medium-gguf/tree/main
+"Stable Diffusion 3 Medium",Q6_K,1.8,https://huggingface.co/city96/stable-diffusion-3-medium-gguf/tree/main
+"Stable Diffusion 3 Medium",Q8_0,2.29,https://huggingface.co/city96/stable-diffusion-3-medium-gguf/tree/main
+"Stable Diffusion 3.5 Medium",FP16,5.11,https://huggingface.co/stabilityai/stable-diffusion-3.5-medium/tree/main
+"Stable Diffusion 3.5 Medium",Q3_K_M,1.49,https://huggingface.co/city96/stable-diffusion-3.5-medium-gguf/tree/main
+"Stable Diffusion 3.5 Medium",Q3_K_S,1.45,https://huggingface.co/city96/stable-diffusion-3.5-medium-gguf/tree/main
+"Stable Diffusion 3.5 Medium",Q4_0,1.74,https://huggingface.co/city96/stable-diffusion-3.5-medium-gguf/tree/main
+"Stable Diffusion 3.5 Medium",Q4_1,1.88,https://huggingface.co/city96/stable-diffusion-3.5-medium-gguf/tree/main
+"Stable Diffusion 3.5 Medium",Q4_K_M,1.79,https://huggingface.co/city96/stable-diffusion-3.5-medium-gguf/tree/main
+"Stable Diffusion 3.5 Medium",Q4_K_S,1.74,https://huggingface.co/city96/stable-diffusion-3.5-medium-gguf/tree/main
+"Stable Diffusion 3.5 Medium",Q5_0,2.02,https://huggingface.co/city96/stable-diffusion-3.5-medium-gguf/tree/main
+"Stable Diffusion 3.5 Medium",Q5_1,2.16,https://huggingface.co/city96/stable-diffusion-3.5-medium-gguf/tree/main
+"Stable Diffusion 3.5 Medium",Q5_K_M,2.07,https://huggingface.co/city96/stable-diffusion-3.5-medium-gguf/tree/main
+"Stable Diffusion 3.5 Medium",Q5_K_S,2.02,https://huggingface.co/city96/stable-diffusion-3.5-medium-gguf/tree/main
+"Stable Diffusion 3.5 Medium",Q6_K,2.32,https://huggingface.co/city96/stable-diffusion-3.5-medium-gguf/tree/main
+"Stable Diffusion 3.5 Medium",Q8_0,2.86,https://huggingface.co/city96/stable-diffusion-3.5-medium-gguf/tree/main
+"Stable Diffusion 3.5 Large",FP16,16.5,https://huggingface.co/stabilityai/stable-diffusion-3.5-large/tree/main
+"Stable Diffusion 3.5 Large",FP8 scaled,11.6,https://huggingface.co/Comfy-Org/stable-diffusion-3.5-fp8/tree/main
+"Stable Diffusion 3.5 Large",Q4_0,4.77,https://huggingface.co/city96/stable-diffusion-3.5-large-gguf/tree/main
+"Stable Diffusion 3.5 Large",Q4_1,5.27,https://huggingface.co/city96/stable-diffusion-3.5-large-gguf/tree/main
+"Stable Diffusion 3.5 Large",Q5_0,5.77,https://huggingface.co/city96/stable-diffusion-3.5-large-gguf/tree/main
+"Stable Diffusion 3.5 Large",Q5_1,6.27,https://huggingface.co/city96/stable-diffusion-3.5-large-gguf/tree/main
+"Stable Diffusion 3.5 Large",Q8_0,8.78,https://huggingface.co/city96/stable-diffusion-3.5-large-gguf/tree/main
+"Stable Diffusion 3.5 Large Turbo",FP16,16.5,https://huggingface.co/stabilityai/stable-diffusion-3.5-large-turbo/tree/main
+"Stable Diffusion 3.5 Large Turbo",Q4_0,4.77,https://huggingface.co/city96/stable-diffusion-3.5-large-turbo-gguf/tree/main
+"Stable Diffusion 3.5 Large Turbo",Q4_1,5.27,https://huggingface.co/city96/stable-diffusion-3.5-large-turbo-gguf/tree/main
+"Stable Diffusion 3.5 Large Turbo",Q5_0,5.77,https://huggingface.co/city96/stable-diffusion-3.5-large-turbo-gguf/tree/main
+"Stable Diffusion 3.5 Large Turbo",Q5_1,6.27,https://huggingface.co/city96/stable-diffusion-3.5-large-turbo-gguf/tree/main
+"Stable Diffusion 3.5 Large Turbo",Q8_0,8.78,https://huggingface.co/city96/stable-diffusion-3.5-large-turbo-gguf/tree/main
+"Stable Diffusion XL Turbo",FP16,13.9,https://huggingface.co/stabilityai/sdxl-turbo/tree/main
+"NVIDIA Cosmos Predict2 14B V2W 480p 10fps",FP16,28.5,https://huggingface.co/Comfy-Org/Cosmos_Predict2_repackaged/tree/main
+"NVIDIA Cosmos Predict2 14B V2W 480p 16fps",FP16,28.5,https://huggingface.co/Comfy-Org/Cosmos_Predict2_repackaged/tree/main
+"NVIDIA Cosmos Predict2 14B V2W 720p 10fps",FP16,28.5,https://huggingface.co/Comfy-Org/Cosmos_Predict2_repackaged/tree/main
+"NVIDIA Cosmos Predict2 14B V2W 720p 16fps",FP16,28.5,https://huggingface.co/Comfy-Org/Cosmos_Predict2_repackaged/tree/main
+"NVIDIA Cosmos Predict2 14B T2I",FP16,28.5,https://huggingface.co/Comfy-Org/Cosmos_Predict2_repackaged/tree/main
+"NVIDIA Cosmos Predict2 2B V2W 480p 10fps",FP16,3.91,https://huggingface.co/Comfy-Org/Cosmos_Predict2_repackaged/tree/main
+"NVIDIA Cosmos Predict2 2B V2W 480p 16fps",FP16,3.91,https://huggingface.co/Comfy-Org/Cosmos_Predict2_repackaged/tree/main
+"NVIDIA Cosmos Predict2 2B V2W 720p 10fps",FP16,3.91,https://huggingface.co/Comfy-Org/Cosmos_Predict2_repackaged/tree/main
+"NVIDIA Cosmos Predict2 2B V2W 720p 16fps",FP16,3.91,https://huggingface.co/Comfy-Org/Cosmos_Predict2_repackaged/tree/main
+"NVIDIA Cosmos Predict2 2B T2I",FP16,3.91,https://huggingface.co/Comfy-Org/Cosmos_Predict2_repackaged/tree/main
+"Wan2.1 14B T2V",FP16,28.6,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models
+"Wan2.1 14B T2V",BF16,28.6,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models
+"Wan2.1 14B T2V",FP8 e4m3fn,14.3,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models
+"Wan2.1 14B T2V",FP8 scaled,14.3,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models
+"Wan2.1 14B T2V",Q3_K_M,7.65,https://huggingface.co/city96/Wan2.1-T2V-14B-gguf/tree/main
+"Wan2.1 14B T2V",Q3_K_S,6.99,https://huggingface.co/city96/Wan2.1-T2V-14B-gguf/tree/main
+"Wan2.1 14B T2V",Q4_0,9.03,https://huggingface.co/city96/Wan2.1-T2V-14B-gguf/tree/main
+"Wan2.1 14B T2V",Q4_1,9.73,https://huggingface.co/city96/Wan2.1-T2V-14B-gguf/tree/main
+"Wan2.1 14B T2V",Q4_K_M,10.1,https://huggingface.co/city96/Wan2.1-T2V-14B-gguf/tree/main
+"Wan2.1 14B T2V",Q4_K_S,9.22,https://huggingface.co/city96/Wan2.1-T2V-14B-gguf/tree/main
+"Wan2.1 14B T2V",Q5_0,10.8,https://huggingface.co/city96/Wan2.1-T2V-14B-gguf/tree/main
+"Wan2.1 14B T2V",Q5_1,11.5,https://huggingface.co/city96/Wan2.1-T2V-14B-gguf/tree/main
+"Wan2.1 14B T2V",Q5_K_M,11.3,https://huggingface.co/city96/Wan2.1-T2V-14B-gguf/tree/main
+"Wan2.1 14B T2V",Q5_K_S,10.6,https://huggingface.co/city96/Wan2.1-T2V-14B-gguf/tree/main
+"Wan2.1 14B T2V",Q6_K,12.5,https://huggingface.co/city96/Wan2.1-T2V-14B-gguf/tree/main
+"Wan2.1 14B T2V",Q8_0,15.9,https://huggingface.co/city96/Wan2.1-T2V-14B-gguf/tree/main
+"Wan2.1 1.3B T2V",FP16,2.84,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models
+"Wan2.1 1.3B T2V",BF16,2.84,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models
+"Wan2.1 14B I2V 480p",FP16,32.8,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models
+"Wan2.1 14B I2V 480p",BF16,32.8,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models
+"Wan2.1 14B I2V 480p",FP8 e4m3fn,16.4,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models
+"Wan2.1 14B I2V 480p",FP8 scaled,16.4,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models
+"Wan2.1 14B I2V 480p",Q3_K_M,8.59,https://huggingface.co/city96/Wan2.1-I2V-14B-480P-gguf/tree/main
+"Wan2.1 14B I2V 480p",Q3_K_S,7.93,https://huggingface.co/city96/Wan2.1-I2V-14B-480P-gguf/tree/main
+"Wan2.1 14B I2V 480p",Q4_0,10.2,https://huggingface.co/city96/Wan2.1-I2V-14B-480P-gguf/tree/main
+"Wan2.1 14B I2V 480p",Q4_1,11.1,https://huggingface.co/city96/Wan2.1-I2V-14B-480P-gguf/tree/main
+"Wan2.1 14B I2V 480p",Q4_K_M,11.3,https://huggingface.co/city96/Wan2.1-I2V-14B-480P-gguf/tree/main
+"Wan2.1 14B I2V 480p",Q4_K_S,10.4,https://huggingface.co/city96/Wan2.1-I2V-14B-480P-gguf/tree/main
+"Wan2.1 14B I2V 480p",Q5_0,12.3,https://huggingface.co/city96/Wan2.1-I2V-14B-480P-gguf/tree/main
+"Wan2.1 14B I2V 480p",Q5_1,13.1,https://huggingface.co/city96/Wan2.1-I2V-14B-480P-gguf/tree/main
+"Wan2.1 14B I2V 480p",Q5_K_M,12.7,https://huggingface.co/city96/Wan2.1-I2V-14B-480P-gguf/tree/main
+"Wan2.1 14B I2V 480p",Q5_K_S,12.1,https://huggingface.co/city96/Wan2.1-I2V-14B-480P-gguf/tree/main
+"Wan2.1 14B I2V 480p",Q6_K,14.2,https://huggingface.co/city96/Wan2.1-I2V-14B-480P-gguf/tree/main
+"Wan2.1 14B I2V 480p",Q8_0,18.1,https://huggingface.co/city96/Wan2.1-I2V-14B-480P-gguf/tree/main
+"Wan2.1 14B I2V 720p",FP16,32.8,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models
+"Wan2.1 14B I2V 720p",BF16,32.8,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models
+"Wan2.1 14B I2V 720p",FP8 e4m3fn,16.4,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models
+"Wan2.1 14B I2V 720p",FP8 scaled,16.4,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models
+"Wan2.1 14B I2V 720p",Q3_K_M,8.59,https://huggingface.co/city96/Wan2.1-I2V-14B-720P-gguf/tree/main
+"Wan2.1 14B I2V 720p",Q3_K_S,7.93,https://huggingface.co/city96/Wan2.1-I2V-14B-720P-gguf/tree/main
+"Wan2.1 14B I2V 720p",Q4_0,10.2,https://huggingface.co/city96/Wan2.1-I2V-14B-720P-gguf/tree/main
+"Wan2.1 14B I2V 720p",Q4_1,11.1,https://huggingface.co/city96/Wan2.1-I2V-14B-720P-gguf/tree/main
+"Wan2.1 14B I2V 720p",Q4_K_M,11.3,https://huggingface.co/city96/Wan2.1-I2V-14B-720P-gguf/tree/main
+"Wan2.1 14B I2V 720p",Q4_K_S,10.4,https://huggingface.co/city96/Wan2.1-I2V-14B-720P-gguf/tree/main
+"Wan2.1 14B I2V 720p",Q5_0,12.3,https://huggingface.co/city96/Wan2.1-I2V-14B-720P-gguf/tree/main
+"Wan2.1 14B I2V 720p",Q5_1,13.1,https://huggingface.co/city96/Wan2.1-I2V-14B-720P-gguf/tree/main
+"Wan2.1 14B I2V 720p",Q5_K_M,12.7,https://huggingface.co/city96/Wan2.1-I2V-14B-720P-gguf/tree/main
+"Wan2.1 14B I2V 720p",Q5_K_S,12.1,https://huggingface.co/city96/Wan2.1-I2V-14B-720P-gguf/tree/main
+"Wan2.1 14B I2V 720p",Q6_K,14.2,https://huggingface.co/city96/Wan2.1-I2V-14B-720P-gguf/tree/main
+"Wan2.1 14B I2V 720p",Q8_0,18.1,https://huggingface.co/city96/Wan2.1-I2V-14B-720P-gguf/tree/main
+"Wan2.1 14B VACE",FP16,34.7,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models
+"Wan2.1 14B VACE",FP8 e4m3fn,17.3,https://huggingface.co/Kamikaze-88/Wan2.1-VACE-14B-fp8/tree/main
+"Wan2.1 14B VACE",Q3_K_S,7.84,https://huggingface.co/QuantStack/Wan2.1_14B_VACE-GGUF/tree/main
+"Wan2.1 14B VACE",Q4_0,10.3,https://huggingface.co/QuantStack/Wan2.1_14B_VACE-GGUF/tree/main
+"Wan2.1 14B VACE",Q4_1,11.2,https://huggingface.co/QuantStack/Wan2.1_14B_VACE-GGUF/tree/main
+"Wan2.1 14B VACE",Q4_K_M,11.6,https://huggingface.co/QuantStack/Wan2.1_14B_VACE-GGUF/tree/main
+"Wan2.1 14B VACE",Q4_K_S,10.6,https://huggingface.co/QuantStack/Wan2.1_14B_VACE-GGUF/tree/main
+"Wan2.1 14B VACE",Q5_0,12.5,https://huggingface.co/QuantStack/Wan2.1_14B_VACE-GGUF/tree/main
+"Wan2.1 14B VACE",Q5_1,13.3,https://huggingface.co/QuantStack/Wan2.1_14B_VACE-GGUF/tree/main
+"Wan2.1 14B VACE",Q5_K_M,13,https://huggingface.co/QuantStack/Wan2.1_14B_VACE-GGUF/tree/main
+"Wan2.1 14B VACE",Q5_K_S,12.3,https://huggingface.co/QuantStack/Wan2.1_14B_VACE-GGUF/tree/main
+"Wan2.1 14B VACE",Q6_K,14.5,https://huggingface.co/QuantStack/Wan2.1_14B_VACE-GGUF/tree/main
+"Wan2.1 14B VACE",Q8_0,18.7,https://huggingface.co/QuantStack/Wan2.1_14B_VACE-GGUF/tree/main
+"Wan2.1 1.3B VACE",FP16,4.31,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models
+"Wan2.1 14B FLF2V 720p",FP16,32.8,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models
+"Wan2.1 14B FLF2V 720p",FP8 e4m3fn,16.4,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models
+"Wan2.1 14B FLF2V 720p",Q3_K_M,8.59,https://huggingface.co/city96/Wan2.1-FLF2V-14B-720P-gguf/tree/main
+"Wan2.1 14B FLF2V 720p",Q3_K_S,7.93,https://huggingface.co/city96/Wan2.1-FLF2V-14B-720P-gguf/tree/main
+"Wan2.1 14B FLF2V 720p",Q4_0,10.3,https://huggingface.co/city96/Wan2.1-FLF2V-14B-720P-gguf/tree/main
+"Wan2.1 14B FLF2V 720p",Q4_1,11.1,https://huggingface.co/city96/Wan2.1-FLF2V-14B-720P-gguf/tree/main
+"Wan2.1 14B FLF2V 720p",Q4_K_M,11.3,https://huggingface.co/city96/Wan2.1-FLF2V-14B-720P-gguf/tree/main
+"Wan2.1 14B FLF2V 720p",Q4_K_S,10.4,https://huggingface.co/city96/Wan2.1-FLF2V-14B-720P-gguf/tree/main
+"Wan2.1 14B FLF2V 720p",Q5_0,12.3,https://huggingface.co/city96/Wan2.1-FLF2V-14B-720P-gguf/tree/main
+"Wan2.1 14B FLF2V 720p",Q5_1,13.1,https://huggingface.co/city96/Wan2.1-FLF2V-14B-720P-gguf/tree/main
+"Wan2.1 14B FLF2V 720p",Q5_K_M,12.7,https://huggingface.co/city96/Wan2.1-FLF2V-14B-720P-gguf/tree/main
+"Wan2.1 14B FLF2V 720p",Q5_K_S,12.1,https://huggingface.co/city96/Wan2.1-FLF2V-14B-720P-gguf/tree/main
+"Wan2.1 14B FLF2V 720p",Q6_K,14.2,https://huggingface.co/city96/Wan2.1-FLF2V-14B-720P-gguf/tree/main
+"Wan2.1 14B FLF2V 720p",Q8_0,18.1,https://huggingface.co/city96/Wan2.1-FLF2V-14B-720P-gguf/tree/main
+"Wan2.1 14B T2V FusionX",FP16,28.6,https://huggingface.co/vrgamedevgirl84/Wan14BT2VFusioniX/tree/main
+"Wan2.1 14B T2V FusionX",FP8,14.3,https://huggingface.co/vrgamedevgirl84/Wan14BT2VFusioniX/tree/main
+"Wan2.1 14B T2V FusionX",Q2_K,5.3,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B T2V FusionX",Q3_K_L,7.78,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B T2V FusionX",Q3_K_M,7.17,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B T2V FusionX",Q3_K_S,6.51,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B T2V FusionX",Q4_0,8.56,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B T2V FusionX",Q4_1,9.26,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B T2V FusionX",Q4_K_M,9.65,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B T2V FusionX",Q4_K_S,8.75,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B T2V FusionX",Q5_0,10.3,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B T2V FusionX",Q5_1,11,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B T2V FusionX",Q5_K_M,10.8,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B T2V FusionX",Q5_K_S,10.1,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B T2V FusionX",Q6_K,12,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B T2V FusionX",Q8_0,15.4,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B I2V FusionX",FP16,32.8,https://huggingface.co/vrgamedevgirl84/Wan14BT2VFusioniX/tree/main
+"Wan2.1 14B I2V FusionX",FP8,16.4,https://huggingface.co/vrgamedevgirl84/Wan14BT2VFusioniX/tree/main
+"Wan2.1 14B I2V FusionX",Q2_K,6.01,https://huggingface.co/QuantStack/Wan2.1_I2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B I2V FusionX",Q3_K_L,8.7,https://huggingface.co/QuantStack/Wan2.1_I2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B I2V FusionX",Q3_K_M,8.09,https://huggingface.co/QuantStack/Wan2.1_I2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B I2V FusionX",Q3_K_S,7.43,https://huggingface.co/QuantStack/Wan2.1_I2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B I2V FusionX",Q4_0,9.76,https://huggingface.co/QuantStack/Wan2.1_I2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B I2V FusionX",Q4_1,10.6,https://huggingface.co/QuantStack/Wan2.1_I2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B I2V FusionX",Q4_K_M,10.8,https://huggingface.co/QuantStack/Wan2.1_I2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B I2V FusionX",Q4_K_S,9.95,https://huggingface.co/QuantStack/Wan2.1_I2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B I2V FusionX",Q5_0,11.8,https://huggingface.co/QuantStack/Wan2.1_I2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B I2V FusionX",Q5_1,12.6,https://huggingface.co/QuantStack/Wan2.1_I2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B I2V FusionX",Q5_K_M,12.3,https://huggingface.co/QuantStack/Wan2.1_I2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B I2V FusionX",Q5_K_S,11.6,https://huggingface.co/QuantStack/Wan2.1_I2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B I2V FusionX",Q6_K,13.7,https://huggingface.co/QuantStack/Wan2.1_I2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B I2V FusionX",Q8_0,17.7,https://huggingface.co/QuantStack/Wan2.1_I2V_14B_FusionX-GGUF/tree/main
+"Wan2.1 14B VACE FusionX",FP16,34.7,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX_VACE/tree/main
+"Wan2.1 14B VACE FusionX",FP8 e4m3fn,17.3,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX_VACE/tree/main
+"Wan2.1 14B VACE FusionX",Q2_K,6.35,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX_VACE-GGUF/tree/main
+"Wan2.1 14B VACE FusionX",Q3_K_L,9.36,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX_VACE-GGUF/tree/main
+"Wan2.1 14B VACE FusionX",Q3_K_S,7.83,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX_VACE-GGUF/tree/main
+"Wan2.1 14B VACE FusionX",Q4_0,10.3,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX_VACE-GGUF/tree/main
+"Wan2.1 14B VACE FusionX",Q4_1,11.2,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX_VACE-GGUF/tree/main
+"Wan2.1 14B VACE FusionX",Q4_K_M,11.6,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX_VACE-GGUF/tree/main
+"Wan2.1 14B VACE FusionX",Q4_K_S,10.5,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX_VACE-GGUF/tree/main
+"Wan2.1 14B VACE FusionX",Q5_0,12.5,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX_VACE-GGUF/tree/main
+"Wan2.1 14B VACE FusionX",Q5_1,13.3,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX_VACE-GGUF/tree/main
+"Wan2.1 14B VACE FusionX",Q5_K_M,13,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX_VACE-GGUF/tree/main
+"Wan2.1 14B VACE FusionX",Q5_K_S,12.2,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX_VACE-GGUF/tree/main
+"Wan2.1 14B VACE FusionX",Q6_K,14.5,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX_VACE-GGUF/tree/main
+"Wan2.1 14B VACE FusionX",Q8_0,18.7,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX_VACE-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",FP16,57.2,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models
+"Wan2.2 A14B I2V (High + Low)",FP8,28.6,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models
+"Wan2.2 A14B I2V (High + Low)",Q8_0,30.8,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q6_K,24,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q5_K_S,20.2,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q5_K_M,21.6,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q5_1,22,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q5_0,20.6,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q4_K_S,17.5,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q4_K_M,19.3,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q3_K_S,13.04,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q3_K_M,14.36,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q2_K,10.6,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",FP16,57.2,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models
+"Wan2.2 A14B T2V (High + Low)",FP8,28.6,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models
+"Wan2.2 A14B T2V (High + Low)",Q8_0,30.8,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q6_K,24,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q5_K_S,20.2,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q5_K_M,21.6,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q5_1,22,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q5_0,20.6,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q4_K_S,17.5,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q4_K_M,19.3,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q4_1,18.52,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q4_0,17.12,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q3_K_S,13.02,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q3_K_M,14.34,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q2_K,10.6,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 5B TI2V",FP16,10,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models
+"Wan2.2 5B TI2V",FP8,5,https://huggingface.co/meimeilook/Wan2.2-TI2V-5B_FP8/tree/main
+"Wan2.2 5B TI2V",Q8_0,5.4,https://huggingface.co/QuantStack/Wan2.2-TI2V-5B-GGUF/tree/main
+"Wan2.2 5B TI2V",Q6_K,4.21,https://huggingface.co/QuantStack/Wan2.2-TI2V-5B-GGUF/tree/main
+"Wan2.2 5B TI2V",Q5_K_S,3.56,https://huggingface.co/QuantStack/Wan2.2-TI2V-5B-GGUF/tree/main
+"Wan2.2 5B TI2V",Q5_K_M,3.81,https://huggingface.co/QuantStack/Wan2.2-TI2V-5B-GGUF/tree/main
+"Wan2.2 5B TI2V",Q5_1,3.87,https://huggingface.co/QuantStack/Wan2.2-TI2V-5B-GGUF/tree/main
+"Wan2.2 5B TI2V",Q5_0,3.64,https://huggingface.co/QuantStack/Wan2.2-TI2V-5B-GGUF/tree/main
+"Wan2.2 5B TI2V",Q4_K_S,3.12,https://huggingface.co/QuantStack/Wan2.2-TI2V-5B-GGUF/tree/main
+"Wan2.2 5B TI2V",Q4_K_M,3.43,https://huggingface.co/QuantStack/Wan2.2-TI2V-5B-GGUF/tree/main
+"Wan2.2 5B TI2V",Q4_1,3.25,https://huggingface.co/QuantStack/Wan2.2-TI2V-5B-GGUF/tree/main
+"Wan2.2 5B TI2V",Q4_0,3.03,https://huggingface.co/QuantStack/Wan2.2-TI2V-5B-GGUF/tree/main
+"Wan2.2 5B TI2V",Q3_K_S,2.29,https://huggingface.co/QuantStack/Wan2.2-TI2V-5B-GGUF/tree/main
+"Wan2.2 5B TI2V",Q3_K_M,2.55,https://huggingface.co/QuantStack/Wan2.2-TI2V-5B-GGUF/tree/main
+"Wan2.2 5B TI2V",Q2_K,1.85,https://huggingface.co/QuantStack/Wan2.2-TI2V-5B-GGUF/tree/main
+"Qwen-Image",BF16,40.9,https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/tree/main/split_files/diffusion_models
+"Qwen-Image",FP8 e4m3fn,20.4,https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/tree/main/split_files/diffusion_models
+"Qwen-Image",Q2_K,7.06,https://huggingface.co/city96/Qwen-Image-gguf/tree/main
+"Qwen-Image",Q3_K_M,9.68,https://huggingface.co/city96/Qwen-Image-gguf/tree/main
+"Qwen-Image",Q3_K_S,8.95,https://huggingface.co/city96/Qwen-Image-gguf/tree/main
+"Qwen-Image",Q4_0,11.9,https://huggingface.co/city96/Qwen-Image-gguf/tree/main
+"Qwen-Image",Q4_1,12.8,https://huggingface.co/city96/Qwen-Image-gguf/tree/main
+"Qwen-Image",Q4_K_M,13.1,https://huggingface.co/city96/Qwen-Image-gguf/tree/main
+"Qwen-Image",Q4_K_S,12.1,https://huggingface.co/city96/Qwen-Image-gguf/tree/main
+"Qwen-Image",Q5_0,14.4,https://huggingface.co/city96/Qwen-Image-gguf/tree/main
+"Qwen-Image",Q5_1,15.4,https://huggingface.co/city96/Qwen-Image-gguf/tree/main
+"Qwen-Image",Q5_K_M,14.9,https://huggingface.co/city96/Qwen-Image-gguf/tree/main
+"Qwen-Image",Q5_K_S,14.1,https://huggingface.co/city96/Qwen-Image-gguf/tree/main
+"Qwen-Image",Q6_K,16.8,https://huggingface.co/city96/Qwen-Image-gguf/tree/main
+"Qwen-Image",Q8_0,21.8,https://huggingface.co/city96/Qwen-Image-gguf/tree/main

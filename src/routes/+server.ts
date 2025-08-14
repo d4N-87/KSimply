@@ -41,7 +41,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		if (!cachedModelsData || !cachedEncodersData || !cachedVaesData) {
 			console.log('CACHE MISS - Esecuzione delle query al database...');
 			const modelsSql = `
-				SELECT mr.*, bm.name as model_name, bm.type as model_type, q.name as quantization_name, q.quality_score, q.priority
+				SELECT mr.*, bm.name as model_name, bm.type as model_type, q.name as quantization_name, q.quality_score, q.priority, mr.repository
 				FROM model_releases mr
 				JOIN base_models bm ON mr.model_id = bm.id
 				JOIN quantizations q ON mr.quantization_id = q.id
@@ -49,7 +49,7 @@ export const POST: RequestHandler = async ({ request }) => {
 			cachedModelsData = isProduction ? (await db.execute(modelsSql)).rows : await db.all(modelsSql);
 
 			const encodersSql = `
-				SELECT ter.*, te.name as encoder_name, q.name as quantization_name, q.quality_score, q.priority, mec.model_id as compatible_with_model_id
+				SELECT ter.*, te.name as encoder_name, q.name as quantization_name, q.quality_score, q.priority, mec.model_id as compatible_with_model_id, ter.repository
 				FROM text_encoder_releases ter
 				JOIN text_encoders te ON ter.encoder_id = te.id
 				JOIN quantizations q ON ter.quantization_id = q.id
@@ -58,7 +58,7 @@ export const POST: RequestHandler = async ({ request }) => {
 			cachedEncodersData = isProduction ? (await db.execute(encodersSql)).rows : await db.all(encodersSql);
 
 			const vaesSql = `
-				SELECT vr.*, v.name as vae_name, q.name as quantization_name, q.quality_score, q.priority, mvc.model_id as compatible_with_model_id
+				SELECT vr.*, v.name as vae_name, q.name as quantization_name, q.quality_score, q.priority, mvc.model_id as compatible_with_model_id, vr.repository
 				FROM vae_releases vr
 				JOIN vaes v ON vr.vae_id = v.id
 				JOIN quantizations q ON vr.quantization_id = q.id
