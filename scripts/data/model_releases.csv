@@ -156,7 +156,7 @@ model_name,quantization_name,file_size_gb
 "HiDream-E1.1",Q5_K_S,12.5
 "HiDream-E1.1",Q6_K,14.7
 "HiDream-E1.1",Q8_0,18.7
-"HunyuanVideo T2V 720p","FP8 e4m3fn",13.2
+"HunyuanVideo T2V 720p",FP8 e4m3fn,13.2
 "HunyuanVideo T2V 720p",BF16,25.6
 "HunyuanVideo T2V 720p",Q3_K_M,6.24
 "HunyuanVideo T2V 720p",Q3_K_S,6.09
@@ -170,7 +170,7 @@ model_name,quantization_name,file_size_gb
 "HunyuanVideo T2V 720p",Q5_K_S,9.3
 "HunyuanVideo T2V 720p",Q6_K,11
 "HunyuanVideo T2V 720p",Q8_0,14
-"HunyuanVideo I2V 720p","FP8 e4m3fn",13.2
+"HunyuanVideo I2V 720p",FP8 e4m3fn,13.2
 "HunyuanVideo I2V 720p",BF16,25.6
 "HunyuanVideo I2V 720p",Q3_K_M,6.24
 "HunyuanVideo I2V 720p",Q3_K_S,6.09
@@ -261,8 +261,8 @@ model_name,quantization_name,file_size_gb
 "NVIDIA Cosmos Predict2 2B T2I",FP16,3.91
 "Wan2.1 14B T2V",FP16,28.6
 "Wan2.1 14B T2V",BF16,28.6
-"Wan2.1 14B T2V","FP8 e4m3fn",14.3
-"Wan2.1 14B T2V","FP8 scaled",14.3
+"Wan2.1 14B T2V",FP8 e4m3fn,14.3
+"Wan2.1 14B T2V",FP8 scaled,14.3
 "Wan2.1 14B T2V",Q3_K_M,7.65
 "Wan2.1 14B T2V",Q3_K_S,6.99
 "Wan2.1 14B T2V",Q4_0,9.03
@@ -279,8 +279,8 @@ model_name,quantization_name,file_size_gb
 "Wan2.1 1.3B T2V",BF16,2.84
 "Wan2.1 14B I2V 480p",FP16,32.8
 "Wan2.1 14B I2V 480p",BF16,32.8
-"Wan2.1 14B I2V 480p","FP8 e4m3fn",16.4
-"Wan2.1 14B I2V 480p","FP8 scaled",16.4
+"Wan2.1 14B I2V 480p",FP8 e4m3fn,16.4
+"Wan2.1 14B I2V 480p",FP8 scaled,16.4
 "Wan2.1 14B I2V 480p",Q3_K_M,8.59
 "Wan2.1 14B I2V 480p",Q3_K_S,7.93
 "Wan2.1 14B I2V 480p",Q4_0,10.2
@@ -295,8 +295,8 @@ model_name,quantization_name,file_size_gb
 "Wan2.1 14B I2V 480p",Q8_0,18.1
 "Wan2.1 14B I2V 720p",FP16,32.8
 "Wan2.1 14B I2V 720p",BF16,32.8
-"Wan2.1 14B I2V 720p","FP8 e4m3fn",16.4
-"Wan2.1 14B I2V 720p","FP8 scaled",16.4
+"Wan2.1 14B I2V 720p",FP8 e4m3fn,16.4
+"Wan2.1 14B I2V 720p",FP8 scaled,16.4
 "Wan2.1 14B I2V 720p",Q3_K_M,8.59
 "Wan2.1 14B I2V 720p",Q3_K_S,7.93
 "Wan2.1 14B I2V 720p",Q4_0,10.2
@@ -310,7 +310,7 @@ model_name,quantization_name,file_size_gb
 "Wan2.1 14B I2V 720p",Q6_K,14.2
 "Wan2.1 14B I2V 720p",Q8_0,18.1
 "Wan2.1 14B VACE",FP16,34.7
-"Wan2.1 14B VACE","FP8 e4m3fn",17.3
+"Wan2.1 14B VACE",FP8 e4m3fn,17.3
 "Wan2.1 14B VACE",Q3_K_S,7.84
 "Wan2.1 14B VACE",Q4_0,10.3
 "Wan2.1 14B VACE",Q4_1,11.2
@@ -324,7 +324,7 @@ model_name,quantization_name,file_size_gb
 "Wan2.1 14B VACE",Q8_0,18.7
 "Wan2.1 1.3B VACE",FP16,4.31
 "Wan2.1 14B FLF2V 720p",FP16,32.8
-"Wan2.1 14B FLF2V 720p","FP8 e4m3fn",16.4
+"Wan2.1 14B FLF2V 720p",FP8 e4m3fn,16.4
 "Wan2.1 14B FLF2V 720p",Q3_K_M,8.59
 "Wan2.1 14B FLF2V 720p",Q3_K_S,7.93
 "Wan2.1 14B FLF2V 720p",Q4_0,10.3
@@ -370,7 +370,7 @@ model_name,quantization_name,file_size_gb
 "Wan2.1 14B I2V FusionX",Q6_K,13.7
 "Wan2.1 14B I2V FusionX",Q8_0,15.4
 "Wan2.1 14B VACE FusionX",FP16,34.7
-"Wan2.1 14B VACE FusionX","FP8 e4m3fn",17.3
+"Wan2.1 14B VACE FusionX",FP8 e4m3fn,17.3
 "Wan2.1 14B VACE FusionX",Q2_K,6.35
 "Wan2.1 14B VACE FusionX",Q3_K_L,9.36
 "Wan2.1 14B VACE FusionX",Q3_K_S,7.83
