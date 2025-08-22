@@ -85,6 +85,10 @@ For each combination, the engine evaluates:
 
 ## 💻 Installazione Locale / Local Installation
 
+**Prerequisiti / Prerequisites:**
+*   🇮🇹 È necessario avere [Node.js](https://nodejs.org/) (versione 18.x o successiva consigliata) installato sul proprio sistema. Questo include npm (Node Package Manager).
+    🇬🇧 You need to have [Node.js](https://nodejs.org/) (version 18.x or later recommended) installed on your system. This includes npm (Node Package Manager).
+
 ### 🇮🇹 Italiano
 
 Per eseguire KSimply sul tuo computer locale, segui questi passaggi:
