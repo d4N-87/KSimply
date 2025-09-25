@@ -85,6 +85,10 @@ For each combination, the engine evaluates:
 
 ## 💻 Installazione Locale / Local Installation
 
+**Prerequisiti / Prerequisites:**
+*   🇮🇹 È necessario avere [Node.js](https://nodejs.org/) (versione 18.x o successiva consigliata) installato sul proprio sistema. Questo include npm (Node Package Manager).
+    🇬🇧 You need to have [Node.js](https://nodejs.org/) (version 18.x or later recommended) installed on your system. This includes npm (Node Package Manager).
+
 ### 🇮🇹 Italiano
 
 Per eseguire KSimply sul tuo computer locale, segui questi passaggi:
@@ -129,7 +133,11 @@ The application will now be available at `http://localhost:5173`.
 <p>🇮🇹 Se KSimply ti è stato utile, considera di supportare il progetto. Ogni contributo aiuta a mantenere il sito attivo e a finanziare lo sviluppo di nuove funzionalità!</p>
 <p>🇬🇧 If you found KSimply useful, please consider supporting the project. Every contribution helps keep the site running and funds the development of new features!</p>
 
-[![Donate with PayPal](https://raw.githubusercontent.com/stefan-niedermann/paypal-donate-button/master/paypal-donate-button.png)](https://paypal.me/d4n87?country.x=IT&locale.x=it_IT)
+<p align="center">
+  <a href="https://www.patreon.com/d4N87" target="_blank"><img src="https://img.shields.io/badge/Patreon-d4N87-orange?style=for-the-badge&logo=patreon" alt="Patreon"></a>
+    
+  <a href="https://paypal.me/d4n87?country.x=IT&locale.x=it_IT" target="_blank"><img src="https://img.shields.io/badge/PayPal-Dona-blue?style=for-the-badge&logo=paypal" alt="PayPal"></a>
+</p>
 
 # Star History
 
