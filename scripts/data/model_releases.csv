@@ -384,34 +384,34 @@ model_name,quantization_name,file_size_gb,repository
 "Wan2.1 14B VACE FusionX",Q5_K_S,12.2,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX_VACE-GGUF/tree/main
 "Wan2.1 14B VACE FusionX",Q6_K,14.5,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX_VACE-GGUF/tree/main
 "Wan2.1 14B VACE FusionX",Q8_0,18.7,https://huggingface.co/QuantStack/Wan2.1_T2V_14B_FusionX_VACE-GGUF/tree/main
-"Wan2.2 A14B I2V (High + Low)",FP16,57.2,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models
-"Wan2.2 A14B I2V (High + Low)",FP8,28.6,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models
-"Wan2.2 A14B I2V (High + Low)",Q8_0,30.8,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
-"Wan2.2 A14B I2V (High + Low)",Q6_K,24,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
-"Wan2.2 A14B I2V (High + Low)",Q5_K_S,20.2,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
-"Wan2.2 A14B I2V (High + Low)",Q5_K_M,21.6,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
-"Wan2.2 A14B I2V (High + Low)",Q5_1,22,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
-"Wan2.2 A14B I2V (High + Low)",Q5_0,20.6,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
-"Wan2.2 A14B I2V (High + Low)",Q4_K_S,17.5,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
-"Wan2.2 A14B I2V (High + Low)",Q4_K_M,19.3,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
-"Wan2.2 A14B I2V (High + Low)",Q3_K_S,13.04,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
-"Wan2.2 A14B I2V (High + Low)",Q3_K_M,14.36,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
-"Wan2.2 A14B I2V (High + Low)",Q2_K,10.6,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
-"Wan2.2 A14B T2V (High + Low)",FP16,57.2,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models
-"Wan2.2 A14B T2V (High + Low)",FP8,28.6,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models
-"Wan2.2 A14B T2V (High + Low)",Q8_0,30.8,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
-"Wan2.2 A14B T2V (High + Low)",Q6_K,24,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
-"Wan2.2 A14B T2V (High + Low)",Q5_K_S,20.2,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
-"Wan2.2 A14B T2V (High + Low)",Q5_K_M,21.6,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
-"Wan2.2 A14B T2V (High + Low)",Q5_1,22,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
-"Wan2.2 A14B T2V (High + Low)",Q5_0,20.6,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
-"Wan2.2 A14B T2V (High + Low)",Q4_K_S,17.5,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
-"Wan2.2 A14B T2V (High + Low)",Q4_K_M,19.3,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
-"Wan2.2 A14B T2V (High + Low)",Q4_1,18.52,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
-"Wan2.2 A14B T2V (High + Low)",Q4_0,17.12,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
-"Wan2.2 A14B T2V (High + Low)",Q3_K_S,13.02,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
-"Wan2.2 A14B T2V (High + Low)",Q3_K_M,14.34,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
-"Wan2.2 A14B T2V (High + Low)",Q2_K,10.6,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",FP16,28.6,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models
+"Wan2.2 A14B I2V (High + Low)",FP8,14.3,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models
+"Wan2.2 A14B I2V (High + Low)",Q8_0,15.4,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q6_K,12,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q5_K_S,10.1,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q5_K_M,10.8,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q5_1,11,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q5_0,10.3,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q4_K_S,8.75,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q4_K_M,9.65,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q3_K_S,6.52,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q3_K_M,7.18,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B I2V (High + Low)",Q2_K,5.3,https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",FP16,28.6,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models
+"Wan2.2 A14B T2V (High + Low)",FP8,14.3,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models
+"Wan2.2 A14B T2V (High + Low)",Q8_0,15.4,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q6_K,12,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q5_K_S,10.1,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q5_K_M,10.8,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q5_1,11,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q5_0,10.3,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q4_K_S,8.75,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q4_K_M,9.65,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q4_1,9.26,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q4_0,8.56,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q3_K_S,6.51,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q3_K_M,7.17,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
+"Wan2.2 A14B T2V (High + Low)",Q2_K,5.3,https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/tree/main
 "Wan2.2 5B TI2V",FP16,10,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models
 "Wan2.2 5B TI2V",FP8,5,https://huggingface.co/meimeilook/Wan2.2-TI2V-5B_FP8/tree/main
 "Wan2.2 5B TI2V",Q8_0,5.4,https://huggingface.co/QuantStack/Wan2.2-TI2V-5B-GGUF/tree/main
