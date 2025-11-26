@@ -6,3 +6,4 @@ vae_name,quantization_name,file_size_gb,repository
 "Wan2.1 VAE",FP16,0.254,https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/vae
 "Wan2.2 VAE",FP16,1.41,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/vae
 "Qwen-Image VAE",FP16,0.254,https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/tree/main/split_files/vae
+"FLUX.2 VAE",FP16,0.336,https://huggingface.co/Comfy-Org/flux2-dev/tree/main/split_files/vae

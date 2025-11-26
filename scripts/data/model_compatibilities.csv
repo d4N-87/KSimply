@@ -11,6 +11,7 @@ model_name,compatible_text_encoders,compatible_vaes
 "FLUX.1 Dev Depth","CLIP L|T5-xxl v1.1","AE"
 "FLUX.1 Kontext Dev","CLIP L|T5-xxl v1.1","AE"
 "FLUX.1 Krea Dev","CLIP L|T5-xxl v1.1","AE"
+"FLUX.2 Dev","Mistral 3 Small VLM","FLUX.2 VAE"
 "HiDream-I1 Full","CLIP G HiDream|CLIP L HiDream|T5-xxl v1.1|Llama 3.1 8B Instruct","AE"
 "HiDream-I1 Dev","CLIP G HiDream|CLIP L HiDream|T5-xxl v1.1|Llama 3.1 8B Instruct","AE"
 "HiDream-I1 Fast","CLIP G HiDream|CLIP L HiDream|T5-xxl v1.1|Llama 3.1 8B Instruct","AE"
