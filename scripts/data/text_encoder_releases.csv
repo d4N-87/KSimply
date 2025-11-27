@@ -83,5 +83,5 @@ encoder_name,quantization_name,file_size_gb,repository
 # --- Wan2vec2 Large --
 "Wan2vec2 Large",FP16,0.631,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/audio_encoders
 # --- Mistral 3 Small VLM --
-"Mistral 3 Small VLM",BF16,https://huggingface.co/Comfy-Org/flux2-dev/tree/main/split_files/text_encoders
-"Mistral 3 Small VLM",FP8,https://huggingface.co/Comfy-Org/flux2-dev/tree/main/split_files/text_encoders
+"Mistral 3 Small VLM",BF16,35.6,https://huggingface.co/Comfy-Org/flux2-dev/tree/main/split_files/text_encoders
+"Mistral 3 Small VLM",FP8,18,https://huggingface.co/Comfy-Org/flux2-dev/tree/main/split_files/text_encoders
