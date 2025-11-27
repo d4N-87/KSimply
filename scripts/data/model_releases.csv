@@ -515,3 +515,13 @@ model_name,quantization_name,file_size_gb,repository
 "FLUX.2 Dev",Q3_K_S,15.8,https://huggingface.co/city96/FLUX.2-dev-gguf/tree/main
 "FLUX.2 Dev",Q3_K_M,16,https://huggingface.co/city96/FLUX.2-dev-gguf/tree/main
 "FLUX.2 Dev",Q2_K,12.9,https://huggingface.co/city96/FLUX.2-dev-gguf/tree/main
+"Z-Image Turbo",BF16,12.3,https://huggingface.co/Comfy-Org/z_image_turbo/tree/main/split_files/diffusion_models
+"Z-Image Turbo",FP8 e4m3fn,6.15,https://huggingface.co/T5B/Z-Image-Turbo-FP8/tree/main
+"Z-Image Turbo",Q8_0,7.22,https://huggingface.co/jayn7/Z-Image-Turbo-GGUF/tree/main
+"Z-Image Turbo",Q6_K,5.91,https://huggingface.co/jayn7/Z-Image-Turbo-GGUF/tree/main
+"Z-Image Turbo",Q5_K_S,5.19,https://huggingface.co/jayn7/Z-Image-Turbo-GGUF/tree/main
+"Z-Image Turbo",Q5_K_M,5.52,https://huggingface.co/jayn7/Z-Image-Turbo-GGUF/tree/main
+"Z-Image Turbo",Q4_K_S,4.66,https://huggingface.co/jayn7/Z-Image-Turbo-GGUF/tree/main
+"Z-Image Turbo",Q4_K_M,4.98,https://huggingface.co/jayn7/Z-Image-Turbo-GGUF/tree/main
+"Z-Image Turbo",Q3_K_S,3.79,https://huggingface.co/jayn7/Z-Image-Turbo-GGUF/tree/main
+"Z-Image Turbo",Q3_K_M,4.12,https://huggingface.co/jayn7/Z-Image-Turbo-GGUF/tree/main

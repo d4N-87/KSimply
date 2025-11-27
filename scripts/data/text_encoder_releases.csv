@@ -80,6 +80,8 @@ encoder_name,quantization_name,file_size_gb,repository
 "Qwen2.5 VL 7B",Q5_K_S,5.32,https://huggingface.co/unsloth/Qwen2.5-VL-7B-Instruct-GGUF/tree/main
 "Qwen2.5 VL 7B",Q6_K,6.25,https://huggingface.co/unsloth/Qwen2.5-VL-7B-Instruct-GGUF/tree/main
 "Qwen2.5 VL 7B",Q8_0,8.1,https://huggingface.co/unsloth/Qwen2.5-VL-7B-Instruct-GGUF/tree/main
+# --- Qwen3 4B --
+"Qwen3 4B",FP16,8.04,https://huggingface.co/Comfy-Org/z_image_turbo/tree/main/split_files/text_encoders
 # --- Wan2vec2 Large --
 "Wan2vec2 Large",FP16,0.631,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/audio_encoders
 # --- Mistral 3 Small VLM --
