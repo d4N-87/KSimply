@@ -82,8 +82,15 @@ encoder_name,quantization_name,file_size_gb,repository
 "Qwen2.5 VL 7B",Q8_0,8.1,https://huggingface.co/unsloth/Qwen2.5-VL-7B-Instruct-GGUF/tree/main
 # --- Qwen3 4B --
 "Qwen3 4B",FP16,8.04,https://huggingface.co/Comfy-Org/z_image_turbo/tree/main/split_files/text_encoders
+"Qwen3 4B",FP8 scaled,4.41,https://huggingface.co/jiangchengchengNLP/qwen3-4b-fp8-scaled/tree/main
+"Qwen3 4B",Q8_0,4.28,https://huggingface.co/worstplayer/Z-Image_Qwen_3_4b_text_encoder_GGUF/tree/main
+"Qwen3 4B",Q6_K,3.31,https://huggingface.co/worstplayer/Z-Image_Qwen_3_4b_text_encoder_GGUF/tree/main
+"Qwen3 4B",Q3_K_M,2.08,https://huggingface.co/worstplayer/Z-Image_Qwen_3_4b_text_encoder_GGUF/tree/main
 # --- Wan2vec2 Large --
 "Wan2vec2 Large",FP16,0.631,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/audio_encoders
 # --- Mistral 3 Small VLM --
 "Mistral 3 Small VLM",BF16,35.6,https://huggingface.co/Comfy-Org/flux2-dev/tree/main/split_files/text_encoders
 "Mistral 3 Small VLM",FP8,18,https://huggingface.co/Comfy-Org/flux2-dev/tree/main/split_files/text_encoders
+"Mistral 3 Small VLM",Q8_0,20,https://huggingface.co/gguf-org/flux2-dev-gguf/tree/main
+"Mistral 3 Small VLM",Q4_0,11.6,https://huggingface.co/gguf-org/flux2-dev-gguf/tree/main
+"Mistral 3 Small VLM",Q2_K,7.73,https://huggingface.co/gguf-org/flux2-dev-gguf/tree/main
