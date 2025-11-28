@@ -91,6 +91,3 @@ encoder_name,quantization_name,file_size_gb,repository
 # --- Mistral 3 Small VLM --
 "Mistral 3 Small VLM",BF16,35.6,https://huggingface.co/Comfy-Org/flux2-dev/tree/main/split_files/text_encoders
 "Mistral 3 Small VLM",FP8,18,https://huggingface.co/Comfy-Org/flux2-dev/tree/main/split_files/text_encoders
-"Mistral 3 Small VLM",Q8_0,20,https://huggingface.co/gguf-org/flux2-dev-gguf/tree/main
-"Mistral 3 Small VLM",Q4_0,11.6,https://huggingface.co/gguf-org/flux2-dev-gguf/tree/main
-"Mistral 3 Small VLM",Q2_K,7.73,https://huggingface.co/gguf-org/flux2-dev-gguf/tree/main
