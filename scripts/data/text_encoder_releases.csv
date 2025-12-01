@@ -91,3 +91,15 @@ encoder_name,quantization_name,file_size_gb,repository
 # --- Mistral 3 Small VLM --
 "Mistral 3 Small VLM",BF16,35.6,https://huggingface.co/Comfy-Org/flux2-dev/tree/main/split_files/text_encoders
 "Mistral 3 Small VLM",FP8,18,https://huggingface.co/Comfy-Org/flux2-dev/tree/main/split_files/text_encoders
+"Mistral 3 Small VLM",Q8_0,25.1,https://huggingface.co/unsloth/Mistral-Small-3.2-24B-Instruct-2506-GGUF/tree/main
+"Mistral 3 Small VLM",Q6_K,19.3,https://huggingface.co/unsloth/Mistral-Small-3.2-24B-Instruct-2506-GGUF/tree/main
+"Mistral 3 Small VLM",Q5_K_S,16.3,https://huggingface.co/unsloth/Mistral-Small-3.2-24B-Instruct-2506-GGUF/tree/main
+"Mistral 3 Small VLM",Q5_K_M,16.8,https://huggingface.co/unsloth/Mistral-Small-3.2-24B-Instruct-2506-GGUF/tree/main
+"Mistral 3 Small VLM",Q4_K_S,13.5,https://huggingface.co/unsloth/Mistral-Small-3.2-24B-Instruct-2506-GGUF/tree/main
+"Mistral 3 Small VLM",Q4_K_M,14.3,https://huggingface.co/unsloth/Mistral-Small-3.2-24B-Instruct-2506-GGUF/tree/main
+"Mistral 3 Small VLM",Q4_1,14.9,https://huggingface.co/unsloth/Mistral-Small-3.2-24B-Instruct-2506-GGUF/tree/main
+"Mistral 3 Small VLM",Q4_0,13.5,https://huggingface.co/unsloth/Mistral-Small-3.2-24B-Instruct-2506-GGUF/tree/main
+"Mistral 3 Small VLM",Q3_K_S,10.4,https://huggingface.co/unsloth/Mistral-Small-3.2-24B-Instruct-2506-GGUF/tree/main
+"Mistral 3 Small VLM",Q3_K_M,11.5,https://huggingface.co/unsloth/Mistral-Small-3.2-24B-Instruct-2506-GGUF/tree/main
+"Mistral 3 Small VLM",Q2_K_L,9.05,https://huggingface.co/unsloth/Mistral-Small-3.2-24B-Instruct-2506-GGUF/tree/main
+"Mistral 3 Small VLM",Q2_K,8.89,https://huggingface.co/unsloth/Mistral-Small-3.2-24B-Instruct-2506-GGUF/tree/main
