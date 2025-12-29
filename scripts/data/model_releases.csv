@@ -500,6 +500,22 @@ model_name,quantization_name,file_size_gb,repository
 "Qwen-Image Edit 2509",Q5_K_S,14.1,https://huggingface.co/QuantStack/Qwen-Image-Edit-2509-GGUF/tree/main
 "Qwen-Image Edit 2509",Q6_K,16.8,https://huggingface.co/QuantStack/Qwen-Image-Edit-2509-GGUF/tree/main
 "Qwen-Image Edit 2509",Q8_0,21.8,https://huggingface.co/QuantStack/Qwen-Image-Edit-2509-GGUF/tree/main
+"Qwen-Image Edit 2511",BF16,40.9,https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/tree/main/split_files/diffusion_models
+"Qwen-Image Edit 2511",FP8 mixed,20.5,https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/tree/main/split_files/diffusion_models
+"Qwen-Image Edit 2511",Q2_K,7.22,https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/tree/main
+"Qwen-Image Edit 2511",Q3_K_L,10.4,https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/tree/main
+"Qwen-Image Edit 2511",Q3_K_M,9.74,https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/tree/main
+"Qwen-Image Edit 2511",Q3_K_S,9.04,https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/tree/main
+"Qwen-Image Edit 2511",Q4_0,11.9,https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/tree/main
+"Qwen-Image Edit 2511",Q4_1,12.8,https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/tree/main
+"Qwen-Image Edit 2511",Q4_K_M,13.1,https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/tree/main
+"Qwen-Image Edit 2511",Q4_K_S,12.3,https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/tree/main
+"Qwen-Image Edit 2511",Q5_0,14.4,https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/tree/main
+"Qwen-Image Edit 2511",Q5_1,15.4,https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/tree/main
+"Qwen-Image Edit 2511",Q5_K_M,15,https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/tree/main
+"Qwen-Image Edit 2511",Q5_K_S,14.3,https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/tree/main
+"Qwen-Image Edit 2511",Q6_K,16.8,https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/tree/main
+"Qwen-Image Edit 2511",Q8_0,21.8,https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/tree/main
 "FLUX.2 Dev",BF16,64.4,https://huggingface.co/black-forest-labs/FLUX.2-dev/tree/main
 "FLUX.2 Dev",FP8,35.5,https://huggingface.co/Comfy-Org/flux2-dev/tree/main/split_files/diffusion_models
 "FLUX.2 Dev",Q8_0,35,https://huggingface.co/city96/FLUX.2-dev-gguf/tree/main

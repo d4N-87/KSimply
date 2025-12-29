@@ -18,6 +18,7 @@ BF16,99,19
 Q8_0,95,18
 
 # --- 8-bit Precision ---
+FP8 mixed,95,17
 FP8 e4m3fn scaled,95,17
 FP8 scaled,95,17
 FP8 e4m3fn,95,16
