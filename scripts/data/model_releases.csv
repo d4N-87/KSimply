@@ -470,6 +470,21 @@ model_name,quantization_name,file_size_gb,repository
 "Qwen-Image",Q5_K_S,14.1,https://huggingface.co/city96/Qwen-Image-gguf/tree/main
 "Qwen-Image",Q6_K,16.8,https://huggingface.co/city96/Qwen-Image-gguf/tree/main
 "Qwen-Image",Q8_0,21.8,https://huggingface.co/city96/Qwen-Image-gguf/tree/main
+"Qwen-Image 2512",BF16,40.9,https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/tree/main/split_files/diffusion_models
+"Qwen-Image 2512",FP8 e4m3fn,20.4,https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/tree/main/split_files/diffusion_models
+"Qwen-Image 2512",Q2_K,7.22,https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/tree/main
+"Qwen-Image 2512",Q3_K_M,9.74,https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/tree/main
+"Qwen-Image 2512",Q3_K_S,9.04,https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/tree/main
+"Qwen-Image 2512",Q4_0,11.9,https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/tree/main
+"Qwen-Image 2512",Q4_1,12.8,https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/tree/main
+"Qwen-Image 2512",Q4_K_M,13.1,https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/tree/main
+"Qwen-Image 2512",Q4_K_S,12.3,https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/tree/main
+"Qwen-Image 2512",Q5_0,14.4,https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/tree/main
+"Qwen-Image 2512",Q5_1,15.4,https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/tree/main
+"Qwen-Image 2512",Q5_K_M,15.0,https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/tree/main
+"Qwen-Image 2512",Q5_K_S,14.3,https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/tree/main
+"Qwen-Image 2512",Q6_K,16.8,https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/tree/main
+"Qwen-Image 2512",Q8_0,21.8,https://huggingface.co/city96/Qwen-Image 2512-gguf/tree/main
 "Qwen-Image Edit",BF16,40.9,https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/tree/main/split_files/diffusion_models
 "Qwen-Image Edit",FP8 e4m3fn,20.4,https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/tree/main/split_files/diffusion_models
 "Qwen-Image Edit",Q2_K,7.06,https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/tree/main
