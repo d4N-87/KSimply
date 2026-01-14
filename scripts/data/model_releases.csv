@@ -455,6 +455,35 @@ model_name,quantization_name,file_size_gb,repository
 "Wan2.2 A14B Animate",Q3_K_S,7.97,https://huggingface.co/QuantStack/Wan2.2-Animate-14B-GGUF/tree/main
 "Wan2.2 A14B Animate",Q3_K_M,8.63,https://huggingface.co/QuantStack/Wan2.2-Animate-14B-GGUF/tree/main
 "Wan2.2 A14B Animate",Q2_K,6.46,https://huggingface.co/QuantStack/Wan2.2-Animate-14B-GGUF/tree/main
+"Wan2.2 A14B Fun InP",BF16,28.6,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models
+"Wan2.2 A14B Fun InP",FP8 scaled,14.3,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models
+"Wan2.2 A14B Fun InP",Q8_0,15.4,https://huggingface.co/QuantStack/Wan2.2-Fun-A14B-InP-GGUF/tree/main
+"Wan2.2 A14B Fun InP",Q6_K,12,https://huggingface.co/QuantStack/Wan2.2-Fun-A14B-InP-GGUF/tree/main
+"Wan2.2 A14B Fun InP",Q5_K_S,10.1,https://huggingface.co/QuantStack/Wan2.2-Fun-A14B-InP-GGUF/tree/main
+"Wan2.2 A14B Fun InP",Q5_K_M,10.8,https://huggingface.co/QuantStack/Wan2.2-Fun-A14B-InP-GGUF/tree/main
+"Wan2.2 A14B Fun InP",Q5_1,11,https://huggingface.co/QuantStack/Wan2.2-Fun-A14B-InP-GGUF/tree/main
+"Wan2.2 A14B Fun InP",Q5_0,10.3,https://huggingface.co/QuantStack/Wan2.2-Fun-A14B-InP-GGUF/tree/main
+"Wan2.2 A14B Fun InP",Q4_K_S,8.76,https://huggingface.co/QuantStack/Wan2.2-Fun-A14B-InP-GGUF/tree/main
+"Wan2.2 A14B Fun InP",Q4_K_M,9.66,https://huggingface.co/QuantStack/Wan2.2-Fun-A14B-InP-GGUF/tree/main
+"Wan2.2 A14B Fun InP",Q4_1,9.27,https://huggingface.co/QuantStack/Wan2.2-Fun-A14B-InP-GGUF/tree/main
+"Wan2.2 A14B Fun InP",Q4_0,8.57,https://huggingface.co/QuantStack/Wan2.2-Fun-A14B-InP-GGUF/tree/main
+"Wan2.2 A14B Fun InP",Q3_K_S,6.52,https://huggingface.co/QuantStack/Wan2.2-Fun-A14B-InP-GGUF/tree/main
+"Wan2.2 A14B Fun InP",Q3_K_M,7.19,https://huggingface.co/QuantStack/Wan2.2-Fun-A14B-InP-GGUF/tree/main
+"Wan2.2 A14B Fun InP",Q2_K,5.31,https://huggingface.co/QuantStack/Wan2.2-Fun-A14B-InP-GGUF/tree/main
+"Wan2.2 A5B Fun InP",BF16,10,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models
+"Wan2.2 A5B Fun InP",Q8_0,5.41,https://huggingface.co/QuantStack/Wan2.2-Fun-5B-InP-GGUF/tree/main
+"Wan2.2 A5B Fun InP",Q6_K,4.22,https://huggingface.co/QuantStack/Wan2.2-Fun-5B-InP-GGUF/tree/main
+"Wan2.2 A5B Fun InP",Q5_K_S,3.57,https://huggingface.co/QuantStack/Wan2.2-Fun-5B-InP-GGUF/tree/main
+"Wan2.2 A5B Fun InP",Q5_K_M,3.82,https://huggingface.co/QuantStack/Wan2.2-Fun-5B-InP-GGUF/tree/main
+"Wan2.2 A5B Fun InP",Q5_1,3.87,https://huggingface.co/QuantStack/Wan2.2-Fun-5B-InP-GGUF/tree/main
+"Wan2.2 A5B Fun InP",Q5_0,3.65,https://huggingface.co/QuantStack/Wan2.2-Fun-5B-InP-GGUF/tree/main
+"Wan2.2 A5B Fun InP",Q4_K_S,3.12,https://huggingface.co/QuantStack/Wan2.2-Fun-5B-InP-GGUF/tree/main
+"Wan2.2 A5B Fun InP",Q4_K_M,3.44,https://huggingface.co/QuantStack/Wan2.2-Fun-5B-InP-GGUF/tree/main
+"Wan2.2 A5B Fun InP",Q4_1,3.26,https://huggingface.co/QuantStack/Wan2.2-Fun-5B-InP-GGUF/tree/main
+"Wan2.2 A5B Fun InP",Q4_0,3.04,https://huggingface.co/QuantStack/Wan2.2-Fun-5B-InP-GGUF/tree/main
+"Wan2.2 A5B Fun InP",Q3_K_S,2.3,https://huggingface.co/QuantStack/Wan2.2-Fun-5B-InP-GGUF/tree/main
+"Wan2.2 A5B Fun InP",Q3_K_M,2.56,https://huggingface.co/QuantStack/Wan2.2-Fun-5B-InP-GGUF/tree/main
+"Wan2.2 A5B Fun InP",Q2_K,1.86,https://huggingface.co/QuantStack/Wan2.2-Fun-5B-InP-GGUF/tree/main
 "Qwen-Image",BF16,40.9,https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/tree/main/split_files/diffusion_models
 "Qwen-Image",FP8 e4m3fn,20.4,https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/tree/main/split_files/diffusion_models
 "Qwen-Image",Q2_K,7.06,https://huggingface.co/city96/Qwen-Image-gguf/tree/main

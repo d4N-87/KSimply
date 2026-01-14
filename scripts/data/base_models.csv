@@ -55,6 +55,8 @@ name,type
 "Wan2.2 5B TI2V","Video Generation"
 "Wan2.2 A14B S2V","Video Generation"
 "Wan2.2 A14B Animate","Video Generation"
+"Wan2.2 A14B Fun InP","Video Generation"
+"Wan2.2 A5B Fun InP","Video Generation"
 "Qwen-Image","Image Generation"
 "Qwen-Image 2512","Image Generation"
 "Qwen-Image Edit","Image Generation"
