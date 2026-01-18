@@ -6,8 +6,11 @@ CLIP L HiDream
 CLIP G
 CLIP G HiDream
 CLIP Vision H
+Gemma 3 12B IT
 Llama 3.1 8B Instruct
 Llava Llama 3 8B
+LTX-2 Embeddings Connector Dev
+LTX-2 Embeddings Connector Distilled
 Mistral 3.2 Small VLM
 UMT5-xxl
 Llava Llama 3 Vision

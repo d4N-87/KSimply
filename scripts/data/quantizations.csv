@@ -18,11 +18,13 @@ BF16,99,19
 Q8_0,95,18
 
 # --- 8-bit Precision ---
+FP mixed,96,17
 FP8 mixed,95,17
 FP8 e4m3fn scaled,95,17
 FP8 scaled,95,17
 FP8 e4m3fn,95,16
 FP8,95,15
+FP4 mixed,95,15
 INT8,94,14
 
 # --- GGUF / Q - Medium-High Quality ---

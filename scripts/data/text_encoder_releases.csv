@@ -103,3 +103,20 @@ encoder_name,quantization_name,file_size_gb,repository
 "Mistral 3.2 Small VLM",Q3_K_M,11.5,https://huggingface.co/unsloth/Mistral-Small-3.2-24B-Instruct-2506-GGUF/tree/main
 "Mistral 3.2 Small VLM",Q2_K_L,9.05,https://huggingface.co/unsloth/Mistral-Small-3.2-24B-Instruct-2506-GGUF/tree/main
 "Mistral 3.2 Small VLM",Q2_K,8.89,https://huggingface.co/unsloth/Mistral-Small-3.2-24B-Instruct-2506-GGUF/tree/main
+# --- Gemma 3 12B IT --
+"Gemma 3 12B IT",BF16,24.4,https://huggingface.co/Comfy-Org/ltx-2/tree/main/split_files/text_encoders
+"Gemma 3 12B IT",FP mixed,13.7,https://huggingface.co/Comfy-Org/ltx-2/tree/main/split_files/text_encoders
+"Gemma 3 12B IT",FP8 scaled,13.2,https://huggingface.co/Comfy-Org/ltx-2/tree/main/split_files/text_encoders
+"Gemma 3 12B IT",FP4 mixed,9.45,https://huggingface.co/Comfy-Org/ltx-2/tree/main/split_files/text_encoders
+"Gemma 3 12B IT",Q8_0,12.5,https://huggingface.co/unsloth/gemma-3-12b-it-GGUF/tree/main
+"Gemma 3 12B IT",Q6_K,9.66,https://huggingface.co/unsloth/gemma-3-12b-it-GGUF/tree/main
+"Gemma 3 12B IT",Q5_K_S,8.23,https://huggingface.co/unsloth/gemma-3-12b-it-GGUF/tree/main
+"Gemma 3 12B IT",Q5_K_M,8.45,https://huggingface.co/unsloth/gemma-3-12b-it-GGUF/tree/main
+"Gemma 3 12B IT",Q4_K_S,6.94,https://huggingface.co/unsloth/gemma-3-12b-it-GGUF/tree/main
+"Gemma 3 12B IT",Q4_K_M,7.3,https://huggingface.co/unsloth/gemma-3-12b-it-GGUF/tree/main
+"Gemma 3 12B IT",Q4_1,7.56,https://huggingface.co/unsloth/gemma-3-12b-it-GGUF/tree/main
+"Gemma 3 12B IT",Q4_0,6.91,https://huggingface.co/unsloth/gemma-3-12b-it-GGUF/tree/main
+"Gemma 3 12B IT",Q3_K_S,5.46,https://huggingface.co/unsloth/gemma-3-12b-it-GGUF/tree/main
+"Gemma 3 12B IT",Q3_K_M,6.01,https://huggingface.co/unsloth/gemma-3-12b-it-GGUF/tree/main
+"Gemma 3 12B IT",Q2_K_L,4.77,https://huggingface.co/unsloth/gemma-3-12b-it-GGUF/tree/main
+"Gemma 3 12B IT",Q2_K,4.77,https://huggingface.co/unsloth/gemma-3-12b-it-GGUF/tree/main

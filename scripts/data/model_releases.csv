@@ -208,6 +208,23 @@ model_name,quantization_name,file_size_gb,repository
 "LTX-Video Distilled 13B v0.9.8",Q8_0,14.72,https://huggingface.co/QuantStack/LTXV-13B-0.9.8-distilled-GGUF/tree/main
 "LTX-Video Distilled 2B v0.9.8",FP8,4.46,https://huggingface.co/Lightricks/LTX-Video/tree/main
 "LTX-Video Distilled 2B v0.9.8",FP16,6.34,https://huggingface.co/Lightricks/LTX-Video/tree/main
+"LTX-2 19B Dev",BF16,37.8,https://huggingface.co/Kijai/LTXV2_comfy/tree/main/diffusion_models
+"LTX-2 19B Dev",FP8,21.6,https://huggingface.co/Kijai/LTXV2_comfy/tree/main/diffusion_models
+"LTX-2 19B Dev",FP4,14.5,https://huggingface.co/Kijai/LTXV2_comfy/tree/main/diffusion_models
+"LTX-2 19B Dev",Q8_0,21.1,https://huggingface.co/QuantStack/LTX-2-GGUF/tree/main/LTX-2-dev
+"LTX-2 19B Dev",Q6_K,16.6,https://huggingface.co/QuantStack/LTX-2-GGUF/tree/main/LTX-2-dev
+"LTX-2 19B Dev",Q5_K_S,14.2,https://huggingface.co/QuantStack/LTX-2-GGUF/tree/main/LTX-2-dev
+"LTX-2 19B Dev",Q5_K_M,15,https://huggingface.co/QuantStack/LTX-2-GGUF/tree/main/LTX-2-dev
+"LTX-2 19B Dev",Q4_K_S,12.3,https://huggingface.co/QuantStack/LTX-2-GGUF/tree/main/LTX-2-dev
+"LTX-2 19B Dev",Q4_K_M,13.4,https://huggingface.co/QuantStack/LTX-2-GGUF/tree/main/LTX-2-dev
+"LTX-2 19B Dev",Q3_K_S,9.57,https://huggingface.co/QuantStack/LTX-2-GGUF/tree/main/LTX-2-dev
+"LTX-2 19B Dev",Q3_K_M,10.3,https://huggingface.co/QuantStack/LTX-2-GGUF/tree/main/LTX-2-dev
+"LTX-2 19B Dev",Q2_K,8.03,https://huggingface.co/QuantStack/LTX-2-GGUF/tree/main/LTX-2-dev
+"LTX-2 19B Distilled",BF16,37.8,https://huggingface.co/Kijai/LTXV2_comfy/tree/main/diffusion_models
+"LTX-2 19B Distilled",FP8,21.6,https://huggingface.co/Kijai/LTXV2_comfy/tree/main/diffusion_models
+"LTX-2 19B Distilled",Q8_0,20.4,https://huggingface.co/Kijai/LTXV2_comfy/tree/main/diffusion_models
+"LTX-2 19B Distilled",Q6_K,15.9,https://huggingface.co/Kijai/LTXV2_comfy/tree/main/diffusion_models
+"LTX-2 19B Distilled",Q4_K_M,12.7,https://huggingface.co/Kijai/LTXV2_comfy/tree/main/diffusion_models
 "Stable Diffusion 1.5 Pruned",FP16,7.7,https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/tree/main
 "Stable Diffusion 1.5 Pruned-Emaonly",FP16,4.27,https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/tree/main
 "Stable Diffusion XL Base + Refiner",FP16,13.02,https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/tree/main

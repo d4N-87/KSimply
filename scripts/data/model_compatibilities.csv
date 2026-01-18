@@ -22,6 +22,8 @@ model_name,compatible_text_encoders,compatible_vaes
 "LTX-Video Dev 13B v0.9.8","T5-xxl v1.1","(Included in Model)"
 "LTX-Video Distilled 13B v0.9.8","T5-xxl v1.1","(Included in Model)"
 "LTX-Video Distilled 2B v0.9.8","T5-xxl v1.1","(Included in Model)"
+"LTX-2 19B Dev","Gemma 3 12B IT|LTX-2 Embeddings Connector Dev","LTX-2 Video VAE|LTX-2 Audio VAE"
+"LTX-2 19B Distilled","Gemma 3 12B IT|LTX-2 Embeddings Connector Distilled","LTX-2 Video VAE|LTX-2 Audio VAE"
 "Stable Diffusion 1.5 Pruned","(Included in Model)","(Included in Model)"
 "Stable Diffusion 1.5 Pruned-Emaonly","(Included in Model)","(Included in Model)"
 "Stable Diffusion XL Base + Refiner","(Included in Model)","(Included in Model)"

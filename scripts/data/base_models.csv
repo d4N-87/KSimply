@@ -22,6 +22,8 @@ name,type
 "LTX-Video Dev 13B v0.9.8","Video Generation"
 "LTX-Video Distilled 13B v0.9.8","Video Generation"
 "LTX-Video Distilled 2B v0.9.8","Video Generation"
+"LTX-2 19B Dev","Video Generation"
+"LTX-2 19B Distilled","Video Generation"
 "Stable Diffusion 1.5 Pruned","Image Generation"
 "Stable Diffusion 1.5 Pruned-Emaonly","Image Generation"
 "Stable Diffusion XL Base + Refiner","Image Generation"
