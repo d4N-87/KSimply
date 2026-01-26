@@ -83,9 +83,34 @@ encoder_name,quantization_name,file_size_gb,repository
 # --- Qwen3 4B --
 "Qwen3 4B",FP16,8.04,https://huggingface.co/Comfy-Org/z_image_turbo/tree/main/split_files/text_encoders
 "Qwen3 4B",FP8 scaled,4.41,https://huggingface.co/jiangchengchengNLP/qwen3-4b-fp8-scaled/tree/main
-"Qwen3 4B",Q8_0,4.28,https://huggingface.co/worstplayer/Z-Image_Qwen_3_4b_text_encoder_GGUF/tree/main
-"Qwen3 4B",Q6_K,3.31,https://huggingface.co/worstplayer/Z-Image_Qwen_3_4b_text_encoder_GGUF/tree/main
-"Qwen3 4B",Q3_K_M,2.08,https://huggingface.co/worstplayer/Z-Image_Qwen_3_4b_text_encoder_GGUF/tree/main
+"Qwen3 4B",FP4,3.85,https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-4b/tree/main/split_files/text_encoders
+"Qwen3 4B",Q8_0,4.28,https://huggingface.co/unsloth/Qwen3-4B-GGUF/tree/main
+"Qwen3 4B",Q6_K,3.31,https://huggingface.co/unsloth/Qwen3-4B-GGUF/tree/main
+"Qwen3 4B",Q5_K_S,2.82,https://huggingface.co/unsloth/Qwen3-4B-GGUF/tree/main
+"Qwen3 4B",Q5_K_M,2.89,https://huggingface.co/unsloth/Qwen3-4B-GGUF/tree/main
+"Qwen3 4B",Q4_K_S,2.38,https://huggingface.co/unsloth/Qwen3-4B-GGUF/tree/main
+"Qwen3 4B",Q4_K_M,2.5,https://huggingface.co/unsloth/Qwen3-4B-GGUF/tree/main
+"Qwen3 4B",Q4_1,2.6,https://huggingface.co/unsloth/Qwen3-4B-GGUF/tree/main
+"Qwen3 4B",Q4_0,2.38,https://huggingface.co/unsloth/Qwen3-4B-GGUF/tree/main
+"Qwen3 4B",Q3_K_S,1.89,https://huggingface.co/unsloth/Qwen3-4B-GGUF/tree/main
+"Qwen3 4B",Q3_K_M,2.08,https://huggingface.co/unsloth/Qwen3-4B-GGUF/tree/main
+"Qwen3 4B",Q2_K_L,1.67,https://huggingface.co/unsloth/Qwen3-4B-GGUF/tree/main
+"Qwen3 4B",Q2_K,1.67,https://huggingface.co/unsloth/Qwen3-4B-GGUF/tree/main
+# --- Qwen3 8B --
+"Qwen3 8B",FP16,16.4,https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-9b/tree/main/split_files/text_encoders
+"Qwen3 8B",FP8 mixed,8.66,https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-9b/tree/main/split_files/text_encoders
+"Qwen3 8B",FP4 mixed,3.85,https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-9b/tree/main/split_files/text_encoders
+"Qwen3 8B",Q8_0,8.71,https://huggingface.co/unsloth/Qwen3-8B-GGUF/tree/main
+"Qwen3 8B",Q6_K,6.73,https://huggingface.co/unsloth/Qwen3-8B-GGUF/tree/main
+"Qwen3 8B",Q5_K_S,5.72,https://huggingface.co/unsloth/Qwen3-8B-GGUF/tree/main
+"Qwen3 8B",Q5_K_M,5.85,https://huggingface.co/unsloth/Qwen3-8B-GGUF/tree/main
+"Qwen3 8B",Q4_K_S,4.8,https://huggingface.co/unsloth/Qwen3-8B-GGUF/tree/main
+"Qwen3 8B",Q4_K_M,5.03,https://huggingface.co/unsloth/Qwen3-8B-GGUF/tree/main
+"Qwen3 8B",Q4_1,5.25,https://huggingface.co/unsloth/Qwen3-8B-GGUF/tree/main
+"Qwen3 8B",Q3_K_S,3.77,https://huggingface.co/unsloth/Qwen3-8B-GGUF/tree/main
+"Qwen3 8B",Q3_K_M,4.12,https://huggingface.co/unsloth/Qwen3-8B-GGUF/tree/main
+"Qwen3 8B",Q2_K_L,3.43,https://huggingface.co/unsloth/Qwen3-8B-GGUF/tree/main
+"Qwen3 8B",Q2_K,3.25,https://huggingface.co/unsloth/Qwen3-8B-GGUF/tree/main7
 # --- Wan2vec2 Large --
 "Wan2vec2 Large",FP16,0.631,https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/audio_encoders
 # --- Mistral 3 Small VLM --

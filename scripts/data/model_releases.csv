@@ -592,6 +592,66 @@ model_name,quantization_name,file_size_gb,repository
 "FLUX.2 Dev",Q3_K_S,15.8,https://huggingface.co/city96/FLUX.2-dev-gguf/tree/main
 "FLUX.2 Dev",Q3_K_M,16,https://huggingface.co/city96/FLUX.2-dev-gguf/tree/main
 "FLUX.2 Dev",Q2_K,12.9,https://huggingface.co/city96/FLUX.2-dev-gguf/tree/main
+"FLUX.2 Klein 9B",BF16,18.2,https://huggingface.co/black-forest-labs/FLUX.2-klein-9B/tree/main
+"FLUX.2 Klein 9B",FP8,9.43,https://huggingface.co/black-forest-labs/FLUX.2-klein-9b-fp8/tree/main
+"FLUX.2 Klein 9B",Q8_0,9.98,https://huggingface.co/unsloth/FLUX.2-klein-9B-GGUF/tree/main
+"FLUX.2 Klein 9B",Q6_K,7.87,https://huggingface.co/unsloth/FLUX.2-klein-9B-GGUF/tree/main
+"FLUX.2 Klein 9B",Q5_K_S,6.94,https://huggingface.co/unsloth/FLUX.2-klein-9B-GGUF/tree/main
+"FLUX.2 Klein 9B",Q5_K_M,7.02,https://huggingface.co/unsloth/FLUX.2-klein-9B-GGUF/tree/main
+"FLUX.2 Klein 9B",Q5_1,7.25,https://huggingface.co/unsloth/FLUX.2-klein-9B-GGUF/tree/main
+"FLUX.2 Klein 9B",Q5_0,6.71,https://huggingface.co/unsloth/FLUX.2-klein-9B-GGUF/tree/main
+"FLUX.2 Klein 9B",Q4_K_S,5.83,https://huggingface.co/unsloth/FLUX.2-klein-9B-GGUF/tree/main
+"FLUX.2 Klein 9B",Q4_K_M,5.91,https://huggingface.co/unsloth/FLUX.2-klein-9B-GGUF/tree/main
+"FLUX.2 Klein 9B",Q4_1,6.16,https://huggingface.co/unsloth/FLUX.2-klein-9B-GGUF/tree/main
+"FLUX.2 Klein 9B",Q4_0,5.62,https://huggingface.co/unsloth/FLUX.2-klein-9B-GGUF/tree/main
+"FLUX.2 Klein 9B",Q3_K_S,4.69,https://huggingface.co/unsloth/FLUX.2-klein-9B-GGUF/tree/main
+"FLUX.2 Klein 9B",Q3_K_M,4.77,https://huggingface.co/unsloth/FLUX.2-klein-9B-GGUF/tree/main
+"FLUX.2 Klein 9B",Q2_K,3.98,https://huggingface.co/unsloth/FLUX.2-klein-9B-GGUF/tree/main
+"FLUX.2 Klein 9B Base",BF16,18.2,https://huggingface.co/black-forest-labs/FLUX.2-klein-base-9B/tree/main
+"FLUX.2 Klein 9B Base",FP8,9.57,https://huggingface.co/black-forest-labs/FLUX.2-klein-base-9b-fp8/tree/main
+"FLUX.2 Klein 9B Base",Q8_0,9.98,https://huggingface.co/unsloth/FLUX.2-klein-base-9B-GGUF/tree/main
+"FLUX.2 Klein 9B Base",Q6_K,7.87,https://huggingface.co/unsloth/FLUX.2-klein-base-9B-GGUF/tree/main
+"FLUX.2 Klein 9B Base",Q5_K_S,6.94,https://huggingface.co/unsloth/FLUX.2-klein-base-9B-GGUF/tree/main
+"FLUX.2 Klein 9B Base",Q5_K_M,7.02,https://huggingface.co/unsloth/FLUX.2-klein-base-9B-GGUF/tree/main
+"FLUX.2 Klein 9B Base",Q5_1,7.25,https://huggingface.co/unsloth/FLUX.2-klein-base-9B-GGUF/tree/main
+"FLUX.2 Klein 9B Base",Q5_0,6.71,https://huggingface.co/unsloth/FLUX.2-klein-base-9B-GGUF/tree/main
+"FLUX.2 Klein 9B Base",Q4_K_S,5.83,https://huggingface.co/unsloth/FLUX.2-klein-base-9B-GGUF/tree/main
+"FLUX.2 Klein 9B Base",Q4_K_M,5.91,https://huggingface.co/unsloth/FLUX.2-klein-base-9B-GGUF/tree/main
+"FLUX.2 Klein 9B Base",Q4_1,6.16,https://huggingface.co/unsloth/FLUX.2-klein-base-9B-GGUF/tree/main
+"FLUX.2 Klein 9B Base",Q4_0,5.62,https://huggingface.co/unsloth/FLUX.2-klein-base-9B-GGUF/tree/main
+"FLUX.2 Klein 9B Base",Q3_K_S,4.69,https://huggingface.co/unsloth/FLUX.2-klein-base-9B-GGUF/tree/main
+"FLUX.2 Klein 9B Base",Q3_K_M,4.77,https://huggingface.co/unsloth/FLUX.2-klein-base-9B-GGUF/tree/main
+"FLUX.2 Klein 9B Base",Q2_K,3.98,https://huggingface.co/unsloth/FLUX.2-klein-base-9B-GGUF/tree/main
+"FLUX.2 Klein 4B",BF16,7.75,https://huggingface.co/black-forest-labs/FLUX.2-klein-4B/tree/main
+"FLUX.2 Klein 4B",FP8,4.07,https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-fp8/tree/main
+"FLUX.2 Klein 4B",Q8_0,4.3,https://huggingface.co/unsloth/FLUX.2-klein-4B-GGUF/tree/main
+"FLUX.2 Klein 4B",Q6_K,3.41,https://huggingface.co/unsloth/FLUX.2-klein-4B-GGUF/tree/main
+"FLUX.2 Klein 4B",Q5_K_S,3.05,https://huggingface.co/unsloth/FLUX.2-klein-4B-GGUF/tree/main
+"FLUX.2 Klein 4B",Q5_K_M,3.07,https://huggingface.co/unsloth/FLUX.2-klein-4B-GGUF/tree/main
+"FLUX.2 Klein 4B",Q5_1,3.15,https://huggingface.co/unsloth/FLUX.2-klein-4B-GGUF/tree/main
+"FLUX.2 Klein 4B",Q5_0,2.92,https://huggingface.co/unsloth/FLUX.2-klein-4B-GGUF/tree/main
+"FLUX.2 Klein 4B",Q4_K_S,2.58,https://huggingface.co/unsloth/FLUX.2-klein-4B-GGUF/tree/main
+"FLUX.2 Klein 4B",Q4_K_M,2.6,https://huggingface.co/unsloth/FLUX.2-klein-4B-GGUF/tree/main
+"FLUX.2 Klein 4B",Q4_1,2.69,https://huggingface.co/unsloth/FLUX.2-klein-4B-GGUF/tree/main
+"FLUX.2 Klein 4B",Q4_0,2.46,https://huggingface.co/unsloth/FLUX.2-klein-4B-GGUF/tree/main
+"FLUX.2 Klein 4B",Q3_K_S,2.1,https://huggingface.co/unsloth/FLUX.2-klein-4B-GGUF/tree/main
+"FLUX.2 Klein 4B",Q3_K_M,2.12,https://huggingface.co/unsloth/FLUX.2-klein-4B-GGUF/tree/main
+"FLUX.2 Klein 4B",Q2_K,1.83,https://huggingface.co/unsloth/FLUX.2-klein-base-9B-GGUF/tree/main
+"FLUX.2 Klein 4B Base",BF16,7.75,https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B/tree/main
+"FLUX.2 Klein 4B Base",FP8,4.09,https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4b-fp8/tree/main
+"FLUX.2 Klein 4B Base",Q8_0,4.3,https://huggingface.co/unsloth/FLUX.2-klein-base-4B-GGUF/tree/main
+"FLUX.2 Klein 4B Base",Q6_K,3.41,https://huggingface.co/unsloth/FLUX.2-klein-base-4B-GGUF/tree/main
+"FLUX.2 Klein 4B Base",Q5_K_S,3.05,https://huggingface.co/unsloth/FLUX.2-klein-base-4B-GGUF/tree/main
+"FLUX.2 Klein 4B Base",Q5_K_M,3.07,https://huggingface.co/unsloth/FLUX.2-klein-base-4B-GGUF/tree/main
+"FLUX.2 Klein 4B Base",Q5_1,3.15,https://huggingface.co/unsloth/FLUX.2-klein-base-4B-GGUF/tree/main
+"FLUX.2 Klein 4B Base",Q5_0,2.92,https://huggingface.co/unsloth/FLUX.2-klein-base-4B-GGUF/tree/main
+"FLUX.2 Klein 4B Base",Q4_K_S,2.58,https://huggingface.co/unsloth/FLUX.2-klein-base-4B-GGUF/tree/main
+"FLUX.2 Klein 4B Base",Q4_K_M,2.6,https://huggingface.co/unsloth/FLUX.2-klein-base-4B-GGUF/tree/main
+"FLUX.2 Klein 4B Base",Q4_1,2.69,https://huggingface.co/unsloth/FLUX.2-klein-base-4B-GGUF/tree/main
+"FLUX.2 Klein 4B Base",Q4_0,2.46,https://huggingface.co/unsloth/FLUX.2-klein-base-4B-GGUF/tree/main
+"FLUX.2 Klein 4B Base",Q3_K_S,2.1,https://huggingface.co/unsloth/FLUX.2-klein-base-4B-GGUF/tree/main
+"FLUX.2 Klein 4B Base",Q3_K_M,2.12,https://huggingface.co/unsloth/FLUX.2-klein-base-4B-GGUF/tree/main
+"FLUX.2 Klein 4B Base",Q2_K,1.83,https://huggingface.co/unsloth/FLUX.2-klein-base-9B-GGUF/tree/main
 "Z-Image Turbo",BF16,12.3,https://huggingface.co/Comfy-Org/z_image_turbo/tree/main/split_files/diffusion_models
 "Z-Image Turbo",FP8 e4m3fn,6.15,https://huggingface.co/T5B/Z-Image-Turbo-FP8/tree/main
 "Z-Image Turbo",Q8_0,7.22,https://huggingface.co/jayn7/Z-Image-Turbo-GGUF/tree/main
