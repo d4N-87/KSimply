@@ -69,3 +69,4 @@ model_name,compatible_text_encoders,compatible_vaes
 "Qwen-Image Edit 2509","Qwen2.5 VL 7B","Qwen-Image VAE"
 "Qwen-Image Edit 2511","Qwen2.5 VL 7B","Qwen-Image VAE"
 "Z-Image Turbo","Qwen3 4B","AE"
+"Z-Image","Qwen3 4B","AE"

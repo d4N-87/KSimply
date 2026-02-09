@@ -662,3 +662,19 @@ model_name,quantization_name,file_size_gb,repository
 "Z-Image Turbo",Q4_K_M,4.98,https://huggingface.co/jayn7/Z-Image-Turbo-GGUF/tree/main
 "Z-Image Turbo",Q3_K_S,3.79,https://huggingface.co/jayn7/Z-Image-Turbo-GGUF/tree/main
 "Z-Image Turbo",Q3_K_M,4.12,https://huggingface.co/jayn7/Z-Image-Turbo-GGUF/tree/main
+"Z-Image",BF16,12.3,https://huggingface.co/Comfy-Org/z_image/tree/main/split_files/diffusion_models
+"Z-Image",FP8 e4m3fn scaled,6.15,https://huggingface.co/drbaph/Z-Image-fp8/tree/main
+"Z-Image",Q8_0,7.22,https://huggingface.co/unsloth/Z-Image-GGUF/tree/main
+"Z-Image",Q6_K,6.1,https://huggingface.co/unsloth/Z-Image-GGUF/tree/main
+"Z-Image",Q5_K_S,5.29,https://huggingface.co/unsloth/Z-Image-GGUF/tree/main
+"Z-Image",Q5_K_M,5.58,https://huggingface.co/unsloth/Z-Image-GGUF/tree/main
+"Z-Image",Q5_1,5.53,https://huggingface.co/unsloth/Z-Image-GGUF/tree/main
+"Z-Image",Q5_0,5.26,https://huggingface.co/unsloth/Z-Image-GGUF/tree/main
+"Z-Image",Q4_K_S,4.79,https://huggingface.co/unsloth/Z-Image-GGUF/tree/main
+"Z-Image",Q4_K_M,5.07,https://huggingface.co/unsloth/Z-Image-GGUF/tree/main
+"Z-Image",Q4_1,4.85,https://huggingface.co/unsloth/Z-Image-GGUF/tree/main
+"Z-Image",Q4_0,4.59,https://huggingface.co/unsloth/Z-Image-GGUF/tree/main
+"Z-Image",Q3_K_S,4.36,https://huggingface.co/unsloth/Z-Image-GGUF/tree/main
+"Z-Image",Q3_K_M,4.56,https://huggingface.co/unsloth/Z-Image-GGUF/tree/main
+"Z-Image",Q3_K_L,4.6,https://huggingface.co/unsloth/Z-Image-GGUF/tree/main
+"Z-Image",Q2_K,4.1,https://huggingface.co/jayn7/Z-Image-Turbo-GGUF/tree/main
