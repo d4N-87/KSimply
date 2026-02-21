@@ -1,8 +1,6 @@
 model_name,compatible_text_encoders,compatible_vaes
 "ACE-Step v1.0","(Included in Model)","(Included in Model)"
 "ACE-Step v1.5 Turbo","Qwen 0.6B ACE|Qwen 1.7B ACE","ACE 1.5 VAE"
-"ACE-Step v1.5 Turbo","Qwen 0.6B ACE|Qwen 4B ACE","ACE 1.5 VAE"
-"ACE-Step v1.5 Base","Qwen 0.6B ACE|Qwen 1.7B ACE","ACE 1.5 VAE"
 "ACE-Step v1.5 Base","Qwen 0.6B ACE|Qwen 4B ACE","ACE 1.5 VAE"
 "NVIDIA Cosmos 14B T2W v1.0","T5-xxl v1.0","Cosmos cv8x8x8 v1.0"
 "NVIDIA Cosmos 14B V2W v1.0","T5-xxl v1.0","Cosmos cv8x8x8 v1.0"
