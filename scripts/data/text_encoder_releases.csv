@@ -145,3 +145,12 @@ encoder_name,quantization_name,file_size_gb,repository
 "Gemma 3 12B IT",Q3_K_M,6.01,https://huggingface.co/unsloth/gemma-3-12b-it-GGUF/tree/main
 "Gemma 3 12B IT",Q2_K_L,4.77,https://huggingface.co/unsloth/gemma-3-12b-it-GGUF/tree/main
 "Gemma 3 12B IT",Q2_K,4.77,https://huggingface.co/unsloth/gemma-3-12b-it-GGUF/tree/main
+# --- Qwen 0.6B ACE --
+"Qwen 0.6B ACE",FP16,1.19,https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/tree/main/split_files/text_encoders
+"Qwen 0.6B ACE",FP8 scaled,0.751,https://huggingface.co/dummy9996/Ace-Step1.5-fp8/tree/main
+# --- Qwen 1.7B ACE --
+"Qwen 1.7B ACE",FP16,3.71,https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/tree/main/split_files/text_encoders
+"Qwen 1.7B ACE",FP8 scaled,2.3,https://huggingface.co/dummy9996/Ace-Step1.5-fp8/tree/main
+# --- Qwen 4B ACE --
+"Qwen 4B ACE",FP16,8.38,https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/tree/main/split_files/text_encoders
+"Qwen 4B ACE",FP8 scaled,4.75,https://huggingface.co/dummy9996/Ace-Step1.5-fp8/tree/main

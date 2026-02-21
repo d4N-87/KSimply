@@ -1,5 +1,7 @@
 name,type
 "ACE-Step v1.0","Audio Generation"
+"ACE-Step v1.5 Base","Audio Generation"
+"ACE-Step v1.5 Turbo","Audio Generation"
 "NVIDIA Cosmos 14B T2W v1.0","Video Generation"
 "NVIDIA Cosmos 14B V2W v1.0","Video Generation"
 "NVIDIA Cosmos 7B T2W v1.0","Video Generation"

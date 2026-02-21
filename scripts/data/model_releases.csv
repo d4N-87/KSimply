@@ -678,3 +678,6 @@ model_name,quantization_name,file_size_gb,repository
 "Z-Image",Q3_K_M,4.56,https://huggingface.co/unsloth/Z-Image-GGUF/tree/main
 "Z-Image",Q3_K_L,4.6,https://huggingface.co/unsloth/Z-Image-GGUF/tree/main
 "Z-Image",Q2_K,4.1,https://huggingface.co/jayn7/Z-Image-Turbo-GGUF/tree/main
+"ACE-Step v1.5 Base","FP16",4.79,https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/tree/main/split_files/diffusion_models
+"ACE-Step v1.5 Turbo","FP16",4.79,https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/tree/main/split_files/diffusion_models
+"ACE-Step v1.5 Turbo","FP8 scaled",2.4,https://huggingface.co/dummy9996/Ace-Step1.5-fp8/tree/main

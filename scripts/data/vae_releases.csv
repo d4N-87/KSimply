@@ -9,3 +9,4 @@ vae_name,quantization_name,file_size_gb,repository
 "FLUX.2 VAE",FP16,0.336,https://huggingface.co/Comfy-Org/flux2-dev/tree/main/split_files/vae
 "LTX-2 Video VAE",BF16,2.86,https://huggingface.co/Kijai/LTXV2_comfy/tree/main/text_encoders
 "LTX-2 Audio VAE",BF16,2.86,https://huggingface.co/Kijai/LTXV2_comfy/tree/main/text_encoders
+"ACE 1.5 VAE",FP16,0.337,https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/tree/main/split_files/vae
