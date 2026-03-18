@@ -154,3 +154,9 @@ encoder_name,quantization_name,file_size_gb,repository
 # --- Qwen 4B ACE --
 "Qwen 4B ACE",FP16,8.38,https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/tree/main/split_files/text_encoders
 "Qwen 4B ACE",FP8 scaled,4.75,https://huggingface.co/dummy9996/Ace-Step1.5-fp8/tree/main
+# -- LTX-2 Embeddings Connector Dev --
+"LTX-2 Embeddings Connector Dev",BF16,2.86,https://huggingface.co/Kijai/LTXV2_comfy/tree/main/text_encoders
+# -- LTX-2 Embeddings Connector Distilled --
+"LTX-2 Embeddings Connector Distilled",BF16,2.86,https://huggingface.co/Kijai/LTXV2_comfy/tree/main/text_encoders
+# -- LTX-2.3 Text Projector --
+"LTX-2.3 Text Projector",BF16,2.31,https://huggingface.co/Kijai/LTX2.3_comfy/tree/main/text_encoders

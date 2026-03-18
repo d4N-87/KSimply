@@ -225,6 +225,32 @@ model_name,quantization_name,file_size_gb,repository
 "LTX-2 19B Distilled",Q8_0,20.4,https://huggingface.co/Kijai/LTXV2_comfy/tree/main/diffusion_models
 "LTX-2 19B Distilled",Q6_K,15.9,https://huggingface.co/Kijai/LTXV2_comfy/tree/main/diffusion_models
 "LTX-2 19B Distilled",Q4_K_M,12.7,https://huggingface.co/Kijai/LTXV2_comfy/tree/main/diffusion_models
+"LTX-2.3 22B Dev",BF16,42,https://huggingface.co/Kijai/LTX2.3_comfy/tree/main/diffusion_models
+"LTX-2.3 22B Dev",FP8 scaled,23.5,https://huggingface.co/Kijai/LTX2.3_comfy/tree/main/diffusion_models
+"LTX-2.3 22B Dev",Q8_0,22.8,https://huggingface.co/unsloth/LTX-2.3-GGUF/tree/main
+"LTX-2.3 22B Dev",Q6_K,17.8,https://huggingface.co/unsloth/LTX-2.3-GGUF/tree/main
+"LTX-2.3 22B Dev",Q5_K_S,15.2,https://huggingface.co/unsloth/LTX-2.3-GGUF/tree/main
+"LTX-2.3 22B Dev",Q5_K_M,16.1,https://huggingface.co/unsloth/LTX-2.3-GGUF/tree/main
+"LTX-2.3 22B Dev",Q5_1,16.3,https://huggingface.co/unsloth/LTX-2.3-GGUF/tree/main
+"LTX-2.3 22B Dev",Q5_0,15.3,https://huggingface.co/unsloth/LTX-2.3-GGUF/tree/main
+"LTX-2.3 22B Dev",Q4_K_S,13.1,https://huggingface.co/unsloth/LTX-2.3-GGUF/tree/main
+"LTX-2.3 22B Dev",Q4_K_M,14.3,https://huggingface.co/unsloth/LTX-2.3-GGUF/tree/main
+"LTX-2.3 22B Dev",Q4_1,13.8,https://huggingface.co/unsloth/LTX-2.3-GGUF/tree/main
+"LTX-2.3 22B Dev",Q4_0,12.7,https://huggingface.co/unsloth/LTX-2.3-GGUF/tree/main
+"LTX-2.3 22B Dev",Q3_K_S,9.95,https://huggingface.co/unsloth/LTX-2.3-GGUF/tree/main
+"LTX-2.3 22B Dev",Q3_K_M,10.8,https://huggingface.co/unsloth/LTX-2.3-GGUF/tree/main
+"LTX-2.3 22B Dev",Q2_K,8.28,https://huggingface.co/unsloth/LTX-2.3-GGUF/tree/main
+"LTX-2.3 22B Distilled",BF16,42,https://huggingface.co/Kijai/LTX2.3_comfy/tree/main/diffusion_models
+"LTX-2.3 22B Distilled",FP8 scaled,23.5,https://huggingface.co/Kijai/LTX2.3_comfy/tree/main/diffusion_models
+"LTX-2.3 22B Distilled",Q8_0,25.5,https://huggingface.co/QuantStack/LTX-2.3-GGUF/tree/main/LTX-2.3-distilled
+"LTX-2.3 22B Distilled",Q6_K,21,https://huggingface.co/QuantStack/LTX-2.3-GGUF/tree/main/LTX-2.3-distilled
+"LTX-2.3 22B Distilled",Q5_K_S,18.5,https://huggingface.co/QuantStack/LTX-2.3-GGUF/tree/main/LTX-2.3-distilled
+"LTX-2.3 22B Distilled",Q5_K_M,19.4,https://huggingface.co/QuantStack/LTX-2.3-GGUF/tree/main/LTX-2.3-distilled
+"LTX-2.3 22B Distilled",Q4_K_S,16.7,https://huggingface.co/QuantStack/LTX-2.3-GGUF/tree/main/LTX-2.3-distilled
+"LTX-2.3 22B Distilled",Q4_K_M,17.8,https://huggingface.co/QuantStack/LTX-2.3-GGUF/tree/main/LTX-2.3-distilled
+"LTX-2.3 22B Distilled",Q3_K_S,14,https://huggingface.co/QuantStack/LTX-2.3-GGUF/tree/main/LTX-2.3-distilled
+"LTX-2.3 22B Distilled",Q3_K_M,14.7,https://huggingface.co/QuantStack/LTX-2.3-GGUF/tree/main/LTX-2.3-distilled
+"LTX-2.3 22B Distilled",Q2_K,12.4,https://huggingface.co/QuantStack/LTX-2.3-GGUF/tree/main/LTX-2.3-distilled
 "Stable Diffusion 1.5 Pruned",FP16,7.7,https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/tree/main
 "Stable Diffusion 1.5 Pruned-Emaonly",FP16,4.27,https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/tree/main
 "Stable Diffusion XL Base + Refiner",FP16,13.02,https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/tree/main
