@@ -59,6 +59,7 @@ RTX 2080 8GB Laptop,8,rtx-20-mobile,none,none
 RTX 2070 Super 8GB Laptop,8,rtx-20-mobile,none,none
 RTX 2070 8GB Laptop,8,rtx-20-mobile,none,none
 RTX 2060 6GB Laptop,6,rtx-20-mobile,none,none
+RTX 2050 4GB Laptop,4,rtx-20-mobile,none,none
 # --- RTX Ada Generation (Professional Desktop) ---
 RTX 6000 48GB Ada Generation,48,rtx-40-pro-desktop,native,native
 RTX 5000 32GB Ada Generation,32,rtx-40-pro-desktop,native,native
